@@ -1,0 +1,180 @@
+ @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap');
+
+ * {
+     font-family: 'Tajawal', sans-serif;
+ }
+
+ :root {
+     --primary: #6366f1;
+     --primary-dark: #4f46e5;
+     --secondary: #ec4899;
+     --accent: #8b5cf6;
+     --background: #0f172a;
+     --foreground: #f8fafc;
+     --card: #1e293b;
+     --card-hover: #334155;
+     --success: #22c55e;
+     --error: #ef4444;
+     --warning: #f59e0b;
+     --university: #2b6cb0;
+
+
+--primary: #2563eb;
+    --secondary: #3b82f6;
+    --accent: #8b5cf6;
+    --dark: #1e293b;
+    --light: #f8fafc;
+    --text: #334155;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+
+
+
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --dark-color: #2c3e50;
+    --light-color: #ecf0f1;
+    --danger-color: #e74c3c;
+    --warning-color: #f39c12;
+    --text-color: #333;
+    --text-light: #7f8c8d;
+    --border-color: #ddd;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+     
+ }
+
+ body {
+     background-color: var(--background);
+     color: var(--foreground);
+     min-height: 100vh;
+ }
+
+ .gradient-text {
+     background: linear-gradient(90deg, var(--university), #4299e1);
+     -webkit-background-clip: text;
+     background-clip: text;
+     color: transparent;
+ }
+
+ .btn-primary {
+     background: linear-gradient(90deg, var(--university), #4299e1);
+     color: white;
+     transition: all 0.3s ease;
+ }
+
+ .btn-primary:hover {
+     opacity: 0.9;
+     transform: translateY(-2px);
+     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+ }
+
+ .university-bg {
+     background: linear-gradient(135deg, var(--university), #2c5282);
+ }
+
+ .stars-container {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     overflow: hidden;
+     z-index: -1;
+ }
+
+ .star {
+     position: absolute;
+     background-color: white;
+     border-radius: 50%;
+     animation: twinkle var(--duration) linear infinite;
+     opacity: var(--opacity);
+ }
+
+ @keyframes twinkle {
+     0% {
+         opacity: var(--opacity);
+     }
+
+     50% {
+         opacity: 0.2;
+     }
+
+     100% {
+         opacity: var(--opacity);
+     }
+ }
+
+ .about-section {
+     background-color: rgba(30, 41, 59, 0.7);
+     backdrop-filter: blur(10px);
+     border: 1px solid rgba(74, 85, 104, 0.3);
+ }
+
+
+ /* Slider Styles */
+ #university-slider {
+     display: flex;
+ }
+
+ #university-slider>div {
+     flex: 0 0 100%;
+     transition: opacity 0.5s ease;
+     opacity: 0;
+     position: absolute;
+     top: 0;
+     left: 0;
+ }
+
+ #university-slider>div.active {
+     opacity: 1;
+     z-index: 1;
+ }
+
+ .slider-prev,
+ .slider-next {
+     opacity: 0;
+     transition: opacity 0.3s ease;
+     z-index: 2;
+ }
+
+ .relative:hover .slider-prev,
+ .relative:hover .slider-next {
+     opacity: 1;
+ }
+
+ .slider-dot {
+     transition: all 0.3s ease;
+     cursor: pointer;
+ }
+
+ .slider-dot.active {
+     background-color: white;
+     opacity: 1 !important;
+ }
+
+ /* أنماط مشغل الفيديو */
+ video {
+     aspect-ratio: 16/9;
+     background-color: #000;
+ }
+
+ #autoplay-overlay {
+     transition: opacity 0.3s ease;
+ }
+
+ #autoplay-overlay:hover {
+     background-color: rgba(0, 0, 0, 0.7);
+ }
+
+ /* تعديلات للعرض على الجوال */
+ @media (max-width: 640px) {
+     .video-controls {
+         flex-wrap: wrap;
+     }
+
+     .video-controls>* {
+         margin-bottom: 0.5rem;
+     }
+ }
