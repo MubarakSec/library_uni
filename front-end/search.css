@@ -1,0 +1,110 @@
+/* تنسيقات صندوق البحث */
+#search-container {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.search-box {
+    display: flex;
+}
+
+#global-search {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid var(--gray);
+    border-radius: 30px 0 0 30px;
+    font-size: 1rem;
+    background: var(--light-bg);
+    color: var(--main-blue);
+}
+
+.search-btn {
+    background: var(--accent-green);
+    color: var(--text-light);
+    border: none;
+    padding: 0 20px;
+    border-radius: 0 30px 30px 0;
+    cursor: pointer;
+}
+
+.search-btn:hover {
+    background: #009e76;
+}
+
+/* نتائج البحث */
+.search-results {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--text-light);
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 5px 15px rgba(30, 41, 59, 0.08);
+    z-index: 1000;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.search-section {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.search-section h3 {
+    margin: 0 0 10px;
+    color: var(--main-blue);
+    font-size: 1.1rem;
+}
+
+.search-item {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: var(--main-blue);
+    transition: all 0.2s;
+}
+
+.search-item:hover {
+    background: var(--gray);
+    color: var(--accent-green);
+    padding-right: 15px;
+}
+
+.search-item small {
+    display: block;
+    color: #777;
+    font-size: 0.8rem;
+}
+
+.no-results {
+    padding: 20px;
+    text-align: center;
+    color: #777;
+}
+
+/* للوضع الداكن */
+body.dark-mode .search-results {
+    background: #1e293b;
+    border-color: #162032;
+}
+
+body.dark-mode .search-section h3 {
+    color: var(--accent-green);
+}
+
+body.dark-mode .search-item {
+    color: var(--accent-green);
+}
+
+body.dark-mode .search-item:hover {
+    background: #162032;
+    color: #00e6b8;
+}
+
+body.dark-mode #global-search {
+    background: #162032;
+    color: var(--accent-green);
+    border-color: var(--accent-green);
+}

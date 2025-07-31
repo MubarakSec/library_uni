@@ -1,0 +1,103 @@
+/* زر التبديل */
+.dark-mode-switch {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.dark-mode-switch label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60px;
+    height: 30px;
+    background: var(--gray);
+    border-radius: 50px;
+    padding: 5px;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.dark-mode-switch input[type="checkbox"] {
+    display: none;
+}
+
+.dark-mode-switch i {
+    font-size: 18px;
+    z-index: 1;
+}
+
+.dark-mode-switch .fa-sun {
+    color: var(--accent-green);
+}
+
+.dark-mode-switch .fa-moon {
+    color: var(--main-blue);
+}
+
+.dark-mode-switch .toggle-ball {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: var(--text-light);
+    border-radius: 50%;
+    top: 3px;
+    left: 3px;
+    transition: transform 0.3s;
+}
+
+.dark-mode-switch input[type="checkbox"]:checked+label {
+    background: var(--main-blue);
+}
+
+.dark-mode-switch input[type="checkbox"]:checked+label .toggle-ball {
+    transform: translateX(30px);
+}
+
+body.dark-mode {
+    background-color: #101624;
+    color: var(--text-light);
+}
+
+body.dark-mode .book-card,
+body.dark-mode .search-filter-section,
+body.dark-mode .page-header {
+    background-color: #1e293b;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .book-title {
+    color: var(--accent-green);
+}
+
+body.dark-mode .book-meta,
+body.dark-mode .book-stats {
+    color: #bbb;
+    border-color: #444;
+}
+
+body.dark-mode .preview-btn {
+    background: #162032;
+    color: var(--accent-green);
+    border-color: #00e6b8;
+}
+
+body.dark-mode .search-box input,
+body.dark-mode .filter-group select {
+    background: #162032;
+    color: var(--accent-green);
+    border-color: var(--accent-green);
+}
+
+body.dark-mode .pagination .page-nav,
+body.dark-mode .pagination .page-num {
+    background: #162032;
+    color: var(--accent-green);
+    border-color: var(--accent-green);
+}
+
+body.dark-mode .pagination .page-num.active {
+    background: #3498db;
+}
