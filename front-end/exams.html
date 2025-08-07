@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نماذج اختبارات الهندسة | الجامعة الإماراتية الدولية</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styls.css">
+    <link rel="stylesheet" href="dark-mode.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap');
+
+        * {
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --secondary: #10b981;
+            --background: #111827;
+            --card: #1f2937;
+        }
+
+        body {
+            background-color: var(--background);
+            color: white;
+        }
+
+        .exam-card {
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, var(--card), #111827);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .exam-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+            border-color: rgba(59, 130, 246, 0.5);
+        }
+
+        .year-tab {
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        .year-tab.active {
+            border-color: var(--primary);
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .year-tab:not(.active):hover {
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900">
+<!-- Header -->
+<header class="sticky top-0 z-50 backdrop-blur-lg bg-opacity-80 bg-gray-900 border-b border-gray-800">
+    <div class="container mx-auto px-4 py-4">
+        <div class="flex justify-between items-center">
+            <div class="flex items-center">
+                <h1 class="logo-text"> مكتبتي <span> الجامعية</span></h1>
+                <nav class="hidden md:flex mr-8">
+                    <a href="index-2.html"
+                        class="mx-3 font-medium text-white hover:text-blue-300 transition">الرئيسية</a>
+                    <!-- <a href="#" class="mx-3 font-medium text-white hover:text-blue-300 transition">عن المنصة</a> -->
+                    <a href="books.html" class="mx-3 font-medium text-white hover:text-blue-300 transition">المكتبة
+                        الرقمية</a>
+                    <a href="channew.html" class="mx-3 font-medium text-white hover:text-blue-300 transition">التحديات
+                        التعليمية</a>
+                </nav>
+            </div>
+            <div class="flex items-center">
+                <button class="btn-primary px-4 py-2 rounded-lg text-sm">
+                    <i class="fas fa-sign-in-alt ml-2"></i>تسجيل الدخول
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+   
+
+    <!-- Hero Section -->
+    <section class="py-20 bg-gradient-to-b from-gray-800 to-gray-900">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">نماذج <span class="text-blue-400">اختبارات الهندسة</span>
+            </h1>
+            <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-10">
+                استعد لاختباراتك من خلال نماذج الاختبارات السابقة للسنوات من الأولى إلى الرابعة
+            </p>
+        </div>
+    </section>
+
+    <!-- Year Tabs -->
+    <section class="py-8 bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="year-tab active px-6 py-2" data-year="first">السنة الأولى</button>
+                <button class="year-tab px-6 py-2" data-year="second">السنة الثانية</button>
+                <button class="year-tab px-6 py-2" data-year="third">السنة الثالثة</button>
+                <button class="year-tab px-6 py-2" data-year="fourth">السنة الرابعة</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exams Grid -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <!-- السنة الأولى (تظهر افتراضياً) -->
+            <div id="first-year" class="year-content">
+                <h2 class="text-2xl font-bold mb-8 flex items-center">
+                    <i class="fas fa-calendar-alt text-blue-400 ml-2"></i>
+                    اختبارات السنة الأولى
+                </h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- اختبار 1 -->
+                    <div class="exam-card rounded-xl overflow-hidden">
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="text-xl font-bold">رياضيات  (1)</h3>
+                                <span class="bg-blue-900 text-blue-300 text-xs px-3 py-1 rounded-full">الفصل
+                                    الأول</span>
+                            </div>
+                            <p class="text-gray-400 mb-4">
+                                نموذج اختبار نهائي لمادة الرياضيات  (1) مع الحلول
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="bg-gray-800 text-blue-400 text-xs px-3 py-1 rounded-full">2023</span>
+                                <span class="bg-gray-800 text-blue-400 text-xs px-3 py-1 rounded-full"> د.رزق  </span>
+                                <span class="bg-gray-800 text-blue-400 text-xs px-3 py-1 rounded-full">PDF</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center text-sm text-gray-400">
+                                    <i class="fas fa-download mr-1"></i>
+                                    <span>120 تحميل</span>
+                                </div>
+                                <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm">
+                                    عرض النموذج <i class="fas fa-arrow-left ml-1"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- اختبار 2 -->
+                    <div class="exam-card rounded-xl overflow-hidden">
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="text-xl font-bold">فيزياء عامة</h3>
+                                <span class="bg-blue-900 text-blue-300 text-xs px-3 py-1 rounded-full">الفصل
+                                    الثاني</span>
+                            </div>
+                            <p class="text-gray-400 mb-4">
+                                نموذج اختبار منتصف الفصل لمادة الفيزياء العامة مع التصحيح
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="bg-gray-800 text-blue-400 text-xs px-3 py-1 rounded-full">2022</span>
+                                <span class="bg-gray-800 text-blue-400 text-xs px-3 py-1 rounded-full">90 دقيقة</span>
+                                <span class="bg-gray-800 text-blue-400 text-xs px-3 py-1 rounded-full">PDF</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center text-sm text-gray-400">
+                                    <i class="fas fa-download mr-1"></i>
+                                    <span>95 تحميل</span>
+                                </div>
+                                <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm">
+                                    عرض النموذج <i class="fas fa-arrow-left ml-1"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- اختبار 3 -->
+                    <div class="exam-card rounded-xl overflow-hidden">
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="text-xl font-bold">مقدمة في الهندسة</h3>
+                                <span class="bg-blue-900 text-blue-300 text-xs px-3 py-1 rounded-full">الفصل
+                                    الصيفي</span>
+                            </div>
+                            <p class="text-gray-400 mb-4">
+                                اختبار تجريبي شامل لمادة مقدمة في الهندسة مع نماذج الإجابات
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="bg-gray-800 text-blue-400 text-xs px-3 py-1 rounded-full">2023</span>
+                                <span class="bg-gray-800 text-blue-400 text-xs px-3 py-1 rounded-full">2 ساعة</span>
+                                <span class="bg-gray-800 text-blue-400 text-xs px-3 py-1 rounded-full">PDF</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center text-sm text-gray-400">
+                                    <i class="fas fa-download mr-1"></i>
+                                    <span>78 تحميل</span>
+                                </div>
+                                <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm">
+                                    عرض النموذج <i class="fas fa-arrow-left ml-1"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- السنة الثانية (مخفي افتراضياً) -->
+            <div id="second-year" class="year-content hidden">
+                <!-- نفس الهيكل مع تغيير المحتوى -->
+            </div>
+
+            <!-- السنة الثالثة (مخفي افتراضياً) -->
+            <div id="third-year" class="year-content hidden">
+                <!-- نفس الهيكل مع تغيير المحتوى -->
+            </div>
+
+            <!-- السنة الرابعة (مخفي افتراضياً) -->
+            <div id="fourth-year" class="year-content hidden">
+                <!-- نفس الهيكل مع تغيير المحتوى -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <div class="container">
+                        <div class="logo-container">
+                            <i class="fas fa-book-open logo-icon"></i>
+                            <!-- <span class="mr-2 text-xl font-bold text-blue-600" id="logo-text">مكتبتي الجامعية</span> -->
+                            <h1 class="logo-text"> مكتبتي <span> الجامعية</span></h1>
+                        </div>
+                    <p class="text-gray-400">
+                        كلية الهندسة   
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">روابط سريعة</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">الرئيسية</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">الخطة الدراسية</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">الأساتذة</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">اللوائح الأكاديمية</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">تواصل معنا</h4>
+                    <div class="flex space-x-4 rtl:space-x-reverse mb-4">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-blue-600 hover:text-white transition">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-blue-600 hover:text-white transition">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-blue-600 hover:text-white transition">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400">
+                        <i class="fas fa-phone mr-2"></i> 009671234567
+                    </p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
+                &copy; 2023 كلية الهندسة - الجامعة الإماراتية الدولية. جميع الحقوق محفوظة.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // تبديل السنوات الدراسية
+        document.addEventListener('DOMContentLoaded', function () {
+            const tabs = document.querySelectorAll('.year-tab');
+            const contents = document.querySelectorAll('.year-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function () {
+                    // إزالة التنشيط من جميع الألسنة
+                    tabs.forEach(t => t.classList.remove('active'));
+                    // إضافة التنشيط للسان الحالي
+                    this.classList.add('active');
+
+                    // إخفاء جميع المحتويات
+                    contents.forEach(content => {
+                        content.classList.add('hidden');
+                    });
+
+                    // إظهار المحتوى المطلوب
+                    const year = this.dataset.year;
+                    document.getElementById(`${year}-year`).classList.remove('hidden');
+                });
+            });
+
+            // يمكنك هنا إضافة كود لتحميل نماذج الاختبارات عبر AJAX إذا أردت
+        });
+    </script>
+
+    <script src="dark-mode.js "></script>
+</body>
+
+</html>

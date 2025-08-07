@@ -1,0 +1,69 @@
+  @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap');
+
+  * {
+      font-family: 'Tajawal', sans-serif;
+  }
+
+  :root {
+      --primary: #3b82f6;
+      --primary-dark: #2563eb;
+      --secondary: #10b981;
+      --background: #111827;
+      --card: #1f2937;
+
+
+      
+  }
+
+  body {
+      background-color: var(--background);
+      color: white;
+  }
+
+  .gradient-text {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+  }
+
+  .pathway-card {
+      transition: all 0.3s ease;
+      background: linear-gradient(135deg, var(--card), #111827);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+  }
+
+  .pathway-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+      border-color: rgba(59, 130, 246, 0.5);
+  }
+
+  .course-badge {
+      transition: all 0.3s ease;
+  }
+
+  .course-badge:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+  }
+
+  @keyframes float {
+
+      0%,
+      100% {
+          transform: translateY(0);
+      }
+
+      50% {
+          transform: translateY(-10px);
+      }
+  }
+
+  .floating-icon {
+      animation: float 3s ease-in-out infinite;
+  }
+
+
+
+  

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مكتبتي الجامعية - إنشاء حساب</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+   
+</head>
+
+<body class="min-h-screen flex items-center justify-center p-4">
+    <div class="w-full max-w-4xl flex rounded-xl shadow-lg overflow-hidden bg-white">
+        <!-- Left side - Image and branding -->
+         <div
+            class="hidden md:block w-1/2 bg-gradient-to-br from-indigo-600 to-purple-700 p-12 text-white flex flex-col justify-between">
+            <div>
+                <div class="logo-animation">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                </div>
+                <h1 class="text-3xl font-bold mt-6">مكتبتي الجامعية</h1>
+                <p class="mt-4 text-indigo-100">بوابتك إلى عالم المعرفة والتعلم الأكاديمي</p>
+            </div>
+            <div class="mt-20">
+                <div class="flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <p>وصول سهل إلى آلاف الكتب والمراجع</p>
+                </div>
+                <div class="flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <p>تتبع تقدمك الأكاديمي بسهولة</p>
+                </div>
+                <div class="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <p>مجتمع تعليمي داعم ومتفاعل</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right side - Form -->
+        <div class="w-full md:w-1/2 p-8 md:p-12">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl font-bold text-gray-800">إنشاء حساب جديد</h2>
+                <p class="text-gray-600 mt-2">انضم إلى مكتبتنا الجامعية واستمتع بتجربة تعليمية فريدة</p>
+            </div>
+
+            <!-- Social Login Buttons -->
+            <div class="space-y-4 mb-8">
+                <button
+                    class="social-btn w-full flex items-center justify-center py-3 px-4 rounded-lg border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 transition duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-3" viewBox="0 0 48 48">
+                        <path fill="#FFC107"
+                            d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z" />
+                        <path fill="#FF3D00"
+                            d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z" />
+                        <path fill="#4CAF50"
+                            d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z" />
+                        <path fill="#1976D2"
+                            d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z" />
+                    </svg>
+                    التسجيل باستخدام جوجل
+                </button>
+                <button
+                    class="social-btn w-full flex items-center justify-center py-3 px-4 rounded-lg border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 transition duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-3" viewBox="0 0 48 48">
+                        <path fill="#039be5" d="M24 5A19 19 0 1 0 24 43A19 19 0 1 0 24 5Z" />
+                        <path fill="#fff"
+                            d="M26.572,29.036h4.917l0.772-4.995h-5.69v-2.73c0-2.075,0.678-3.915,2.619-3.915h3.119v-4.359c-0.548-0.074-1.707-0.236-3.897-0.236c-4.573,0-7.254,2.415-7.254,7.917v3.323h-4.701v4.995h4.701v13.729C22.089,42.905,23.032,43,24,43c0.875,0,1.729-0.08,2.572-0.194V29.036z" />
+                    </svg>
+                    التسجيل باستخدام فيسبوك
+                </button>
+            </div>
+
+            <div class="flex items-center my-6">
+                <div class="flex-grow border-t border-gray-300"></div>
+                <span class="px-4 text-gray-500 text-sm">أو</span>
+                <div class="flex-grow border-t border-gray-300"></div>
+            </div>
+
+            <!-- Registration Form -->
+            <form class="space-y-5">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div>
+                        <label class="block text-gray-700 text-sm font-medium mb-2" for="first-name">الاسم الأول</label>
+                        <input type="text" id="first-name"
+                            class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none"
+                            required>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 text-sm font-medium mb-2" for="last-name">الاسم الأخير</label>
+                        <input type="text" id="last-name"
+                            class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none"
+                            required>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 text-sm font-medium mb-2" for="email">البريد الإلكتروني</label>
+                    <input type="email" id="email"
+                        class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none"
+                        required>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 text-sm font-medium mb-2" for="password">كلمة المرور</label>
+                    <input type="password" id="password"
+                        class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none"
+                        required>
+                    <p class="text-xs text-gray-500 mt-1">يجب أن تحتوي على 8 أحرف على الأقل وتتضمن حرفًا كبيرًا ورقمًا
+                    </p>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 text-sm font-medium mb-2" for="confirm-password">تأكيد كلمة
+                        المرور</label>
+                    <input type="password" id="confirm-password"
+                        class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none"
+                        required>
+                </div>
+
+                <div class="flex items-center">
+                    <input type="checkbox" id="terms"
+                        class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" required>
+                    <label for="terms" class="mr-2 block text-sm text-gray-700">
+                        أوافق على <a href="#" class="text-indigo-600 hover:text-indigo-800">الشروط والأحكام</a> و <a
+                            href="#" class="text-indigo-600 hover:text-indigo-800">سياسة الخصوصية</a>
+                    </label>
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-4 rounded-lg transition duration-300 transform hover:scale-[1.02]">
+                    إنشاء حساب
+                </button>
+            </form>
+
+            <p class="text-center text-gray-600 mt-6">
+                لديك حساب بالفعل؟ <a href="login.html" class="text-indigo-600 hover:text-indigo-800 font-medium">تسجيل الدخول</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+
+            if (password !== confirmPassword) {
+                alert('كلمات المرور غير متطابقة');
+                return;
+            }
+
+            // Simulate successful registration
+            alert('تم إنشاء الحساب بنجاح!');
+            // In a real application, you would submit the form to a server here
+        });
+
+        // Social login buttons functionality
+        document.querySelectorAll('.social-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                alert('سيتم توجيهك إلى صفحة تسجيل الدخول الخارجية');
+                // In a real application, you would redirect to the OAuth provider here
+            });
+        });
+    </script>
+    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'963d7fd734dde195',t:'MTc1MzI5ODA1MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+</body>
+
+</html>
