@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مكتبتي الجامعية | الإعدادات</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   <link rel="stylesheet" href="setting.css">
+  
+</head>
+
+<body class="min-h-screen">
+    <!-- طبقات الفضاء -->
+    <div class="space-container fixed inset-0 -z-10">
+        <div class="stars absolute inset-0 bg-gradient-to-b from-transparent to-gray-900 opacity-30"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 backdrop-blur-lg bg-opacity-80 bg-gray-900 border-b border-gray-800">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <h1 class="logo-text"> مكتبتي <span> الجامعية</span></h1>
+                </div>
+                <div class="flex items-center space-x-4 space-x-reverse">
+                    <div class="relative">
+                        <div class="user-avatar" id="user-menu-button">
+                            <span>م</span>
+                        </div>
+                        <div class="dropdown-menu" id="user-dropdown">
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-user"></i>
+                                <span>الملف الشخصي</span>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-cog"></i>
+                                <span>الإعدادات</span>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-bookmark"></i>
+                                <span>المحفوظات</span>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-history"></i>
+                                <span>النشاط</span>
+                            </a>
+                            <div class="border-t border-gray-700 my-2"></div>
+                            <a href="login.html" class="dropdown-item text-red-400">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>تسجيل الخروج</span>
+                            </a>
+                        </div>
+                    </div>
+                    <span class="text-white font-medium">محمد أحمد</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- التنقل العلوي -->
+    <div class="top-nav">
+        <div class="top-nav-links">
+            <a href="index.html">الرئيسية</a>
+            <a href="./books.html">الكتب</a>
+            <a href="./plans.html">المسارات البرمجية</a>
+            <a href="./exams.html">نماذج الاختبارات</a>
+            <a href="./not-found.html">ارفع ملف</a>
+            <a href="./about.html">عن المكتبة</a>
+            <a href="#" class="active">الإعدادات</a>
+        </div>
+
+        <div class="user-info">
+            <button class="edit-profile-btn">
+                <i class="fas fa-edit ml-2"></i>
+                تعديل الملف الشخصي
+            </button>
+            <a href="login.html" class="text-red-400 hover:text-red-300 transition">
+                <i class="fas fa-sign-out-alt ml-2"></i>
+                تسجيل الخروج
+            </a>
+        </div>
+    </div>
+
+    <!-- القائمة الجانبية للكمبيوتر -->
+
+    <!-- المحتوى الرئيسي -->
+    <main class="container mx-auto px-4 py-8 mt-8">
+        <!-- قسم الملف الشخصي -->
+        <section class="mb-12">
+            <div class="profile-header glass">
+                <div class="profile-avatar">
+                    <span>م</span>
+                </div>
+                <div class="profile-info">
+                    <h2> ياسين عبد العزيز</h2>
+                    <p>طالب امن سيبراني - الجامعة الإماراتية الدولية</p>
+                    <p class="text-sm">عضوية منذ: سبتمبر 2023</p>
+                    <button class="edit-profile-btn mt-2">
+                        <i class="fas fa-edit ml-2"></i>
+                        تعديل الملف الشخصي
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم الإعدادات -->
+        <section class="glass rounded-2xl p-8 glow-border">
+            <h2 class="section-title text-2xl font-bold mb-8">الإعدادات</h2>
+
+            <!-- إعدادات الحساب -->
+            <div class="settings-section">
+                <h3>إعدادات الحساب</h3>
+                <div class="settings-item">
+                    <div>
+                        <p class="font-medium">البريد الإلكتروني</p>
+                        <p class="text-sm text-gray-400">m.ahmed@example.com</p>
+                    </div>
+                    <button class="text-primary hover:text-secondary transition">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                </div>
+                <div class="settings-item">
+                    <div>
+                        <p class="font-medium">كلمة المرور</p>
+                        <p class="text-sm text-gray-400">********</p>
+                    </div>
+                    <button class="text-primary hover:text-secondary transition">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                </div>
+                <div class="settings-item">
+                    <div>
+                        <p class="font-medium">رقم الهاتف</p>
+                        <p class="text-sm text-gray-400">+971 50 123 4567</p>
+                    </div>
+                    <button class="text-primary hover:text-secondary transition">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- إعدادات الإشعارات -->
+            <div class="settings-section">
+                <h3>إعدادات الإشعارات</h3>
+                <div class="settings-item">
+                    <div>
+                        <p class="font-medium">الإشعارات البريدية</p>
+                        <p class="text-sm text-gray-400">تلقي إشعارات على البريد الإلكتروني</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div class="settings-item">
+                    <div>
+                        <p class="font-medium">إشعارات الدفع</p>
+                        <p class="text-sm text-gray-400">إشعارات حول المدفوعات والاشتراكات</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div class="settings-item">
+                    <div>
+                        <p class="font-medium">إشعارات المسارات التعليمية</p>
+                        <p class="text-sm text-gray-400">إشعارات حول المسارات التعليمية الجديدة</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- إعدادات الخصوصية -->
+            <div class="settings-section">
+                <h3>إعدادات الخصوصية</h3>
+                <div class="settings-item">
+                    <div>
+                        <p class="font-medium">الملف الشخصي العام</p>
+                        <p class="text-sm text-gray-400">جعل الملف الشخصي مرئياً للجميع</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div class="settings-item">
+                    <div>
+                        <p class="font-medium">إظهار التقدم الدراسي</p>
+                        <p class="text-sm text-gray-400">إظهار تقدمك في المسارات التعليمية للآخرين</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div class="settings-item">
+                    <div>
+                        <p class="font-medium">البحث في المحرك</p>
+                        <p class="text-sm text-gray-400">السماح لمحركات البحث بإدراج ملفك الشخصي</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- إعدادات اللغة -->
+            <div class="settings-section">
+                <h3>إعدادات اللغة</h3>
+                <div class="settings-item">
+                    <div>
+                        <p class="font-medium">لغة الواجهة</p>
+                        <p class="text-sm text-gray-400">اختر اللغة المعروضة في الموقع</p>
+                    </div>
+                    <select class="bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-white"
+                        id="language-select">
+                        <option value="ar" selected>العربية</option>
+                        <option value="en">English</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- إعدادات متقدمة -->
+            <div class="settings-section">
+                <h3>إعدادات متقدمة</h3>
+                <div class="settings-item">
+                    <div>
+                        <p class="font-medium">حذف الحساب</p>
+                        <p class="text-sm text-gray-400">حذف حسابك بشكل دائم وجميع البيانات المرتبطة به</p>
+                    </div>
+                    <button class="text-red-500 hover:text-red-400 transition font-medium">
+                        حذف الحساب
+                    </button>
+                </div>
+            </div>
+
+            <!-- أزرار الحفظ والإلغاء -->
+            <div class="flex justify-end space-x-4 space-x-reverse mt-8">
+                <button class="btn secondary-btn">
+                    إلغاء التغييرات
+                </button>
+                <button class="btn primary-btn">
+                    حفظ التغييرات
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- إشعار تغيير اللغة -->
+    <div class="overlay" id="overlay"></div>
+    <div class="notification-popup" id="language-notification">
+        <h3>قريباً</h3>
+        <p>ميزة تغيير اللغة قيد التطوير حالياً وسيتم إطلاقها قريباً. شكراً لتفهمك.</p>
+        <button class="btn primary-btn" id="close-notification">
+            موافق
+        </button>
+    </div>
+
+    <script>
+        // التحكم في القائمة المنسدلة
+        document.addEventListener('DOMContentLoaded', function () {
+            const userMenuButton = document.getElementById('user-menu-button');
+            const userDropdown = document.getElementById('user-dropdown');
+            const languageSelect = document.getElementById('language-select');
+            const languageNotification = document.getElementById('language-notification');
+            const overlay = document.getElementById('overlay');
+            const closeNotification = document.getElementById('close-notification');
+
+            userMenuButton.addEventListener('click', function () {
+                userDropdown.classList.toggle('show');
+            });
+
+            // إغلاق القائمة المنسدلة عند النقر خارجها
+            document.addEventListener('click', function (event) {
+                if (!userMenuButton.contains(event.target) && !userDropdown.contains(event.target)) {
+                    userDropdown.classList.remove('show');
+                }
+            });
+
+            // عرض إشعار تغيير اللغة
+            languageSelect.addEventListener('change', function () {
+                if (this.value === 'en') {
+                    languageNotification.classList.add('show');
+                    overlay.classList.add('show');
+                }
+            });
+
+            // إغلاق الإشعار
+            closeNotification.addEventListener('click', function () {
+                languageNotification.classList.remove('show');
+                overlay.classList.remove('show');
+                languageSelect.value = 'ar'; // إعادة اللغة إلى العربية
+            });
+
+            // إغلاق الإشعار بالضغط على الخلفية
+            overlay.addEventListener('click', function () {
+                languageNotification.classList.remove('show');
+                overlay.classList.remove('show');
+                languageSelect.value = 'ar'; // إعادة اللغة إلى العربية
+            });
+        });
+    </script>
+</body>
+
+</html>

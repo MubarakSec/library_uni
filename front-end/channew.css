@@ -345,7 +345,7 @@
   }
 
   .challenge-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-12px);
       box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
       border-color: var(--primary);
   }
@@ -376,7 +376,7 @@
   }
 
   .language-tab:not(.active):hover {
-      border-color: rgba(99, 102, 241, 0.3);
+      border-color: rgba(224, 76, 17, 0.3);
   }
 
   .search-input {

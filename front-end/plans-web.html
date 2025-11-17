@@ -4,16 +4,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> تصميم وتطوير الويب </title>
+    <title>تعلم تصميم وتطوير الويب من الصفر</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="styls.css">
-
-    <link rel="stylesheet" href="about.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
+        .logo-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .about-section {
+            background: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .university-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 5s infinite;
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 0.2;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .tool-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            border-color: #667eea;
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+        }
+
+        .course-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            border-color: #667eea;
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+        }
+
+        .youtube-btn {
+            background: linear-gradient(135deg, #FF0000 0%, #CC0000 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+
+        .youtube-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+        }
+
+        .html-color {
+            color: #E34F26;
+        }
+
+        .css-color {
+            color: #1572B6;
+        }
+
+        .js-color {
+            color: #F7DF1E;
+        }
+
+        .youtube-color {
+            color: #FF0000;
+        }
+    </style>
 </head>
 
-<body>
+<body class="bg-gray-900 text-white">
     <!-- Stars Background -->
     <div class="stars-container" id="stars-container"></div>
 
@@ -22,16 +160,14 @@
         <div class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
                 <div class="flex items-center">
-                    <h1 class="logo-text"> مكتبتي <span> الجامعية</span></h1>
+                    <h1 class="logo-text">WebDev <span>Academy</span></h1>
                     <nav class="hidden md:flex mr-8">
                         <a href="index-2.html"
-                            class="mx-3 font-medium text-white hover:text-blue-300 transition">الرئيسية</a>
-                        <!-- <a href="#" class="mx-3 font-medium text-white hover:text-blue-300 transition">عن المنصة</a> -->
-                        <a href="books.html" class="mx-3 font-medium text-white hover:text-blue-300 transition">المكتبة
-                            الرقمية</a>
+                            class="mx-3 font-medium text-white hover:text-purple-300 transition">الرئيسية</a>
+                        <a href="books.html"
+                            class="mx-3 font-medium text-white hover:text-purple-300 transition">المكتبة الرقمية</a>
                         <a href="channew.html"
-                            class="mx-3 font-medium text-white hover:text-blue-300 transition">التحديات
-                            التعليمية</a>
+                            class="mx-3 font-medium text-white hover:text-purple-300 transition">التحديات التعليمية</a>
                     </nav>
                 </div>
                 <div class="flex items-center">
@@ -42,121 +178,366 @@
             </div>
         </div>
     </header>
-   
-    <!-- 
 
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-12">
-        <!-- About Hero Section -->
+        <!-- Hero Section -->
         <section class="mb-16 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-6"><span class="gradient-text">ماهو مسار تصميم وتطوير الويب </span></h1>
+            <h1 class="text-4xl md:text-5xl font-bold mb-6"><span class="gradient-text">تعلم تصميم وتطوير الويب من
+                    الصفر</span></h1>
             <p class="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            تصميم وتطوير الويب هو عملية إنشاء مواقع أو تطبيقات ويب تشمل التصميم الجذاب (واجهة المستخدم) والبرمجة الوظيفية (أمامية
-            وخلفية) لضمان تجربة مستخدم سلسة وآمنة.
-
+                اكتشف عالم تطوير الويب واصنع مواقع وتطبيقات ويب احترافية. ابدأ رحلتك في مجال مليء بالفرص والإبداع
             </p>
+        </section>
+
+        <!-- الأدوات المطلوبة Section -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-12 text-center gradient-text">أدوات تطوير الويب الأساسية</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- VS Code -->
+                <div class="tool-card bg-gray-800 rounded-xl p-6">
+                    <div class="text-blue-400 text-4xl mb-4">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Visual Studio Code</h3>
+                    <p class="text-gray-300 mb-4 text-sm">
+                        محرر النصوص الأكثر شعبية لتطوير الويب
+                    </p>
+                    <button class="download-btn w-full" onclick="downloadTool('vscode')">
+                        <i class="fas fa-download ml-2"></i>
+                        تحميل VS Code
+                    </button>
+                </div>
+
+                <!-- Git -->
+                <div class="tool-card bg-gray-800 rounded-xl p-6">
+                    <div class="text-orange-400 text-4xl mb-4">
+                        <i class="fab fa-git-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Git</h3>
+                    <p class="text-gray-300 mb-4 text-sm">
+                        نظام التحكم بالإصدارات لإدارة المشاريع
+                    </p>
+                    <button class="download-btn w-full" onclick="downloadTool('git')">
+                        <i class="fas fa-download ml-2"></i>
+                        تحميل Git
+                    </button>
+                </div>
+
+                <!-- Node.js -->
+                <div class="tool-card bg-gray-800 rounded-xl p-6">
+                    <div class="text-green-400 text-4xl mb-4">
+                        <i class="fab fa-node-js"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Node.js</h3>
+                    <p class="text-gray-300 mb-4 text-sm">
+                        بيئة تشغيل JavaScript من جانب الخادم
+                    </p>
+                    <button class="download-btn w-full" onclick="downloadTool('nodejs')">
+                        <i class="fas fa-download ml-2"></i>
+                        تحميل Node.js
+                    </button>
+                </div>
+
+                <!-- Chrome DevTools -->
+                <div class="tool-card bg-gray-800 rounded-xl p-6">
+                    <div class="text-yellow-400 text-4xl mb-4">
+                        <i class="fab fa-chrome"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Chrome DevTools</h3>
+                    <p class="text-gray-300 mb-4 text-sm">
+                        أدوات المطورين المدمجة في متصفح Chrome
+                    </p>
+                    <button class="download-btn w-full" onclick="downloadTool('devtools')">
+                        <i class="fas fa-download ml-2"></i>
+                        فتح DevTools
+                    </button>
+                </div>
+
+                <!-- Figma -->
+                <div class="tool-card bg-gray-800 rounded-xl p-6">
+                    <div class="text-purple-400 text-4xl mb-4">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Figma</h3>
+                    <p class="text-gray-300 mb-4 text-sm">
+                        أداة التصميم والتخطيط للواجهات
+                    </p>
+                    <button class="download-btn w-full" onclick="downloadTool('figma')">
+                        <i class="fas fa-download ml-2"></i>
+                        استخدام Figma
+                    </button>
+                </div>
+
+                <!-- GitHub -->
+                <div class="tool-card bg-gray-800 rounded-xl p-6">
+                    <div class="text-gray-300 text-4xl mb-4">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">GitHub</h3>
+                    <p class="text-gray-300 mb-4 text-sm">
+                        منصة استضافة المشاريع والتعاون
+                    </p>
+                    <button class="download-btn w-full" onclick="downloadTool('github')">
+                        <i class="fas fa-download ml-2"></i>
+                        إنشاء حساب
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- كورسات يوتيوب Section -->
+        <section class="mb-16">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-3xl font-bold gradient-text">أفضل كورسات تطوير الويب على يوتيوب</h2>
+                <div class="flex items-center youtube-color">
+                    <i class="fab fa-youtube text-2xl ml-2"></i>
+                    <span class="text-sm">جميع الكورسات مجانية على يوتيوب</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- كورس 1 -->
+                <div class="course-card bg-gray-800 rounded-xl p-6">
+                    <div class="flex items-start mb-4">
+                        <img src="https://i.ytimg.com/vi/G3e-cpL7ofc/hqdefault.jpg" alt="Web Development Course"
+                            class="w-20 h-12 rounded-lg object-cover ml-3">
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg mb-1">تطوير الويب كامل</h3>
+                            <p class="text-gray-400 text-sm">freeCodeCamp</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4 text-sm line-clamp-2">
+                        دورة شاملة في تطوير الويب من الصفر إلى الاحتراف
+                    </p>
+                    <div class="flex justify-between items-center mb-3">
+                        <div class="flex items-center text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <span class="text-white mr-1 text-sm">4.9</span>
+                        </div>
+                        <span class="text-green-400 text-sm">7 ساعات</span>
+                    </div>
+                    <button class="youtube-btn w-full" onclick="watchCourse('fcc-web-dev')">
+                        <i class="fab fa-youtube ml-2"></i>
+                        مشاهدة على يوتيوب
+                    </button>
+                </div>
+
+                <!-- كورس 2 -->
+                <div class="course-card bg-gray-800 rounded-xl p-6">
+                    <div class="flex items-start mb-4">
+                        <img src="https://i.ytimg.com/vi/HcOc7P5BMi4/hqdefault.jpg" alt="HTML CSS Course"
+                            class="w-20 h-12 rounded-lg object-cover ml-3">
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg mb-1">HTML & CSS كامل</h3>
+                            <p class="text-gray-400 text-sm">Apna College</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4 text-sm line-clamp-2">
+                        تعلم HTML و CSS من الصفر إلى بناء مواقع كاملة
+                    </p>
+                    <div class="flex justify-between items-center mb-3">
+                        <div class="flex items-center text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <span class="text-white mr-1 text-sm">4.8</span>
+                        </div>
+                        <span class="text-green-400 text-sm">12 ساعة</span>
+                    </div>
+                    <button class="youtube-btn w-full" onclick="watchCourse('html-css-complete')">
+                        <i class="fab fa-youtube ml-2"></i>
+                        مشاهدة على يوتيوب
+                    </button>
+                </div>
+
+                <!-- كورس 3 -->
+                <div class="course-card bg-gray-800 rounded-xl p-6">
+                    <div class="flex items-start mb-4">
+                        <img src="https://i.ytimg.com/vi/EjavYOFoJJ0/hqdefault.jpg" alt="JavaScript Course"
+                            class="w-20 h-12 rounded-lg object-cover ml-3">
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg mb-1">JavaScript متقدم</h3>
+                            <p class="text-gray-400 text-sm">Programming with Mosh</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4 text-sm line-clamp-2">
+                        إتقان JavaScript من الأساسيات إلى المفاهيم المتقدمة
+                    </p>
+                    <div class="flex justify-between items-center mb-3">
+                        <div class="flex items-center text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <span class="text-white mr-1 text-sm">4.9</span>
+                        </div>
+                        <span class="text-green-400 text-sm">6 ساعات</span>
+                    </div>
+                    <button class="youtube-btn w-full" onclick="watchCourse('javascript-advanced')">
+                        <i class="fab fa-youtube ml-2"></i>
+                        مشاهدة على يوتيوب
+                    </button>
+                </div>
+
+                <!-- كورس 4 -->
+                <div class="course-card bg-gray-800 rounded-xl p-6">
+                    <div class="flex items-start mb-4">
+                        <img src="https://i.ytimg.com/vi/SBvmnHTQIPY/hqdefault.jpg" alt="React Course"
+                            class="w-20 h-12 rounded-lg object-cover ml-3">
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg mb-1">React.js كامل</h3>
+                            <p class="text-gray-400 text-sm">JavaScript Mastery</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4 text-sm line-clamp-2">
+                        تعلم React.js من الصفر إلى بناء تطبيقات ويب تفاعلية
+                    </p>
+                    <div class="flex justify-between items-center mb-3">
+                        <div class="flex items-center text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <span class="text-white mr-1 text-sm">4.8</span>
+                        </div>
+                        <span class="text-green-400 text-sm">8 ساعات</span>
+                    </div>
+                    <button class="youtube-btn w-full" onclick="watchCourse('react-complete')">
+                        <i class="fab fa-youtube ml-2"></i>
+                        مشاهدة على يوتيوب
+                    </button>
+                </div>
+
+                <!-- كورس 5 -->
+                <div class="course-card bg-gray-800 rounded-xl p-6">
+                    <div class="flex items-start mb-4">
+                        <img src="https://i.ytimg.com/vi/wRNinF7YQqQ/hqdefault.jpg" alt="Web Design Course"
+                            class="w-20 h-12 rounded-lg object-cover ml-3">
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg mb-1">تصميم الويب بالعربي</h3>
+                            <p class="text-gray-400 text-sm">Elzero Web School</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4 text-sm line-clamp-2">
+                        دورة متكاملة في تصميم الويب باللغة العربية
+                    </p>
+                    <div class="flex justify-between items-center mb-3">
+                        <div class="flex items-center text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <span class="text-white mr-1 text-sm">4.9</span>
+                        </div>
+                        <span class="text-green-400 text-sm">20 ساعة</span>
+                    </div>
+                    <button class="youtube-btn w-full" onclick="watchCourse('elzero-web-design')">
+                        <i class="fab fa-youtube ml-2"></i>
+                        مشاهدة على يوتيوب
+                    </button>
+                </div>
+
+                <!-- كورس 6 -->
+                <div class="course-card bg-gray-800 rounded-xl p-6">
+                    <div class="flex items-start mb-4">
+                        <img src="https://i.ytimg.com/vi/tgbNymZ7vqY/hqdefault.jpg" alt="Full Stack Course"
+                            class="w-20 h-12 rounded-lg object-cover ml-3">
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg mb-1">Full Stack Development</h3>
+                            <p class="text-gray-400 text-sm">Coding Addict</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4 text-sm line-clamp-2">
+                        تطوير تطبيقات ويب كاملة من Frontend إلى Backend
+                    </p>
+                    <div class="flex justify-between items-center mb-3">
+                        <div class="flex items-center text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <span class="text-white mr-1 text-sm">4.7</span>
+                        </div>
+                        <span class="text-green-400 text-sm">15 ساعة</span>
+                    </div>
+                    <button class="youtube-btn w-full" onclick="watchCourse('full-stack')">
+                        <i class="fab fa-youtube ml-2"></i>
+                        مشاهدة على يوتيوب
+                    </button>
+                </div>
+            </div>
+
+            <!-- ملاحظة -->
+            <div class="mt-8 p-4 bg-purple-900 bg-opacity-20 rounded-lg border border-purple-700">
+                <div class="flex items-center">
+                    <i class="fas fa-info-circle text-purple-400 ml-2 text-xl"></i>
+                    <div>
+                        <h4 class="font-bold text-purple-300 mb-1">ملاحظة هامة:</h4>
+                        <p class="text-gray-300 text-sm">
+                            جميع الكورسات أعلاه متاحة مجاناً على يوتيوب. اضغط على "مشاهدة على يوتيوب" لتنتقل مباشرة إلى
+                            الكورس.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- About Content -->
         <section class="about-section rounded-2xl p-8 mb-12">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
-                    <h2 class="text-3xl font-bold mb-6 gradient-text"> المسار المبسط  </h2>
+                    <h2 class="text-3xl font-bold mb-6 gradient-text">لماذا تتعلم تطوير الويب؟</h2>
                     <p class="text-gray-300 mb-6 leading-relaxed">
-                    
+                        تطوير الويب هو أحد أكثر المهارات طلباً في سوق العمل الحديث، مع فرص لا حصر لها للإبداع والنمو
+                        المهني.
                     </p>
                     <p class="text-gray-300 mb-6 leading-relaxed">
-          1-  التصميم (Design)
-          <br>
-            
-          2-  تعلم أساسيات UI/UX (ألوان، خطوط، تخطيط).
-          <br>
-            
-         3- أدوات: Figma أو Adobe XD.
-         <br>
-            
-         4-   التطوير الأمامي (Frontend)
-         <br>
-            
-         5-   تعلم: HTML, CSS, JavaScript.
-         <br>
-            
-         6-   ثم أطر عمل مثل React أو Vue.js.
-         <br>
-            
-         7-   التطوير الخلفي (Backend) (اختياري)
-         <br>
-            
-         8-   اختر لغة مثل Python (Django/Flask) أو Node.js.
-         <br>
-           
-         9-   تعلم قواعد البيانات (MySQL أو MongoDB).
-         <br>
-            
-         10-   النشر (Deployment)
-         <br>
-            
-         11-   نشر الموقع باستخدام Netlify (للfrontend) أو AWS (للbackend).
-         <br>
-
+                        ✅ طلب مستمر في سوق العمل<br>
+                        ✅ إمكانية العمل الحر والعمل عن بعد<br>
+                        ✅ رواتب تنافسية ومستقبل واعد<br>
+                        ✅ مجال ديناميكي ومتطور باستمرار<br>
+                        ✅ فرص للإبداع والابتكار<br>
+                        ✅ مجتمع داعم وموارد غنية<br>
                     </p>
                     <div class="flex flex-wrap gap-4">
                         <div class="flex items-center">
                             <div
-                                class="w-12 h-12 rounded-full bg-blue-900 flex items-center justify-center text-blue-400 mr-3">
-                                <i class="fas fa-book"></i>
+                                class="w-12 h-12 rounded-full bg-purple-900 flex items-center justify-center text-purple-400 mr-3">
+                                <i class="fas fa-laptop-code"></i>
                             </div>
                             <div>
-                                <div class="font-bold">3</div>
-                                <div class="text-sm text-gray-400">  كتب في المسار </div>
+                                <div class="font-bold">+25%</div>
+                                <div class="text-sm text-gray-400">نمو الطلب</div>
                             </div>
                         </div>
                         <div class="flex items-center">
                             <div
-                                class="w-12 h-12 rounded-full bg-blue-900 flex items-center justify-center text-blue-400 mr-3">
-                                <i class="fas fa-laptop-code"></i>
+                                class="w-12 h-12 rounded-full bg-green-900 flex items-center justify-center text-green-400 mr-3">
+                                <i class="fas fa-dollar-sign"></i>
                             </div>
                             <div>
-                                <div class="font-bold">جهاز لابتوب</div>
-                                <div class="text-sm text-gray-400">من اجل التطبيق العملي </div>
+                                <div class="font-bold">$75K+</div>
+                                <div class="text-sm text-gray-400">متوسط الرواتب</div>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <div class="relative w-full max-w-md h-64 overflow-hidden rounded-2xl">
                     <!-- Container for slides -->
                     <div class="relative h-full w-full">
                         <div class="absolute inset-0 flex" id="university-slider">
                             <!-- Slide 1 -->
                             <div class="flex-shrink-0 w-full h-full transition-opacity duration-1000">
-                                <img src="imges/0001200_web-development-beginner.jpeg" alt=" image/png"
-                                    class="w-full h-full object-cover">
+                                <img src="imges/web1.jpg" alt="تطوير الويب" class="w-full h-full object-cover">
                             </div>
                             <!-- Slide 2 -->
                             <div class="flex-shrink-0 w-full h-full transition-opacity duration-1000">
-                                <img src="imges/full-stack-web-developers.png" alt=" image/png"
-                                    class="w-full h-full object-cover">
+                                <img src="imges/web2.jpg" alt="تصميم الويب" class="w-full h-full object-cover">
                             </div>
                             <!-- Slide 3 -->
                             <div class="flex-shrink-0 w-full h-full transition-opacity duration-1000">
-                                <img src="imges/web-picc2.avif" alt="image/png "
-                                    class="w-full h-full object-cover">
-                            </div>
-                            <div class="flex-shrink-0 w-full h-full transition-opacity duration-1000">
-                                <img src="imges/web-pic.jpg" alt="فصول الدراسة"
-                                    class="w-full h-full object-cover">
+                                <img src="imges/web3.jpg" alt="برمجة الويب" class="w-full h-full object-cover">
                             </div>
                         </div>
                     </div>
 
-                    <!-- Navigation dots -->
-                    <!-- <div class="absolute bottom-4 left-0 right-0 flex justify-center space-x-2 rtl:space-x-reverse">
-                    <button class="w-3 h-3 rounded-full bg-white bg-opacity-50 slider-dot active" data-index="0"></button>
-                    <button class="w-3 h-3 rounded-full bg-white bg-opacity-50 slider-dot" data-index="1"></button>
-                    <button class="w-3 h-3 rounded-full bg-white bg-opacity-50 slider-dot" data-index="2"></button>
-                </div> -->
+                    <!-- مؤشرات التبديل -->
+                    <div class="absolute bottom-4 left-2 right-0 flex justify-center space-x-2 rtl:space-x-reverse">
+                        <button class="w-3 h-3 rounded-full bg-white bg-opacity-50 slider-dot" data-index="0"></button>
+                        <button class="w-3 h-3 rounded-full bg-white bg-opacity-50 slider-dot" data-index="1"></button>
+                        <button class="w-3 h-3 rounded-full bg-white bg-opacity-50 slider-dot" data-index="2"></button>
+                    </div>
 
-                    <!-- Navigation arrows -->
+                    <!-- أزرار التنقل -->
                     <button
                         class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full slider-prev">
                         <i class="fas fa-chevron-right"></i>
@@ -166,171 +547,23 @@
                         <i class="fas fa-chevron-left"></i>
                     </button>
                 </div>
-
-                <!-- مؤشرات التبديل -->
-                <div class="absolute bottom-4 left-2 right-0 flex justify-center space-x-2 rtl:space-x-reverse">
-                    <button class="w-3 h-3 rounded-full bg-white bg-opacity-50 slider-dot" data-index="0"></button>
-                    <button class="w-3 h-3 rounded-full bg-white bg-opacity-50 slider-dot" data-index="1"></button>
-                    <button class="w-3 h-3 rounded-full bg-white bg-opacity-50 slider-dot" data-index="2"></button>
-                    <button class="w-3 h-3 rounded-full bg-white bg-opacity-50 slider-dot" data-index="2"></button>
-
-                </div>
-
-                <!-- أزرار التنقل -->
-                <button
-                    class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full slider-prev">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-                <button
-                    class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full slider-next">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-            </div>
-            </div>
-            </div>
-        </section>
-        <!-- قسم الفيديو الترويجي -->
-      
-
-        <!-- Features Section -->
-        <section class="mb-16">
-            <h2 class="text-3xl font-bold mb-12 text-center gradient-text"> اهم الاشياء في المسار</h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Feature 1 -->
-                <div class="bg-gray-800 rounded-xl p-6 hover:border-blue-500 border-2 border-transparent transition">
-                    <div class="text-blue-400 text-4xl mb-4">
-                        <i class="fas fa-book-open"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">  كورسات في اليوتيوب ومسار مفصل</h3>
-                    <p class="text-gray-300">
-                        تشمل   روابط لجميع الكورسات المهمة  في مختلف  القنوات 
-                    </p>
-                </div>
-
-                <!-- Feature 2 -->
-                <div class="bg-gray-800 rounded-xl p-6 hover:border-blue-500 border-2 border-transparent transition">
-                    <div class="text-blue-400 text-4xl mb-4">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">تحديات تعليمية تفاعلية</h3>
-                    <p class="text-gray-300">
-                        أنشطة وتحديات مصممة لتعزيز الفهم وتطبيق المعرفة في مختلف المواد الدراسية.
-                    </p>
-                </div>
-
-                <!-- Feature 3 -->
-                <div class="bg-gray-800 rounded-xl p-6 hover:border-blue-500 border-2 border-transparent transition">
-                    <div class="text-blue-400 text-4xl mb-4">
-                        <i class="fas fa-chalkboard-teacher"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">مواد تعليمية مخصصة</h3>
-                    <p class="text-gray-300">
-                        محتوى تعليمي معد خصيصاً لبرامج الجامعة المختلفة، يشمل محاضرات مرئية، عروض تقديمية، وملخصات
-                        دراسية.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- How It Works -->
-        <section class="mb-16">
-            <h2 class="text-3xl font-bold mb-12 text-center gradient-text">كيف تعمل المنصة؟</h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Step 1 -->
-                <div class="text-center">
-                    <div
-                        class="w-16 h-16 rounded-full bg-blue-900 text-blue-400 text-2xl flex items-center justify-center mx-auto mb-4">
-                        1
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">التسجيل في المنصة</h3>
-                    <p class="text-gray-300">
-                        يمكن للطلاب وأعضاء هيئة التدريس التسجيل باستخدام بياناتهم الجامعية
-                    </p>
-                </div>
-
-                <!-- Step 2 -->
-                <div class="text-center">
-                    <div
-                        class="w-16 h-16 rounded-full bg-blue-900 text-blue-400 text-2xl flex items-center justify-center mx-auto mb-4">
-                        2
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">استكشاف المحتوى</h3>
-                    <p class="text-gray-300">
-                        تصفح المكتبة الرقمية أو التحديات التعليمية حسب التخصص أو المادة الدراسية
-                    </p>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="text-center">
-                    <div
-                        class="w-16 h-16 rounded-full bg-blue-900 text-blue-400 text-2xl flex items-center justify-center mx-auto mb-4">
-                        3
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">التعلم والتطبيق</h3>
-                    <p class="text-gray-300">
-                        استخدم المصادر المتاحة وحل التحديات لتعزيز فهمك الأكاديمي
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonials -->
-        <section class="mb-16">
-            <h2 class="text-3xl font-bold mb-12 text-center gradient-text">آراء المستخدمين</h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="bg-gray-800 rounded-xl p-6">
-                    <div class="flex items-center mb-4">
-                        <img src="https://api.dicebear.com/6.x/avataaars/svg?seed=Ahmad" alt="طالب"
-                            class="w-12 h-12 rounded-full border-2 border-blue-400">
-                        <div class="mr-3">
-                            <div class="font-bold">ياسين الخلاقي</div>
-                            <div class="text-sm text-gray-400">طالب الامن السيبراني </div>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 italic">
-                        "المنصة ساعدتني كثيراً في إيجاد المراجع التي أحتاجها لمشروع التخرج، كما أن التحديات البرمجية
-                        ساهمت في تطوير مهاراتي العملية"
-                    </p>
-                </div>
-
-                <!-- Testimonial 2 -->
-                <div class="bg-gray-800 rounded-xl p-6">
-                    <div class="flex items-center mb-4">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSS2tN4-hHEagUftv4VZUPNdHpGkbfmcNsps_ybiC3PLGXPhqEmJVZCuO6vjQ0kXPLqg20&usqp=CAU"
-                            alt="طالب" class="w-12 h-12 rounded-full border-2 border-blue-400">
-                        <div class="mr-3">
-                            <div class="font-bold">مبارك الحمادي</div>
-                            <div class="text-sm text-gray-400">طالب الامن السيبراني</div>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 italic">
-                        "أحب التنظيم والتصميم البسيط للمنصة، المواد التعليمية مرتبة بطريقة تسهل الوصول إليها، خاصة
-                        الملخصات قبل الامتحانات"
-                    </p>
-                </div>
             </div>
         </section>
 
         <!-- CTA Section -->
         <section class="university-bg rounded-2xl p-12 text-center">
-            <h2 class="text-3xl font-bold mb-6">كن جزءاً من مجتمعنا التعليمي</h2>
+            <h2 class="text-3xl font-bold mb-6">ابدأ رحلتك في تطوير الويب اليوم</h2>
             <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-                انضم إلى آلاف الطلاب الذين يستفيدون يومياً من مواردنا التعليمية المتطورة
+                انضم إلى آلاف المطورين الذين بدأوا رحلتهم في مجال تطوير الويب من خلال منصتنا التعليمية
             </p>
             <div class="flex flex-wrap justify-center gap-4">
                 <button class="btn-primary px-8 py-3 rounded-lg font-medium text-lg">
-                    <a href="creat-user.html"><i class="fas fa-user-plus ml-2"></i>انضم إلينا الآن
-                </button></a>
+                    <a href="creat-user.html"><i class="fas fa-user-plus ml-2"></i>انضم إلينا الآن</a>
+                </button>
                 <button
                     class="px-8 py-3 rounded-lg font-medium text-lg border-2 border-white text-white hover:bg-white hover:bg-opacity-10 transition">
-                    <a href="index-2.html"> <i class="fas fa-question-circle ml-2"></i>تعرف أكثر
-                </button></a>
-                <div class="flex flex-wrap gap-4">
-
+                    <a href="index-2.html"><i class="fab fa-youtube ml-2"></i>استكشف الكورسات</a>
+                </button>
             </div>
         </section>
     </main>
@@ -340,59 +573,115 @@
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
                 <div>
-                    <h1 class="logo-text"> مكتبتي <span> الجامعية</span></h1>
-                    <p class="text-gray-400">
-                        منصة تعليمية رقمية تقدم حلولاً متكاملة للتعلم الأكاديمي والبحث العلمي
+                    <h1 class="logo-text">WebDev <span>Academy</span></h1>
+                    <p class="text-gray-400 mt-2">
+                        منصة متخصصة في تعليم تصميم وتطوير الويب
                     </p>
                 </div>
                 <div>
-                    <h3 class="text-lg font-bold mb-4 text-white">روابط سريعة</h3>
+                    <h3 class="text-lg font-bold mb-4 text-white">المسارات التعليمية</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-blue-300 transition">الرئيسية</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-300 transition">المكتبة الرقمية</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-300 transition">التحديات التعليمية</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-300 transition">Frontend Development</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-300 transition">Backend Development</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-300 transition">Full Stack</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-bold mb-4 text-white">تواصل معنا</h3>
+                    <h3 class="text-lg font-bold mb-4 text-white">الدعم الفني</h3>
                     <ul class="space-y-2">
-                        <li class="flex items-center text-gray-400"><i class="fas fa-envelope ml-2"></i>
-                            library@eiu.ac.ae</li>
-                        <li class="flex items-center text-gray-400"><i class="fas fa-phone ml-2"></i> 780910496</li>
-                        <li class="flex items-center text-gray-400"><i class="fas fa-map-marker-alt ml-2"></i> اليمن
-                            صنعاء -شارع بيروت
-                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-300 transition">الأسئلة الشائعة</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-300 transition">تواصل معنا</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-300 transition">المجتمع</a></li>
                     </ul>
                 </div>
                 <div>
                     <h3 class="text-lg font-bold mb-4 text-white">تابعنا</h3>
                     <div class="flex space-x-4 rtl:space-x-reverse">
-                        <a href=""
+                        <a href="#"
                             class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-blue-600 hover:text-white transition">
                             <i class="fab fa-twitter"></i>
                         </a>
                         <a href="#"
-                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-blue-600 hover:text-white transition">
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-pink-600 hover:text-white transition">
                             <i class="fab fa-instagram"></i>
                         </a>
                         <a href="#"
-                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-blue-600 hover:text-white transition">
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-blue-700 hover:text-white transition">
                             <i class="fab fa-linkedin"></i>
                         </a>
                         <a href="#"
-                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-blue-600 hover:text-white transition">
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-red-600 hover:text-white transition">
                             <i class="fab fa-youtube"></i>
                         </a>
                     </div>
                 </div>
             </div>
             <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
-                &copy; 2025 مكتبة الجامعة الإماراتية الدولية. جميع الحقوق محفوظة.
+                &copy; 2024 WebDev Academy. جميع الحقوق محفوظة.
             </div>
         </div>
     </footer>
 
-    <script src="js/about.js"></script>
+    <script>
+        // دالة التحميل للأدوات
+        function downloadTool(toolName) {
+            const downloadUrls = {
+                'vscode': 'https://code.visualstudio.com/download',
+                'git': 'https://git-scm.com/downloads',
+                'nodejs': 'https://nodejs.org/',
+                'devtools': 'https://developers.google.com/web/tools/chrome-devtools',
+                'figma': 'https://www.figma.com/',
+                'github': 'https://github.com/'
+            };
+
+            const url = downloadUrls[toolName];
+            if (url) {
+                window.open(url, '_blank');
+                alert(`جاري توجيهك لتحميل ${toolName}...`);
+            }
+        }
+
+        // دالة مشاهدة الكورسات على يوتيوب
+        function watchCourse(courseName) {
+            const youtubeUrls = {
+                'fcc-web-dev': 'https://www.youtube.com/watch?v=G3e-cpL7ofc',
+                'html-css-complete': 'https://www.youtube.com/watch?v=HcOc7P5BMi4',
+                'javascript-advanced': 'https://www.youtube.com/watch?v=EjavYOFoJJ0',
+                'react-complete': 'https://www.youtube.com/watch?v=SBvmnHTQIPY',
+                'elzero-web-design': 'https://www.youtube.com/watch?v=wRNinF7YQqQ',
+                'full-stack': 'https://www.youtube.com/watch?v=tgbNymZ7vqY'
+            };
+
+            const url = youtubeUrls[courseName];
+            if (url) {
+                window.open(url, '_blank');
+            }
+        }
+
+        // إنشاء النجوم الخلفية
+        function createStars() {
+            const container = document.getElementById('stars-container');
+            const starsCount = 100;
+
+            for (let i = 0; i < starsCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+
+                const size = Math.random() * 3;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.animationDelay = `${Math.random() * 5}s`;
+
+                container.appendChild(star);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', createStars);
+    </script>
 </body>
 
 </html>

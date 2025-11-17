@@ -564,7 +564,7 @@ border-bottom: 1px solid #444;
 }
 
 .category-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-15px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
@@ -647,7 +647,7 @@ body.dark-mode .book-card {
 
 .book-card:hover {
     
-    transform: translateY(-5px);
+    transform: translateY(-15px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
@@ -657,7 +657,8 @@ body.dark-mode .book-card:hover {
 }
 
 .book-cover {
-    position: relative;
+    position: none;
+    /* position: relative; */
     height: 200px;
     overflow: hidden;
 }
@@ -1980,6 +1981,55 @@ body {
 }
 
 
+/* تنسيق النماذج  */
 
-/* channew the css */
+   @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap');
+
+   * {
+       font-family: 'Tajawal', sans-serif;
+   }
+
+   :root {
+       --primary: #3b82f6;
+       --primary-dark: #2563eb;
+       --secondary: #10b981;
+       --background: #111827;
+       --card: #1f2937;
+   }
+
+   body {
+       background-color: var(--background);
+       color: white;
+   }
+
+   .exam-card {
+       transition: all 0.3s ease;
+       background: linear-gradient(135deg, var(--card), #111827);
+       border: 1px solid rgba(59, 130, 246, 0.2);
+   }
+
+   .exam-card:hover {
+       transform: translateY(-5px);
+       box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+       border-color: rgba(59, 130, 246, 0.5);
+   }
+
+   .year-tab {
+       transition: all 0.3s ease;
+       border-bottom: 3px solid transparent;
+   }
+
+   .year-tab.active {
+       border-color: var(--primary);
+       color: var(--primary);
+       font-weight: 600;
+   }
+
+   .year-tab:not(.active):hover {
+       border-color: rgba(59, 130, 246, 0.3);
+   } 
  
+
+
+
+   
