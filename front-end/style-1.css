@@ -1,0 +1,1432 @@
+/* تنسيق ملفindex  الاول  */
+
+:root {
+
+    --primary: #2563eb;
+    --secondary: #3b82f6;
+    --accent: #8b5cf6;
+    --dark: #1e293b;
+    --light: #f8fafc;
+    --text: #334155;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+
+
+
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --dark-color: #2c3e50;
+    --light-color: #ecf0f1;
+    --danger-color: #e74c3c;
+    --warning-color: #f39c12;
+    --text-color: #333;
+    --text-light: #7f8c8d;
+    --border-color: #ddd;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+
+
+    --primary: #6366f1;
+    --primary-dark: #4f46e5;
+    --secondary: #ec4899;
+    --accent: #8b5cf6;
+    --background: #0f172a;
+    --foreground: #f8fafc;
+    --card: #1e293b;
+    --card-hover: #334155;
+    --success: #22c55e;
+    --error: #ef4444;
+    --warning: #f59e0b;
+    --python: #3776ab;
+    --javascript: #f7df1e;
+    --java: #007396;
+    --csharp: #68217a;
+    --cpp: #00599c;
+
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Tajawal', sans-serif;
+    overflow-x: hidden;
+    background-color: #0f172a;
+    color: #ffffff;
+    perspective: 1000px;
+
+
+}
+
+
+body.dark-mode {
+
+    font-family: 'Tajawal', sans-serif;
+    overflow-x: hidden;
+    background-color: #0f172a;
+    color: #ffffff;
+    perspective: 1000px;
+
+
+    --text-color: #f5f5f5;
+    --light-color: #2c3e50;
+    --border-color: #444;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* الأزرار */
+.btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.btn.primary-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn.primary-btn:hover {
+    background-color: #2980b9;
+}
+
+.btn.secondary-btn {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn.secondary-btn:hover {
+    background-color: #27ae60;
+}
+
+.btn.small-btn {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+}
+
+.btn.large-btn {
+    padding: 12px 24px;
+    font-size: 1.1rem;
+}
+
+/* الشريط العلوي */
+.main-header {
+    background-color: white;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: var(--transition);
+}
+
+body.dark-mode .main-header {
+    background-color: var(--dark-color);
+    border-bottom: 1px solid #444;
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+/* اللوجوء  */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+.logo-text {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.logo-text span {
+    color: var(--primary-color);
+}
+
+
+/* زر البحث */
+
+.search-container {
+    flex: 1;
+    max-width: 500px;
+    margin: 0 20px;
+    position: relative;
+}
+
+.search-button {
+    z-index: 1000;
+    /* تأكد من أن الزر في المقدمة */
+    position: relative;
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 25px;
+    border: 1px solid var(--border-color);
+    background-color: var(--light-color);
+    transition: var(--transition);
+}
+
+body.dark-mode .search-input {
+    font-family: 'Tajawal', sans-serif;
+    overflow-x: hidden;
+    background-color: #0f172a;
+    color: #ffffff;
+    perspective: 1000px;
+}
+
+.search-btn {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--text-light);
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .search-button {
+        display: contents;
+        /* إخفاء الزر في الهاتف */
+    }
+
+    /* أو يمكنك تعديل شكله ليناسب الهاتف */
+    .search {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.mode-toggle {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--text-color);
+    position: relative;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.mode-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .mode-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.mode-toggle .fa-sun {
+    color: #f39c12;
+}
+
+.mode-toggle .hidden {
+    display: none;
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.navbar {
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    transition: color 0.3s;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+    color: var(--dark);
+    color: var(--text-light);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s;
+    color: var(--dark);
+    color: var(--text-light);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    color: var(--dark);
+    color: var(--text-light);
+}
+
+/* القائمة الجانبية */
+.sidebar {
+    width: 250px;
+    background-color: white;
+    position: fixed;
+    top: 80px;
+    right: 0;
+    bottom: 0;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    overflow-y: auto;
+    padding: 20px 0;
+}
+
+body.dark-mode .sidebar {
+    background-color: var(--dark-color);
+    border-left: 1px solid #444;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li a {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: var(--transition);
+    gap: 10px;
+
+}
+
+.sidebar li a:hover {
+    background-color: var(--light-color);
+}
+
+body.dark-mode .sidebar li a:hover {
+    background-color: #34495e;
+}
+
+.sidebar li a.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.sidebar li a i {
+    font-size: 1.1rem;
+    width: 24px;
+    text-align: center;
+}
+
+/* المحتوى الرئيسي */
+.main-content {
+    margin-right: 250px;
+    padding: 20px 0;
+    transition: var(--transition);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.section-header h3 {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.view-all {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.view-all:hover {
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+/* تأثير العمق الفضائي */
+.space-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.space-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+/* المجرات والسديم */
+.nebula {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -9;
+    opacity: 0.4;
+    background:
+        radial-gradient(circle at 20% 35%, rgba(67, 97, 238, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 75% 25%, rgba(114, 9, 183, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 85% 85%, rgba(76, 201, 240, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 15% 75%, rgba(6, 214, 160, 0.15) 0%, transparent 50%);
+    filter: blur(40px);
+    animation: nebulaMove 60s linear infinite;
+}
+
+@keyframes nebulaMove {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    50% {
+        background-position: 20% 10%;
+    }
+
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+/* النجوم المتلألئة */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -8;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    border-radius: 50%;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px #ffffff, 0 0 20px rgba(255, 255, 255, 0.5);
+    animation: twinkle var(--duration) ease-in-out infinite;
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: var(--min-opacity);
+        transform: scale(0.8);
+    }
+
+    50% {
+        opacity: var(--max-opacity);
+        transform: scale(1.2);
+    }
+}
+
+/* المدارات الكونية */
+.orbit-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -7;
+    transform-style: preserve-3d;
+}
+
+.orbit {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transform-style: preserve-3d;
+    animation: orbitRotate var(--orbit-duration) linear infinite;
+}
+
+@keyframes orbitRotate {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.orbit-node {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--node-color, #ffffff);
+    box-shadow: 0 0 10px var(--node-color, #ffffff);
+    transform: translate(-50%, -50%);
+    animation: nodeGlow 3s ease-in-out infinite;
+}
+
+@keyframes nodeGlow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 5px var(--node-color, #ffffff);
+    }
+
+    50% {
+        box-shadow: 0 0 15px var(--node-color, #ffffff), 0 0 30px var(--node-color, #ffffff);
+    }
+}
+
+/* تأثير الزجاج */
+.glass {
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* تأثير الحدود المتوهجة */
+.glow-border {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.glow-border::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    animation: glowBorderTop 4s linear infinite;
+    z-index: -1;
+}
+
+.glow-border::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+    animation: glowBorderBottom 4s linear infinite;
+    z-index: -1;
+}
+
+@keyframes glowBorderTop {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes glowBorderBottom {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* تأثير الأزرار */
+.btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+}
+
+.btn:hover::before {
+    opacity: 1;
+}
+
+.btn:hover {
+    box-shadow: 0 0 20px var(--primary), 0 0 40px var(--primary);
+    transform: translateY(-2px);
+}
+
+/* تأثير البطاقات */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+/* تأثير التقدم الدائري */
+.progress-circle {
+    position: relative;
+    width: 60px;
+    height: 60px;
+}
+
+.progress-circle svg {
+    transform: rotate(-90deg);
+}
+
+.progress-circle circle {
+    fill: none;
+    stroke-width: 8;
+    stroke-linecap: round;
+}
+
+.progress-circle .bg {
+    stroke: rgba(255, 255, 255, 0.1);
+}
+
+.progress-circle .progress {
+    stroke: var(--progress-color, var(--primary));
+    transition: stroke-dashoffset 0.3s ease;
+}
+
+/* تأثير الشريط المتحرك */
+.nav-link {
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* تأثير الشعار المتحرك */
+.logo {
+    position: relative;
+    display: inline-block;
+}
+
+.logo::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, var(--primary), var(--secondary), var(--tertiary-glow), var(--quaternary-glow));
+    z-index: -1;
+    animation: rotateLogo 10s linear infinite;
+    opacity: 0.3;
+}
+
+@keyframes rotateLogo {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* تأثير الشارات */
+.badge {
+    position: relative;
+    overflow: hidden;
+}
+
+.badge::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transform: rotate(45deg);
+    animation: badgeShine 3s infinite;
+}
+
+@keyframes badgeShine {
+    0% {
+        transform: translateX(-100%) rotate(45deg);
+    }
+
+    100% {
+        transform: translateX(100%) rotate(45deg);
+    }
+}
+
+/* تأثير الأيقونات */
+.icon-pulse {
+    animation: iconPulse 2s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* تأثير الشريط الجانبي */
+.sidebar-item {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.sidebar-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -10px;
+    height: 100%;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--primary), var(--secondary));
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+
+}
+
+.sidebar-item:hover::before,
+.sidebar-item.active::before {
+    transform: scaleY(1);
+}
+
+.sidebar-item:hover,
+.sidebar-item.active {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* تأثير الشريط العلوي */
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+
+.topbar.scrolled {
+    background: rgba(15, 23, 42, 0.9);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* تأثير الصورة الشخصية */
+.avatar {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.avatar:hover {
+    border-color: var(--primary);
+    box-shadow: 0 0 15px var(--primary);
+}
+
+/* تأثير الإشعارات */
+.notification-dot {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--danger);
+    animation: notificationPulse 2s infinite;
+}
+
+@keyframes notificationPulse {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0.8);
+        opacity: 0.8;
+    }
+}
+
+/* تأثير شريط التقدم */
+.progress-bar {
+    position: relative;
+    height: 6px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    border-radius: 3px;
+    transition: width 0.5s ease;
+}
+
+/* تأثير الأقسام */
+.section-title {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    border-radius: 3px;
+}
+
+/* تأثير الخط الزمني */
+.timeline {
+    position: relative;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 20px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--primary), var(--secondary));
+}
+
+.timeline-item {
+    position: relative;
+    padding-right: 40px;
+    margin-bottom: 20px;
+}
+
+.timeline-dot {
+    position: absolute;
+    top: 0;
+    right: 16px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--primary);
+    border: 2px solid var(--dark);
+}
+
+/* تأثير الشبكة */
+/* .grid-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: -1;
+        } */
+
+
+
+
+/* تنسيق فوتر التطبيقات uivers */
+ul {
+    list-style: none;
+}
+
+.example-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.example-2 .icon-content {
+    margin: 0 10px;
+    position: relative;
+}
+
+.example-2 .icon-content .tooltip {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.example-2 .icon-content:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    top: -50px;
+}
+
+.example-2 .icon-content a {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: #4d4d4d;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+}
+
+.example-2 .icon-content a:hover {
+    box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 12%);
+}
+
+.example-2 .icon-content a svg {
+    position: relative;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+}
+
+.example-2 .icon-content a:hover {
+    color: white;
+}
+
+.example-2 .icon-content a .filled {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: #000;
+    transition: all 0.3s ease-in-out;
+}
+
+.example-2 .icon-content a:hover .filled {
+    height: 100%;
+}
+
+.example-2 .icon-content a[data-social="linkedin"] .filled,
+.example-2 .icon-content a[data-social="linkedin"]~.tooltip {
+    background-color: #0274b3;
+}
+
+.example-2 .icon-content a[data-social="github"] .filled,
+.example-2 .icon-content a[data-social="github"]~.tooltip {
+    background-color: #24262a;
+}
+
+.example-2 .icon-content a[data-social="instagram"] .filled,
+.example-2 .icon-content a[data-social="instagram"]~.tooltip {
+    background: linear-gradient(45deg,
+            #405de6,
+            #5b51db,
+            #b33ab4,
+            #c135b4,
+            #e1306c,
+            #fd1f1f);
+}
+
+.example-2 .icon-content a[data-social="youtube"] .filled,
+.example-2 .icon-content a[data-social="youtube"]~.tooltip {
+    background-color: #ff0000;
+}
+
+
+
+/* From Uiverse.io by MikeAndrewDesigner */
+.e-card {
+    margin: 100px auto;
+    background: transparent;
+    box-shadow: 0px 8px 28px -9px rgba(0, 0, 0, 0.45);
+    position: relative;
+    width: 240px;
+    height: 330px;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.wave {
+    position: absolute;
+    width: 540px;
+    height: 700px;
+    opacity: 0.6;
+    left: 0;
+    top: 0;
+    margin-left: -50%;
+    margin-top: -70%;
+    background: linear-gradient(744deg, #af40ff, #5b42f3 60%, #00ddeb);
+}
+
+.icon {
+    width: 3em;
+    margin-top: -1em;
+    padding-bottom: 1em;
+}
+
+.infotop {
+    text-align: center;
+    font-size: 20px;
+    position: absolute;
+    top: 5.6em;
+    left: 0;
+    right: 0;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+}
+
+.name {
+    font-size: 14px;
+    font-weight: 100;
+    position: relative;
+    top: 1em;
+    text-transform: lowercase;
+}
+
+.wave:nth-child(2),
+.wave:nth-child(3) {
+    top: 210px;
+}
+
+.playing .wave {
+    border-radius: 40%;
+    animation: wave 3000ms infinite linear;
+}
+
+.wave {
+    border-radius: 40%;
+    animation: wave 55s infinite linear;
+}
+
+.playing .wave:nth-child(2) {
+    animation-duration: 4000ms;
+}
+
+.wave:nth-child(2) {
+    animation-duration: 50s;
+}
+
+.playing .wave:nth-child(3) {
+    animation-duration: 5000ms;
+}
+
+.wave:nth-child(3) {
+    animation-duration: 45s;
+}
+
+@keyframes wave {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+
+
+/* From Uiverse.io by ilkhoeri */
+.button {
+    --h-button: 48px;
+    --w-button: 102px;
+    --round: 0.75rem;
+    cursor: pointer;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: all 0.25s ease;
+    background: radial-gradient(65.28% 65.28% at 50% 100%,
+            rgba(223, 113, 255, 0.8) 0%,
+            rgba(223, 113, 255, 0) 100%),
+        linear-gradient(0deg, #7a5af8, #7a5af8);
+    border-radius: var(--round);
+    border: none;
+    outline: none;
+    padding: 12px 18px;
+}
+
+.button::before,
+.button::after {
+    content: "";
+    position: absolute;
+    inset: var(--space);
+    transition: all 0.5s ease-in-out;
+    border-radius: calc(var(--round) - var(--space));
+    z-index: 0;
+}
+
+.button::before {
+    --space: 1px;
+    background: linear-gradient(177.95deg,
+            rgba(255, 255, 255, 0.19) 0%,
+            rgba(255, 255, 255, 0) 100%);
+}
+
+.button::after {
+    --space: 2px;
+    background: radial-gradient(65.28% 65.28% at 50% 100%,
+            rgba(223, 113, 255, 0.8) 0%,
+            rgba(223, 113, 255, 0) 100%),
+        linear-gradient(0deg, #7a5af8, #7a5af8);
+}
+
+.button:active {
+    transform: scale(0.95);
+}
+
+.fold {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    transition: all 0.5s ease-in-out;
+    background: radial-gradient(100% 75% at 55%,
+            rgba(223, 113, 255, 0.8) 0%,
+            rgba(223, 113, 255, 0) 100%);
+    box-shadow: 0 0 3px black;
+    border-bottom-left-radius: 0.5rem;
+    border-top-right-radius: var(--round);
+}
+
+.fold::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 150%;
+    height: 150%;
+    transform: rotate(45deg) translateX(0%) translateY(-18px);
+    background-color: #e8e8e8;
+    pointer-events: none;
+}
+
+.button:hover .fold {
+    margin-top: -1rem;
+    margin-right: -1rem;
+}
+
+.points_wrapper {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    position: absolute;
+    z-index: 1;
+}
+
+.points_wrapper .point {
+    bottom: -10px;
+    position: absolute;
+    animation: floating-points infinite ease-in-out;
+    pointer-events: none;
+    width: 2px;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 9999px;
+}
+
+@keyframes floating-points {
+    0% {
+        transform: translateY(0);
+    }
+
+    85% {
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(-55px);
+        opacity: 0;
+    }
+}
+
+.points_wrapper .point:nth-child(1) {
+    left: 10%;
+    opacity: 1;
+    animation-duration: 2.35s;
+    animation-delay: 0.2s;
+}
+
+.points_wrapper .point:nth-child(2) {
+    left: 30%;
+    opacity: 0.7;
+    animation-duration: 2.5s;
+    animation-delay: 0.5s;
+}
+
+.points_wrapper .point:nth-child(3) {
+    left: 25%;
+    opacity: 0.8;
+    animation-duration: 2.2s;
+    animation-delay: 0.1s;
+}
+
+.points_wrapper .point:nth-child(4) {
+    left: 44%;
+    opacity: 0.6;
+    animation-duration: 2.05s;
+}
+
+.points_wrapper .point:nth-child(5) {
+    left: 50%;
+    opacity: 1;
+    animation-duration: 1.9s;
+}
+
+.points_wrapper .point:nth-child(6) {
+    left: 75%;
+    opacity: 0.5;
+    animation-duration: 1.5s;
+    animation-delay: 1.5s;
+}
+
+.points_wrapper .point:nth-child(7) {
+    left: 88%;
+    opacity: 0.9;
+    animation-duration: 2.2s;
+    animation-delay: 0.2s;
+}
+
+.points_wrapper .point:nth-child(8) {
+    left: 58%;
+    opacity: 0.8;
+    animation-duration: 2.25s;
+    animation-delay: 0.2s;
+}
+
+.points_wrapper .point:nth-child(9) {
+    left: 98%;
+    opacity: 0.6;
+    animation-duration: 2.6s;
+    animation-delay: 0.1s;
+}
+
+.points_wrapper .point:nth-child(10) {
+    left: 65%;
+    opacity: 1;
+    animation-duration: 2.5s;
+    animation-delay: 0.2s;
+}
+
+.inner {
+    z-index: 2;
+    gap: 6px;
+    position: relative;
+    width: 100%;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    transition: color 0.2s ease-in-out;
+}
+
+.inner svg.icon {
+    width: 18px;
+    height: 18px;
+    transition: fill 0.1s linear;
+}
+
+.button:focus svg.icon {
+    fill: white;
+}
+
+.button:hover svg.icon {
+    fill: transparent;
+    animation:
+        dasharray 1s linear forwards,
+        filled 0.1s linear forwards 0.95s;
+}
+
+@keyframes dasharray {
+    from {
+        stroke-dasharray: 0 0 0 0;
+    }
+
+    to {
+        stroke-dasharray: 68 68 0 0;
+    }
+}
+
+@keyframes filled {
+    to {
+        fill: white;
+    }
+}
+
+
+
