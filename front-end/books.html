@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مكتبتي الجامعية | الكتب الجامعية</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .book-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: #1f2937;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .floating-icon {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .course-badge {
+            transition: all 0.3s ease;
+        }
+
+        .course-badge:hover {
+            transform: scale(1.05);
+        }
+
+        .download-btn {
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900">
+    <!-- Header -->
+    <header class="bg-gray-800 py-6 shadow-lg">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <i class="fas fa-book text-3xl text-blue-400 mr-3"></i>
+                    <h1 class="text-2xl font-bold gradient-text">مكتبتي الجامعية</h1>
+                </div>
+                <nav class="hidden md:flex space-x-6 rtl:space-x-reverse">
+                    <a href="test-one.html" class="text-gray-300 hover:text-blue-400 transition">الرئيسية</a>
+                    <a href="plans.html" class="text-gray-300 hover:text-blue-400 transition">المسارات</a>
+                    <a href="#" class="text-blue-400 font-medium">الكتب الجامعية</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-20 bg-gradient-to-b from-gray-800 to-gray-900">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 text-white">الكتب <span class="gradient-text">الجامعية</span>
+            </h1>
+            <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-10">
+                اكتشف مجموعة واسعة من الكتب الجامعية المتخصصة في الهندسة وتكنولوجيا المعلومات
+            </p>
+        </div>
+    </section>
+
+    <!-- Filters Section -->
+    <section class="py-8 bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <h2 class="text-2xl font-bold text-white">تصفية الكتب</h2>
+
+                <div class="flex flex-col md:flex-row gap-4 w-full md:w-auto">
+                    <!-- التخصص Filter -->
+                    <div class="relative w-full md:w-64">
+                        <select id="specialization-filter"
+                            class="w-full bg-gray-700 border border-gray-600 text-white px-4 py-3 pr-10 rounded-lg appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="all">جميع التخصصات</option>
+                            <option value="computer-science">علوم الحاسوب</option>
+                            <option value="software-engineering">هندسة البرمجيات</option>
+                            <option value="information-technology">تكنولوجيا المعلومات</option>
+                            <option value="computer-engineering">هندسة الحاسوب</option>
+                            <option value="data-science">علم البيانات</option>
+                            <option value="cybersecurity">الأمن السيبراني</option>
+                            <option value="ai">الذكاء الاصطناعي</option>
+                            <option value="networks">شبكات الحاسوب</option>
+                            <option value="databases">قواعد البيانات</option>
+                            <option value="web-development">تطوير الويب</option>
+                        </select>
+                        <div class="absolute left-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                            <i class="fas fa-chevron-down text-gray-400"></i>
+                        </div>
+                    </div>
+
+                    <!-- السنة Filter -->
+                    <div class="relative w-full md:w-64">
+                        <select id="year-filter"
+                            class="w-full bg-gray-700 border border-gray-600 text-white px-4 py-3 pr-10 rounded-lg appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="all">جميع السنوات</option>
+                            <option value="first-year">السنة الأولى</option>
+                            <option value="second-year">السنة الثانية</option>
+                            <option value="third-year">السنة الثالثة</option>
+                            <option value="fourth-year">السنة الرابعة</option>
+                            <option value="graduate">الدراسات العليا</option>
+                        </select>
+                        <div class="absolute left-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                            <i class="fas fa-chevron-down text-gray-400"></i>
+                        </div>
+                    </div>
+
+                    <!-- بحث -->
+                    <div class="relative w-full md:w-64">
+                        <input type="text" id="search-input" placeholder="ابحث عن كتاب..."
+                            class="w-full bg-gray-700 border border-gray-600 text-white px-4 py-3 pr-10 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <div class="absolute left-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                            <i class="fas fa-search text-gray-400"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Books Grid -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="books-container">
+                <!-- Book 1 -->
+                <div class="book-card rounded-xl overflow-hidden" data-specialization="computer-science"
+                    data-year="first-year">
+                    <div
+                        class="relative h-48 bg-gradient-to-r from-blue-900 to-blue-700 flex items-center justify-center">
+                        <i class="fas fa-code text-8xl text-white opacity-20 floating-icon"></i>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-code text-5xl text-white"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold text-white">مقدمة في البرمجة</h3>
+                            <span class="bg-blue-900 text-blue-300 text-xs px-3 py-1 rounded-full">السنة الأولى</span>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            كتاب شامل يغطي أساسيات البرمجة باستخدام لغة Python، مناسب للمبتدئين في علوم الحاسوب.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="course-badge bg-gray-700 text-blue-400 text-xs px-3 py-1 rounded-full">علوم
+                                الحاسوب</span>
+                            <span
+                                class="course-badge bg-gray-700 text-blue-400 text-xs px-3 py-1 rounded-full">Python</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-sm text-gray-400">
+                                <i class="fas fa-user mr-1"></i>
+                                <span>د. أحمد محمد</span>
+                            </div>
+                            <button
+                                class="download-btn bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm flex items-center">
+                                <i class="fas fa-download ml-1"></i> تحميل
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 2 -->
+                <div class="book-card rounded-xl overflow-hidden" data-specialization="software-engineering"
+                    data-year="second-year">
+                    <div
+                        class="relative h-48 bg-gradient-to-r from-green-900 to-green-700 flex items-center justify-center">
+                        <i class="fas fa-cogs text-8xl text-white opacity-20 floating-icon"></i>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-cogs text-5xl text-white"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold text-white">هندسة البرمجيات</h3>
+                            <span class="bg-green-900 text-green-300 text-xs px-3 py-1 rounded-full">السنة
+                                الثانية</span>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            دليل شامل لفهم دورة حياة تطوير البرمجيات، التصميم، الاختبار، وإدارة المشاريع البرمجية.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="course-badge bg-gray-700 text-green-400 text-xs px-3 py-1 rounded-full">هندسة
+                                البرمجيات</span>
+                            <span
+                                class="course-badge bg-gray-700 text-green-400 text-xs px-3 py-1 rounded-full">UML</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-sm text-gray-400">
+                                <i class="fas fa-user mr-1"></i>
+                                <span>د. فاطمة العلي</span>
+                            </div>
+                            <button
+                                class="download-btn bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm flex items-center">
+                                <i class="fas fa-download ml-1"></i> تحميل
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 3 -->
+                <div class="book-card rounded-xl overflow-hidden" data-specialization="data-science"
+                    data-year="third-year">
+                    <div
+                        class="relative h-48 bg-gradient-to-r from-purple-900 to-purple-700 flex items-center justify-center">
+                        <i class="fas fa-chart-bar text-8xl text-white opacity-20 floating-icon"></i>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-chart-bar text-5xl text-white"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold text-white">علم البيانات وتحليلها</h3>
+                            <span class="bg-purple-900 text-purple-300 text-xs px-3 py-1 rounded-full">السنة
+                                الثالثة</span>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            مقدمة شاملة لعلم البيانات، تقنيات التحليل، والتعلم الآلي باستخدام Python وR.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="course-badge bg-gray-700 text-purple-400 text-xs px-3 py-1 rounded-full">علم
+                                البيانات</span>
+                            <span
+                                class="course-badge bg-gray-700 text-purple-400 text-xs px-3 py-1 rounded-full">Python</span>
+                            <span
+                                class="course-badge bg-gray-700 text-purple-400 text-xs px-3 py-1 rounded-full">R</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-sm text-gray-400">
+                                <i class="fas fa-user mr-1"></i>
+                                <span>د. خالد السعدي</span>
+                            </div>
+                            <button
+                                class="download-btn bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm flex items-center">
+                                <i class="fas fa-download ml-1"></i> تحميل
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 4 -->
+                <div class="book-card rounded-xl overflow-hidden" data-specialization="networks"
+                    data-year="second-year">
+                    <div
+                        class="relative h-48 bg-gradient-to-r from-red-900 to-red-700 flex items-center justify-center">
+                        <i class="fas fa-network-wired text-8xl text-white opacity-20 floating-icon"></i>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-network-wired text-5xl text-white"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold text-white">شبكات الحاسوب</h3>
+                            <span class="bg-red-900 text-red-300 text-xs px-3 py-1 rounded-full">السنة الثانية</span>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            كتاب شامل يغطي أساسيات شبكات الحاسوب، البروتوكولات، التوجيه، والأمن الشبكي.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="course-badge bg-gray-700 text-red-400 text-xs px-3 py-1 rounded-full">شبكات
+                                الحاسوب</span>
+                            <span
+                                class="course-badge bg-gray-700 text-red-400 text-xs px-3 py-1 rounded-full">TCP/IP</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-sm text-gray-400">
+                                <i class="fas fa-user mr-1"></i>
+                                <span>د. محمد القاسم</span>
+                            </div>
+                            <button
+                                class="download-btn bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm flex items-center">
+                                <i class="fas fa-download ml-1"></i> تحميل
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 5 -->
+                <div class="book-card rounded-xl overflow-hidden" data-specialization="ai" data-year="fourth-year">
+                    <div
+                        class="relative h-48 bg-gradient-to-r from-yellow-900 to-yellow-700 flex items-center justify-center">
+                        <i class="fas fa-brain text-8xl text-white opacity-20 floating-icon"></i>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-brain text-5xl text-white"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold text-white">الذكاء الاصطناعي</h3>
+                            <span class="bg-yellow-900 text-yellow-300 text-xs px-3 py-1 rounded-full">السنة
+                                الرابعة</span>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            مقدمة متقدمة في الذكاء الاصطناعي، خوارزميات البحث، التعلم الآلي، والشبكات العصبية.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="course-badge bg-gray-700 text-yellow-400 text-xs px-3 py-1 rounded-full">الذكاء
+                                الاصطناعي</span>
+                            <span class="course-badge bg-gray-700 text-yellow-400 text-xs px-3 py-1 rounded-full">تعلم
+                                الآلة</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-sm text-gray-400">
+                                <i class="fas fa-user mr-1"></i>
+                                <span>د. سارة النعيمي</span>
+                            </div>
+                            <button
+                                class="download-btn bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm flex items-center">
+                                <i class="fas fa-download ml-1"></i> تحميل
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 6 -->
+                <div class="book-card rounded-xl overflow-hidden" data-specialization="cybersecurity"
+                    data-year="third-year">
+                    <div
+                        class="relative h-48 bg-gradient-to-r from-indigo-900 to-indigo-700 flex items-center justify-center">
+                        <i class="fas fa-shield-alt text-8xl text-white opacity-20 floating-icon"></i>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-shield-alt text-5xl text-white"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold text-white">أمن المعلومات</h3>
+                            <span class="bg-indigo-900 text-indigo-300 text-xs px-3 py-1 rounded-full">السنة
+                                الثالثة</span>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            دليل شامل لأمن المعلومات، التشفير، حماية الشبكات، واكتشاف الثغرات الأمنية.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="course-badge bg-gray-700 text-indigo-400 text-xs px-3 py-1 rounded-full">الأمن
+                                السيبراني</span>
+                            <span
+                                class="course-badge bg-gray-700 text-indigo-400 text-xs px-3 py-1 rounded-full">التشفير</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-sm text-gray-400">
+                                <i class="fas fa-user mr-1"></i>
+                                <span>د. علي الشمري</span>
+                            </div>
+                            <button
+                                class="download-btn bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm flex items-center">
+                                <i class="fas fa-download ml-1"></i> تحميل
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 7 -->
+                <div class="book-card rounded-xl overflow-hidden" data-specialization="databases"
+                    data-year="second-year">
+                    <div
+                        class="relative h-48 bg-gradient-to-r from-pink-900 to-pink-700 flex items-center justify-center">
+                        <i class="fas fa-database text-8xl text-white opacity-20 floating-icon"></i>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-database text-5xl text-white"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold text-white">قواعد البيانات</h3>
+                            <span class="bg-pink-900 text-pink-300 text-xs px-3 py-1 rounded-full">السنة الثانية</span>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            كتاب شامل يغطي تصميم قواعد البيانات، لغة SQL، ونظم إدارة قواعد البيانات العلائقية.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="course-badge bg-gray-700 text-pink-400 text-xs px-3 py-1 rounded-full">قواعد
+                                البيانات</span>
+                            <span
+                                class="course-badge bg-gray-700 text-pink-400 text-xs px-3 py-1 rounded-full">SQL</span>
+                            <span
+                                class="course-badge bg-gray-700 text-pink-400 text-xs px-3 py-1 rounded-full">MySQL</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-sm text-gray-400">
+                                <i class="fas fa-user mr-1"></i>
+                                <span>د. نورة الكعبي</span>
+                            </div>
+                            <button
+                                class="download-btn bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm flex items-center">
+                                <i class="fas fa-download ml-1"></i> تحميل
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 8 -->
+                <div class="book-card rounded-xl overflow-hidden" data-specialization="web-development"
+                    data-year="third-year">
+                    <div
+                        class="relative h-48 bg-gradient-to-r from-teal-900 to-teal-700 flex items-center justify-center">
+                        <i class="fas fa-laptop-code text-8xl text-white opacity-20 floating-icon"></i>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-laptop-code text-5xl text-white"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold text-white">تطوير تطبيقات الويب</h3>
+                            <span class="bg-teal-900 text-teal-300 text-xs px-3 py-1 rounded-full">السنة الثالثة</span>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            دليل شامل لتطوير تطبيقات الويب باستخدام HTML, CSS, JavaScript وتقنيات الويب الحديثة.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="course-badge bg-gray-700 text-teal-400 text-xs px-3 py-1 rounded-full">تطوير
+                                الويب</span>
+                            <span
+                                class="course-badge bg-gray-700 text-teal-400 text-xs px-3 py-1 rounded-full">JavaScript</span>
+                            <span
+                                class="course-badge bg-gray-700 text-teal-400 text-xs px-3 py-1 rounded-full">React</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-sm text-gray-400">
+                                <i class="fas fa-user mr-1"></i>
+                                <span>د. يوسف المرزوقي</span>
+                            </div>
+                            <button
+                                class="download-btn bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm flex items-center">
+                                <i class="fas fa-download ml-1"></i> تحميل
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 9 -->
+                <div class="book-card rounded-xl overflow-hidden" data-specialization="computer-engineering"
+                    data-year="first-year">
+                    <div
+                        class="relative h-48 bg-gradient-to-r from-orange-900 to-orange-700 flex items-center justify-center">
+                        <i class="fas fa-microchip text-8xl text-white opacity-20 floating-icon"></i>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-microchip text-5xl text-white"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold text-white">أساسيات هندسة الحاسوب</h3>
+                            <span class="bg-orange-900 text-orange-300 text-xs px-3 py-1 rounded-full">السنة
+                                الأولى</span>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            مقدمة شاملة لمبادئ هندسة الحاسوب، المعالجات، الذاكرة، والهندسة المعمارية للحواسيب.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="course-badge bg-gray-700 text-orange-400 text-xs px-3 py-1 rounded-full">هندسة
+                                الحاسوب</span>
+                            <span
+                                class="course-badge bg-gray-700 text-orange-400 text-xs px-3 py-1 rounded-full">معالجات</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-sm text-gray-400">
+                                <i class="fas fa-user mr-1"></i>
+                                <span>د. عمر السويدي</span>
+                            </div>
+                            <button
+                                class="download-btn bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm flex items-center">
+                                <i class="fas fa-download ml-1"></i> تحميل
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-gradient-to-r from-blue-900 to-blue-700">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">هل تبحث عن كتاب محدد؟</h2>
+            <button class="bg-white text-blue-800 hover:bg-gray-100 px-10 py-4 rounded-lg font-bold text-lg">
+                تواصل معنا <i class="fas fa-arrow-left ml-2"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-book text-2xl text-blue-400 mr-3"></i>
+                        <h3 class="text-xl font-bold text-white">مكتبتي الجامعية</h3>
+                    </div>
+                    <p class="text-gray-400">
+                        منصة تعليمية متخصصة في تقديم الكتب والمواد الجامعية لطلاب الهندسة وتكنولوجيا المعلومات
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-white">التخصصات</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">علوم الحاسوب</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">هندسة البرمجيات</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">تكنولوجيا المعلومات</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">هندسة الحاسوب</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-white">روابط سريعة</h4>
+                    <ul class="space-y-2">
+                        <li><a href="test-one.html" class="text-gray-400 hover:text-blue-400 transition">الرئيسية</a>
+                        </li>
+                        <li><a href="plans.html" class="text-gray-400 hover:text-blue-400 transition">المسارات</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">الأسئلة الشائعة</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-white">تواصل معنا</h4>
+                    <div class="flex space-x-4 rtl:space-x-reverse mb-4">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-blue-600 hover:text-white transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-blue-600 hover:text-white transition">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-blue-600 hover:text-white transition">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400">
+                        <i class="fas fa-envelope mr-2"></i> info@maktabti.com
+                    </p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
+                &copy; 2023 مكتبتي الجامعية. جميع الحقوق محفوظة.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // فلترة الكتب حسب التخصص والسنة
+        document.addEventListener('DOMContentLoaded', function () {
+            const specializationFilter = document.getElementById('specialization-filter');
+            const yearFilter = document.getElementById('year-filter');
+            const searchInput = document.getElementById('search-input');
+            const booksContainer = document.getElementById('books-container');
+            const books = Array.from(booksContainer.children);
+
+            function filterBooks() {
+                const specializationValue = specializationFilter.value;
+                const yearValue = yearFilter.value;
+                const searchValue = searchInput.value.toLowerCase();
+
+                books.forEach(book => {
+                    const bookSpecialization = book.getAttribute('data-specialization');
+                    const bookYear = book.getAttribute('data-year');
+                    const bookTitle = book.querySelector('h3').textContent.toLowerCase();
+                    const bookDescription = book.querySelector('p').textContent.toLowerCase();
+
+                    const specializationMatch = specializationValue === 'all' || bookSpecialization === specializationValue;
+                    const yearMatch = yearValue === 'all' || bookYear === yearValue;
+                    const searchMatch = searchValue === '' ||
+                        bookTitle.includes(searchValue) ||
+                        bookDescription.includes(searchValue);
+
+                    if (specializationMatch && yearMatch && searchMatch) {
+                        book.style.display = 'block';
+                    } else {
+                        book.style.display = 'none';
+                    }
+                });
+            }
+
+            specializationFilter.addEventListener('change', filterBooks);
+            yearFilter.addEventListener('change', filterBooks);
+            searchInput.addEventListener('input', filterBooks);
+
+            // إضافة حدث تحميل للكتب
+            const downloadButtons = document.querySelectorAll('.download-btn');
+            downloadButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const bookTitle = this.closest('.book-card').querySelector('h3').textContent;
+                    alert(`سيبدأ تحميل كتاب: ${bookTitle}\n\nسيتم توجيهك إلى صفحة التحميل قريبًا.`);
+                    // في التطبيق الحقيقي، هنا نضيف كود التحميل الفعلي
+                });
+            });
+
+            // كود لجعل أيقونات الكتب تطفو
+            const floatingIcons = document.querySelectorAll('.floating-icon');
+
+            floatingIcons.forEach(icon => {
+                const delay = Math.random() * 2;
+                icon.style.animationDelay = `${delay}s`;
+            });
+        });
+    </script>
+</body>
+
+</html>

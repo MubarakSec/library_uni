@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عن المنصة | مكتبة الجامعة الإماراتية الدولية</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style-1.css">
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --secondary: #06b6d4;
+            --tertiary: #10b981;
+            --accent: #f59e0b;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            min-height: 100vh;
+        }
+
+        .glass {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glow-border {
+            box-shadow: 0 0 20px rgba(79, 70, 229, 0.3);
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo-text span {
+            color: white;
+            -webkit-text-fill-color: white;
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 5s infinite;
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 0.2;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .download-btn:hover::before {
+            left: 100%;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4);
+        }
+
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 1rem;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slide-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            padding: 2rem;
+            color: white;
+        }
+
+        .slider-nav {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .slider-dot.active {
+            background: white;
+            transform: scale(1.2);
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .slider-btn:hover {
+            background: rgba(0, 0, 0, 0.8);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .slider-prev {
+            right: 1rem;
+        }
+
+        .slider-next {
+            left: 1rem;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            border-radius: 1rem;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .video-controls {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            padding: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-container:hover .video-controls {
+            opacity: 1;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(79, 70, 229, 0.3);
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(79, 70, 229, 0.3);
+        }
+
+        .step-card {
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .step-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px 2px 0 0;
+        }
+
+        .university-bg {
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.1), rgba(6, 182, 212, 0.1));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- النجوم المتحركة -->
+    <div class="stars" id="stars"></div>
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 backdrop-blur-lg bg-opacity-80 bg-gray-900 border-b border-gray-800">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <h1 class="logo-text"> مكتبتي <span> الجامعية</span></h1>
+                    <nav class="hidden md:flex mr-8">
+                        <a href="test-one.html"
+                            class="mx-3 font-medium text-white hover:text-blue-300 transition">الرئيسية</a>
+                        <a href="books.html" class="mx-3 font-medium text-white hover:text-blue-300 transition">المكتبة
+                            الرقمية</a>
+                        <a href="channew.html"
+                            class="mx-3 font-medium text-white hover:text-blue-300 transition">التحديات التعليمية</a>
+                    </nav>
+                </div>
+                <div class="flex items-center">
+                    <a href="login.html" class="download-btn px-6 py-2 rounded-lg font-medium">
+                        <i class="fas fa-sign-in-alt ml-2"></i>تسجيل الدخول
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+        <!-- About Hero Section -->
+        <section class="mb-16 text-center">
+            <div class="floating mb-8">
+                <i class="fas fa-graduation-cap text-6xl text-blue-400"></i>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                عن <span class="gradient-text">منصتنا</span>
+            </h1>
+            <p class="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                منصة المكتبة الرقمية للجامعة الإماراتية الدولية، بيئة تعليمية متكاملة تدمج بين المصادر الأكاديمية الغنية
+                وأدوات التعلم التفاعلية
+            </p>
+        </section>
+
+        <!-- About Content -->
+        <section class="glass rounded-2xl p-8 mb-12 glow-border">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold mb-6 gradient-text">رؤيتنا ورسالتنا</h2>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        نهدف إلى توفير بيئة تعليمية رقمية متكاملة تدعم مسيرة الطلاب الأكاديمية وتواكب أحدث التطورات في
+                        عالم المعرفة والتعلم الإلكتروني.
+                    </p>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        نسعى جاهدين لتمكين طلاب الجامعة الإماراتية الدولية من الوصول إلى أفضل المصادر التعليمية وتطوير
+                        مهاراتهم من خلال أدوات تعلم مبتكرة.
+                    </p>
+                    <div class="flex flex-wrap gap-6">
+                        <div class="flex items-center">
+                            <div
+                                class="w-16 h-16 rounded-full bg-blue-900/50 flex items-center justify-center text-blue-400 mr-4 pulse">
+                                <i class="fas fa-book text-2xl"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold text-2xl">+5000</div>
+                                <div class="text-sm text-gray-400">مصدر تعليمي</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div
+                                class="w-16 h-16 rounded-full bg-green-900/50 flex items-center justify-center text-green-400 mr-4 pulse">
+                                <i class="fas fa-users text-2xl"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold text-2xl">+12000</div>
+                                <div class="text-sm text-gray-400">طالب مستفيد</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- السلايدر المحسن -->
+                <div class="slider-container">
+                    <div class="slider" id="university-slider">
+                        <div class="slide">
+                            <img src="imges/EIU-img2025-05-05-954543.jpg.webp" alt="حرم الجامعة">
+                            <div class="slide-overlay">
+                                <h3 class="text-xl font-bold">الحرم الجامعي</h3>
+                                <p class="text-gray-300">بيئة تعليمية متطورة</p>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <img src="imges/EIU-img2022-08-10-988684.jpg.webp" alt="مكتبة الجامعة">
+                            <div class="slide-overlay">
+                                <h3 class="text-xl font-bold">المكتبة المركزية</h3>
+                                <p class="text-gray-300">مصادر معرفية شاملة</p>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <img src="imges/EIU-img2022-08-04-610404.jpg.webp" alt="فصول الدراسة">
+                            <div class="slide-overlay">
+                                <h3 class="text-xl font-bold">قاعات الدراسة</h3>
+                                <p class="text-gray-300">تعليم تفاعلي متقدم</p>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <img src="imges/logo.png/FreeSample-Vectorizer-io-logo.svg" alt="شعار الجامعة">
+                            <div class="slide-overlay">
+                                <h3 class="text-xl font-bold">الجامعة الإماراتية الدولية</h3>
+                                <p class="text-gray-300">التميز في التعليم</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="slider-btn slider-prev">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <button class="slider-btn slider-next">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+
+                    <div class="slider-nav">
+                        <div class="slider-dot active" data-index="0"></div>
+                        <div class="slider-dot" data-index="1"></div>
+                        <div class="slider-dot" data-index="2"></div>
+                        <div class="slider-dot" data-index="3"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم الفيديو الترويجي -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 text-center gradient-text">عن الجامعة الإماراتية الدولية</h2>
+
+            <div class="video-container glass glow-border">
+                <video id="university-video" class="w-full h-full"
+                    poster="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
+                    muted playsinline>
+                    <source
+                        src="vedios/بمعايير_علمية.._وسعي_مستمر_نحو_التطوير.._واكبنا_الحداثة_وصنعنا_التميُّز.._الجامعة_الإماراتيةالدولية(720p).mp4"
+                        type="video/mp4">
+                    متصفحك لا يدعم تشغيل الفيديو.
+                </video>
+
+                <div class="video-controls">
+                    <div class="flex items-center justify-between">
+                        <button id="play-btn" class="text-white text-2xl hover:text-blue-400 transition">
+                            <i class="fas fa-play"></i>
+                        </button>
+
+                        <div class="flex-1 mx-4">
+                            <div class="h-1 bg-gray-600 rounded-full overflow-hidden cursor-pointer"
+                                id="progress-container">
+                                <div id="progress-bar" class="h-full bg-blue-500 transition-all" style="width: 0%">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-white text-sm">
+                            <span id="current-time">00:00</span> / <span id="duration">00:00</span>
+                        </div>
+
+                        <button id="mute-btn" class="text-white text-2xl hover:text-blue-400 transition mr-4">
+                            <i class="fas fa-volume-up"></i>
+                        </button>
+
+                        <button id="fullscreen-btn" class="text-white text-2xl hover:text-blue-400 transition">
+                            <i class="fas fa-expand"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="autoplay-overlay"
+                    class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 cursor-pointer">
+                    <div class="text-center p-6">
+                        <div class="text-white text-6xl mb-4 floating">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">جولة في الحرم الجامعي</h3>
+                        <p class="text-gray-300">اضغط للعرض التلقائي</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-12 text-center gradient-text">مميزات المنصة</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="feature-card rounded-xl p-6">
+                    <div class="text-blue-400 text-4xl mb-4 floating">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">مكتبة رقمية شاملة</h3>
+                    <p class="text-gray-300">
+                        تشمل آلاف الكتب الإلكترونية، الأبحاث العلمية، المجلات الأكاديمية في مختلف التخصصات التي تدرس
+                        بالجامعة.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature-card rounded-xl p-6">
+                    <div class="text-green-400 text-4xl mb-4 floating">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">تحديات تعليمية تفاعلية</h3>
+                    <p class="text-gray-300">
+                        أنشطة وتحديات مصممة لتعزيز الفهم وتطبيق المعرفة في مختلف المواد الدراسية.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="feature-card rounded-xl p-6">
+                    <div class="text-purple-400 text-4xl mb-4 floating">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">مواد تعليمية مخصصة</h3>
+                    <p class="text-gray-300">
+                        محتوى تعليمي معد خصيصاً لبرامج الجامعة المختلفة، يشمل محاضرات مرئية، عروض تقديمية، وملخصات
+                        دراسية.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-12 text-center gradient-text">كيف تعمل المنصة؟</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="step-card glass rounded-xl">
+                    <div
+                        class="w-20 h-20 rounded-full bg-blue-900/50 text-blue-400 text-2xl flex items-center justify-center mx-auto mb-4 pulse">
+                        1
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">التسجيل في المنصة</h3>
+                    <p class="text-gray-300">
+                        يمكن للطلاب وأعضاء هيئة التدريس التسجيل باستخدام بياناتهم الجامعية
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step-card glass rounded-xl">
+                    <div
+                        class="w-20 h-20 rounded-full bg-green-900/50 text-green-400 text-2xl flex items-center justify-center mx-auto mb-4 pulse">
+                        2
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">استكشاف المحتوى</h3>
+                    <p class="text-gray-300">
+                        تصفح المكتبة الرقمية أو التحديات التعليمية حسب التخصص أو المادة الدراسية
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step-card glass rounded-xl">
+                    <div
+                        class="w-20 h-20 rounded-full bg-purple-900/50 text-purple-400 text-2xl flex items-center justify-center mx-auto mb-4 pulse">
+                        3
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">التعلم والتطبيق</h3>
+                    <p class="text-gray-300">
+                        استخدم المصادر المتاحة وحل التحديات لتعزيز فهمك الأكاديمي
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-12 text-center gradient-text">آراء المستخدمين</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card rounded-xl p-6">
+                    <div class="flex items-center mb-4">
+                        <img src="https://api.dicebear.com/6.x/avataaars/svg?seed=Ahmad" alt="طالب"
+                            class="w-12 h-12 rounded-full border-2 border-blue-400">
+                        <div class="mr-3">
+                            <div class="font-bold">ياسين الخلاقي</div>
+                            <div class="text-sm text-gray-400">طالب الأمن السيبراني</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic">
+                        "المنصة ساعدتني كثيراً في إيجاد المراجع التي أحتاجها لمشروع التخرج، كما أن التحديات البرمجية
+                        ساهمت في تطوير مهاراتي العملية"
+                    </p>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card rounded-xl p-6">
+                    <div class="flex items-center mb-4">
+                        <img src="https://api.dicebear.com/6.x/avataaars/svg?seed=Mohammed" alt="طالب"
+                            class="w-12 h-12 rounded-full border-2 border-green-400">
+                        <div class="mr-3">
+                            <div class="font-bold">مبارك الحمادي</div>
+                            <div class="text-sm text-gray-400">طالب الأمن السيبراني</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic">
+                        "أحب التنظيم والتصميم البسيط للمنصة، المواد التعليمية مرتبة بطريقة تسهل الوصول إليها، خاصة
+                        الملخصات قبل الامتحانات"
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="university-bg rounded-2xl p-12 text-center glow-border pulse">
+            <h2 class="text-3xl font-bold mb-6">كن جزءاً من مجتمعنا التعليمي</h2>
+            <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                انضم إلى آلاف الطلاب الذين يستفيدون يومياً من مواردنا التعليمية المتطورة
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="creat-user.html" class="download-btn px-8 py-3 rounded-lg font-medium text-lg">
+                    <i class="fas fa-user-plus ml-2"></i>انضم إلينا الآن
+                </a>
+                <a href="test-one.html"
+                    class="px-8 py-3 rounded-lg font-medium text-lg border-2 border-white text-white hover:bg-white hover:bg-opacity-10 transition">
+                    <i class="fas fa-question-circle ml-2"></i>تعرف أكثر
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h1 class="logo-text text-2xl mb-4"> مكتبتي <span> الجامعية</span></h1>
+                    <p class="text-gray-400">
+                        منصة تعليمية رقمية تقدم حلولاً متكاملة للتعلم الأكاديمي والبحث العلمي
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-white">روابط سريعة</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index-2.html" class="text-gray-400 hover:text-blue-300 transition">الرئيسية</a>
+                        </li>
+                        <li><a href="books.html" class="text-gray-400 hover:text-blue-300 transition">المكتبة
+                                الرقمية</a></li>
+                        <li><a href="channew.html" class="text-gray-400 hover:text-blue-300 transition">التحديات
+                                التعليمية</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-white">تواصل معنا</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-envelope ml-2 text-blue-400"></i>
+                            library@eiu.ac.ae
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-phone ml-2 text-green-400"></i>
+                            780910496
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-map-marker-alt ml-2 text-red-400"></i>
+                            اليمن صنعاء - شارع بيروت
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-white">تابعنا</h3>
+                    <div class="flex space-x-4 rtl:space-x-reverse">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-blue-600 hover:text-white transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-pink-600 hover:text-white transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-blue-500 hover:text-white transition">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-red-600 hover:text-white transition">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
+                &copy; 2025 مكتبة الجامعة الإماراتية الدولية. جميع الحقوق محفوظة.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // إنشاء النجوم
+        function createStars() {
+            const starsContainer = document.querySelector('.stars');
+            for (let i = 0; i < 100; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.width = Math.random() * 2 + 'px';
+                star.style.height = star.style.width;
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 5 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // السلايدر
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.slider-dot');
+        const slider = document.getElementById('university-slider');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            if (index >= totalSlides) currentSlide = 0;
+            else if (index < 0) currentSlide = totalSlides - 1;
+            else currentSlide = index;
+
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+            // تحديث النقاط
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        // التحكم في الفيديو
+        const video = document.getElementById('university-video');
+        const playBtn = document.getElementById('play-btn');
+        const muteBtn = document.getElementById('mute-btn');
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const progressBar = document.getElementById('progress-bar');
+        const progressContainer = document.getElementById('progress-container');
+        const currentTimeEl = document.getElementById('current-time');
+        const durationEl = document.getElementById('duration');
+        const autoplayOverlay = document.getElementById('autoplay-overlay');
+
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        function updateProgress() {
+            const percent = (video.currentTime / video.duration) * 100;
+            progressBar.style.width = `${percent}%`;
+            currentTimeEl.textContent = formatTime(video.currentTime);
+        }
+
+        function setProgress(e) {
+            const width = this.clientWidth;
+            const clickX = e.offsetX;
+            const duration = video.duration;
+            video.currentTime = (clickX / width) * duration;
+        }
+
+        // الأحداث
+        document.addEventListener('DOMContentLoaded', function () {
+            createStars();
+
+            // السلايدر التلقائي
+            setInterval(nextSlide, 5000);
+
+            // أحداث السلايدر
+            document.querySelector('.slider-next').addEventListener('click', nextSlide);
+            document.querySelector('.slider-prev').addEventListener('click', prevSlide);
+
+            dots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    showSlide(parseInt(dot.dataset.index));
+                });
+            });
+
+            // أحداث الفيديو
+            video.addEventListener('loadedmetadata', () => {
+                durationEl.textContent = formatTime(video.duration);
+            });
+
+            video.addEventListener('timeupdate', updateProgress);
+            progressContainer.addEventListener('click', setProgress);
+
+            playBtn.addEventListener('click', () => {
+                if (video.paused) {
+                    video.play();
+                    playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                    autoplayOverlay.style.display = 'none';
+                } else {
+                    video.pause();
+                    playBtn.innerHTML = '<i class="fas fa-play"></i>';
+                }
+            });
+
+            muteBtn.addEventListener('click', () => {
+                video.muted = !video.muted;
+                muteBtn.innerHTML = video.muted ?
+                    '<i class="fas fa-volume-mute"></i>' :
+                    '<i class="fas fa-volume-up"></i>';
+            });
+
+            fullscreenBtn.addEventListener('click', () => {
+                if (video.requestFullscreen) {
+                    video.requestFullscreen();
+                }
+            });
+
+            autoplayOverlay.addEventListener('click', () => {
+                video.play();
+                playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                autoplayOverlay.style.display = 'none';
+            });
+
+            video.addEventListener('click', () => {
+                if (video.paused) {
+                    video.play();
+                    playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                    autoplayOverlay.style.display = 'none';
+                } else {
+                    video.pause();
+                    playBtn.innerHTML = '<i class="fas fa-play"></i>';
+                }
+            });
+        });
+    </script>
+    <script src="js/about.js"></script>
+</body>
+
+</html>

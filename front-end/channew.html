@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة تحديات البرمجة | CodeMaster</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --secondary: #06b6d4;
+            --tertiary: #10b981;
+            --accent: #f59e0b;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            min-height: 100vh;
+        }
+
+        .glass {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glow-border {
+            box-shadow: 0 0 20px rgba(79, 70, 229, 0.3);
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 5s infinite;
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 0.2;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .download-btn:hover::before {
+            left: 100%;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4);
+        }
+
+        .challenge-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .challenge-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .challenge-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .challenge-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(79, 70, 229, 0.3);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .language-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .language-python {
+            background: linear-gradient(135deg, #3776AB 0%, #FFD43B 100%);
+        }
+
+        .language-javascript {
+            background: linear-gradient(135deg, #F7DF1E 0%, #000000 100%);
+        }
+
+        .language-java {
+            background: linear-gradient(135deg, #ED8B00 0%, #5382A1 100%);
+        }
+
+        .language-csharp {
+            background: linear-gradient(135deg, #239120 0%, #68217A 100%);
+        }
+
+        .language-cpp {
+            background: linear-gradient(135deg, #00599C 0%, #004482 100%);
+        }
+
+        .language-html {
+            background: linear-gradient(135deg, #E34F26 0%, #F06529 100%);
+        }
+
+        .language-css {
+            background: linear-gradient(135deg, #1572B6 0%, #33A9DC 100%);
+        }
+
+        .language-sql {
+            background: linear-gradient(135deg, #4479A1 0%, #336791 100%);
+        }
+
+        .badge {
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .badge-beginner {
+            background: rgba(34, 197, 94, 0.2);
+            color: #22c55e;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+
+        .badge-intermediate {
+            background: rgba(234, 179, 8, 0.2);
+            color: #eab308;
+            border: 1px solid rgba(234, 179, 8, 0.3);
+        }
+
+        .badge-advanced {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .tab {
+            padding: 12px 24px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .tab.active {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .tab:hover:not(.active) {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .question-counter {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .feature-list li i {
+            color: var(--primary);
+            width: 20px;
+        }
+
+        .challenge-modal {
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+        }
+
+        /* أنماط جديدة للأسئلة */
+        .question-container {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .question-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .option {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(79, 70, 229, 0.5);
+        }
+
+        .option.selected {
+            background: rgba(79, 70, 229, 0.2);
+            border-color: var(--primary);
+        }
+
+        .option.correct {
+            background: rgba(34, 197, 94, 0.2);
+            border-color: #22c55e;
+        }
+
+        .option.incorrect {
+            background: rgba(239, 68, 68, 0.2);
+            border-color: #ef4444;
+        }
+
+        .timer {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent);
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .progress {
+            height: 100%;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            transition: width 0.3s ease;
+        }
+
+        .result-modal {
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- النجوم المتحركة -->
+    <div class="stars" id="stars"></div>
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 backdrop-blur-lg bg-opacity-80 bg-gray-900 border-b border-gray-800">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="text-2xl font-bold gradient-text">CodeMaster</div>
+                    <nav class="hidden md:flex mr-8">
+                        <a href="index.html"
+                            class="mx-3 font-medium text-white hover:text-blue-300 transition">الرئيسية</a>
+                        <a href="#" class="mx-3 font-medium text-white hover:text-blue-300 transition">التحديات</a>
+                        <a href="#" class="mx-3 font-medium text-white hover:text-blue-300 transition">المسابقات</a>
+                        <a href="#" class="mx-3 font-medium text-white hover:text-blue-300 transition">المجتمع</a>
+                    </nav>
+                </div>
+                <div class="flex items-center">
+                    <div class="relative mr-4">
+                        <span class="absolute top-0 right-0 h-3 w-3 rounded-full bg-green-500 animate-pulse"></span>
+                        <img src="https://api.dicebear.com/6.x/avataaars/svg?seed=Yassin" alt="User Avatar"
+                            class="w-12 h-12 rounded-full border-2 border-indigo-500">
+                    </div>
+                    <div class="hidden md:block mr-4">
+                        <div class="font-medium">ياسين الخلاقي</div>
+                        <div class="text-xs text-gray-400">المستوى: متقدم</div>
+                    </div>
+                    <a href="login.html" class="download-btn px-6 py-2 rounded-lg font-medium">
+                        <i class="fas fa-sign-in-alt ml-2"></i>تسجيل الدخول
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Hero Section -->
+        <section class="mb-16 text-center fade-in">
+            <div class="floating mb-8">
+                <i class="fas fa-laptop-code text-6xl text-blue-400"></i>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                تحديات <span class="gradient-text">البرمجة</span> المتقدمة
+            </h1>
+            <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                اختبر مهاراتك في مختلف لغات البرمجة من خلال تحديات متقدمة تحتوي على 10+ أسئلة متنوعة لكل تحدي
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="download-btn px-8 py-4 rounded-lg font-medium text-lg pulse" id="start-random-challenge">
+                    <i class="fas fa-random ml-2"></i>ابدأ تحدي عشوائي
+                </button>
+            </div>
+        </section>
+
+        <!-- Challenges Overview -->
+        <section class="mb-16 glass rounded-2xl p-8 glow-border fade-in">
+            <h2 class="text-3xl font-bold mb-8 text-center gradient-text">نظرة عامة على التحديات</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                <div class="text-center p-6 bg-gray-800/50 rounded-xl">
+                    <div class="text-3xl font-bold text-blue-400 mb-2">8+</div>
+                    <div class="text-gray-300">لغات برمجة</div>
+                </div>
+                <div class="text-center p-6 bg-gray-800/50 rounded-xl">
+                    <div class="text-3xl font-bold text-green-400 mb-2">15+</div>
+                    <div class="text-gray-300">تحديات متقدمة</div>
+                </div>
+                <div class="text-center p-6 bg-gray-800/50 rounded-xl">
+                    <div class="text-3xl font-bold text-purple-400 mb-2">150+</div>
+                    <div class="text-gray-300">سؤال متنوع</div>
+                </div>
+                <div class="text-center p-6 bg-gray-800/50 rounded-xl">
+                    <div class="text-3xl font-bold text-yellow-400 mb-2">3</div>
+                    <div class="text-gray-300">مستويات صعوبة</div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <p class="text-gray-300 text-lg">
+                    كل تحدي يحتوي على <span class="text-blue-400 font-bold">10+ أسئلة</span> تغطي مفاهيم متقدمة وتطبيقات
+                    عملية
+                </p>
+            </div>
+        </section>
+
+        <!-- Advanced Challenges Section -->
+        <section class="mb-16 fade-in">
+            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-8">
+                <h2 class="text-3xl font-bold mb-4 lg:mb-0">التحديات المتقدمة</h2>
+
+                <!-- فلاتر المستويات -->
+                <div class="flex flex-wrap gap-3">
+                    <div class="tab active" data-level="all">جميع المستويات</div>
+                    <div class="tab" data-level="beginner">مبتدئ</div>
+                    <div class="tab" data-level="intermediate">متوسط</div>
+                    <div class="tab" data-level="advanced">متقدم</div>
+                </div>
+            </div>
+
+            <!-- فلاتر اللغات -->
+            <div class="flex flex-wrap gap-3 mb-8">
+                <div class="tab active" data-language="all">جميع اللغات</div>
+                <div class="tab" data-language="python">Python</div>
+                <div class="tab" data-language="javascript">JavaScript</div>
+                <div class="tab" data-language="java">Java</div>
+                <div class="tab" data-language="csharp">C#</div>
+                <div class="tab" data-language="cpp">C++</div>
+                <div class="tab" data-language="sql">SQL</div>
+                <div class="tab" data-language="html">HTML/CSS</div>
+            </div>
+
+            <!-- شبكة التحديات -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="challenges-grid">
+                <!-- Python AI Challenge -->
+                <div class="challenge-card rounded-xl p-6 floating" data-language="python" data-level="advanced">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center">
+                            <div class="language-icon language-python mr-4">
+                                <i class="fab fa-python"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-1">خوارزميات الذكاء الاصطناعي</h3>
+                                <div class="flex items-center gap-2">
+                                    <span class="badge badge-advanced">متقدم</span>
+                                    <span class="question-counter">
+                                        <i class="fas fa-list-ol"></i>
+                                        12 سؤال
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="text-gray-400 hover:text-yellow-400 transition text-xl bookmark-btn">
+                            <i class="far fa-bookmark"></i>
+                        </button>
+                    </div>
+
+                    <p class="text-gray-300 mb-4">
+                        تحديات متقدمة في خوارزميات الذكاء الاصطناعي وتعلم الآلة باستخدام Python ومكتبات متخصصة.
+                    </p>
+
+                    <ul class="feature-list text-gray-300 text-sm mb-6">
+                        <li><i class="fas fa-check"></i> 4 أسئلة في الشبكات العصبية</li>
+                        <li><i class="fas fa-check"></i> 3 أسئلة في معالجة اللغة الطبيعية</li>
+                        <li><i class="fas fa-check"></i> 3 أسئلة في رؤية الحاسوب</li>
+                        <li><i class="fas fa-check"></i> 2 أسئلة في التعلم المعزز</li>
+                    </ul>
+
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center text-gray-400">
+                            <i class="fas fa-clock ml-2"></i>
+                            <span>15 دقيقة</span>
+                        </div>
+                        <button class="download-btn px-4 py-2 rounded-lg text-sm start-challenge"
+                            data-challenge="python-ai">
+                            ابدأ التحدي
+                        </button>
+                    </div>
+                </div>
+
+                <!-- JavaScript React Challenge -->
+                <div class="challenge-card rounded-xl p-6 floating" data-language="javascript" data-level="advanced">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center">
+                            <div class="language-icon language-javascript mr-4">
+                                <i class="fab fa-js"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-1">تطبيقات React المتقدمة</h3>
+                                <div class="flex items-center gap-2">
+                                    <span class="badge badge-advanced">متقدم</span>
+                                    <span class="question-counter">
+                                        <i class="fas fa-list-ol"></i>
+                                        10 أسئلة
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="text-gray-400 hover:text-yellow-400 transition text-xl bookmark-btn">
+                            <i class="far fa-bookmark"></i>
+                        </button>
+                    </div>
+
+                    <p class="text-gray-300 mb-4">
+                        بناء تطبيقات ويب معقدة باستخدام React، Redux، وأحدث أدوات تطوير الويب.
+                    </p>
+
+                    <ul class="feature-list text-gray-300 text-sm mb-6">
+                        <li><i class="fas fa-check"></i> 4 أسئلة في إدارة الحالة</li>
+                        <li><i class="fas fa-check"></i> 3 أسئلة في الـ Hooks المتقدمة</li>
+                        <li><i class="fas fa-check"></i> 3 أسئلة في تحسين الأداء</li>
+                    </ul>
+
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center text-gray-400">
+                            <i class="fas fa-clock ml-2"></i>
+                            <span>15 دقيقة</span>
+                        </div>
+                        <button class="download-btn px-4 py-2 rounded-lg text-sm start-challenge"
+                            data-challenge="javascript-react">
+                            ابدأ التحدي
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Java Data Structures Challenge -->
+                <div class="challenge-card rounded-xl p-6 floating" data-language="java" data-level="advanced">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center">
+                            <div class="language-icon language-java mr-4">
+                                <i class="fab fa-java"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-1">هياكل البيانات المتقدمة</h3>
+                                <div class="flex items-center gap-2">
+                                    <span class="badge badge-advanced">متقدم</span>
+                                    <span class="question-counter">
+                                        <i class="fas fa-list-ol"></i>
+                                        8 أسئلة
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="text-gray-400 hover:text-yellow-400 transition text-xl bookmark-btn">
+                            <i class="far fa-bookmark"></i>
+                        </button>
+                    </div>
+
+                    <p class="text-gray-300 mb-4">
+                        تطبيق هياكل البيانات المعقدة والخوارزميات المتقدمة باستخدام Java.
+                    </p>
+
+                    <ul class="feature-list text-gray-300 text-sm mb-6">
+                        <li><i class="fas fa-check"></i> 4 أسئلة في الأشجار والرسوم البيانية</li>
+                        <li><i class="fas fa-check"></i> 3 أسئلة في خوارزميات البحث والترتيب</li>
+                        <li><i class="fas fa-check"></i> 1 سؤال في تحليل التعقيد</li>
+                    </ul>
+
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center text-gray-400">
+                            <i class="fas fa-clock ml-2"></i>
+                            <span>15 دقيقة</span>
+                        </div>
+                        <button class="download-btn px-4 py-2 rounded-lg text-sm start-challenge"
+                            data-challenge="java-ds">
+                            ابدأ التحدي
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- نافذة بدء التحدي -->
+    <div id="challenge-modal" class="fixed inset-0 z-50 flex items-center justify-center hidden challenge-modal">
+        <div class="glass rounded-2xl p-8 max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto glow-border">
+            <div class="flex justify-between items-center mb-6">
+                <h2 id="modal-title" class="text-2xl font-bold gradient-text">بدء التحدي</h2>
+                <button id="close-modal" class="text-gray-400 hover:text-white text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div id="modal-content">
+                <!-- المحتوى الديناميكي -->
+            </div>
+        </div>
+    </div>
+
+    <!-- نافذة الأسئلة -->
+    <div id="quiz-modal" class="fixed inset-0 z-50 flex items-center justify-center hidden challenge-modal">
+        <div class="glass rounded-2xl p-8 max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-auto glow-border">
+            <div class="flex justify-between items-center mb-6">
+                <h2 id="quiz-title" class="text-2xl font-bold gradient-text">تحدي البرمجة</h2>
+                <div class="flex items-center gap-4">
+                    <div class="timer" id="quiz-timer">15:00</div>
+                    <button id="close-quiz" class="text-gray-400 hover:text-white text-2xl">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress" id="quiz-progress" style="width: 0%"></div>
+            </div>
+
+            <div id="quiz-content">
+                <!-- الأسئلة تظهر هنا -->
+            </div>
+
+            <div class="flex justify-between mt-6">
+                <button id="prev-question"
+                    class="px-6 py-3 rounded-lg border border-gray-600 text-gray-300 hover:bg-gray-800 transition hidden">
+                    <i class="fas fa-arrow-right ml-2"></i>السابق
+                </button>
+                <button id="next-question" class="download-btn px-6 py-3 rounded-lg font-medium">
+                    التالي <i class="fas fa-arrow-left mr-2"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- نافذة النتائج -->
+    <div id="result-modal" class="fixed inset-0 z-50 flex items-center justify-center hidden result-modal">
+        <div class="glass rounded-2xl p-8 max-w-2xl w-full mx-4 text-center glow-border">
+            <div class="mb-6">
+                <i class="fas fa-trophy text-6xl text-yellow-400 mb-4"></i>
+                <h2 class="text-3xl font-bold gradient-text mb-4">تهانينا!</h2>
+                <p class="text-xl text-gray-300 mb-2">لقد أكملت التحدي بنجاح</p>
+                <div class="text-4xl font-bold text-green-400 mb-4" id="final-score">0/0</div>
+                <div class="text-gray-400" id="time-taken">الوقت المستغرق: 0:00</div>
+            </div>
+            <div class="flex gap-4 justify-center">
+                <button id="restart-quiz" class="download-btn px-6 py-3 rounded-lg font-medium">
+                    <i class="fas fa-redo ml-2"></i>إعادة المحاولة
+                </button>
+                <button id="close-result"
+                    class="px-6 py-3 rounded-lg border border-gray-600 text-gray-300 hover:bg-gray-800 transition">
+                    <i class="fas fa-home ml-2"></i>العودة للرئيسية
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="text-2xl font-bold gradient-text mb-4">CodeMaster</div>
+                    <p class="text-gray-400">
+                        منصة تحديات البرمجة التفاعلية التي تقدم تحديات متقدمة في مختلف لغات البرمجة
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-white">التحديات</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-blue-300 transition">Python</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-300 transition">JavaScript</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-300 transition">Java</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-300 transition">C++</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-white">المسابقات</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-blue-300 transition">المسابقات الشهرية</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-300 transition">مسابقات الشركات</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-300 transition">التصنيف العالمي</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-white">تواصل معنا</h3>
+                    <div class="flex space-x-4 rtl:space-x-reverse mb-4">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-blue-500 hover:text-white transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-blue-600 hover:text-white transition">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-gray-700 hover:text-white transition">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400 text-sm">support@codemaster.com</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
+                &copy; 2025 CodeMaster. جميع الحقوق محفوظة.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // قاعدة بيانات الأسئلة
+        const questionsDatabase = {
+            'python-ai': [
+                {
+                    question: "ما هي الدالة المستخدمة لإنشاء نموذج شبكة عصبية في TensorFlow؟",
+                    options: [
+                        "tf.keras.Sequential()",
+                        "tf.neural.Network()",
+                        "tf.create_model()",
+                        "tf.keras.Model()"
+                    ],
+                    correct: 0
+                },
+                {
+                    question: "أي من المكتبات التالية تستخدم specifically لمعالجة اللغة الطبيعية؟",
+                    options: [
+                        "OpenCV",
+                        "NLTK",
+                        "Pandas",
+                        "Matplotlib"
+                    ],
+                    correct: 1
+                },
+                {
+                    question: "ما هو الهدف من استخدام Dropout في الشبكات العصبية؟",
+                    options: [
+                        "زيادة سرعة التدريب",
+                        "تقليل overfitting",
+                        "تحسين دقة النموذج",
+                        "جميع ما سبق"
+                    ],
+                    correct: 1
+                },
+                {
+                    question: "أي خوارزمية من下列 تستخدم للتصنيف غير المشرف؟",
+                    options: [
+                        "K-Means",
+                        "Linear Regression",
+                        "Logistic Regression",
+                        "Decision Trees"
+                    ],
+                    correct: 0
+                },
+                {
+                    question: "ما هي القيمة التي يعيدها model.predict() في Keras؟",
+                    options: [
+                        "قيمة loss",
+                        "التوقعات (predictions)",
+                        "أوزان النموذج",
+                        "مخطط النموذج"
+                    ],
+                    correct: 1
+                },
+                {
+                    question: "أي من التالي ليس من أنواع التعلم الآلي؟",
+                    options: [
+                        "التعلم المشرف",
+                        "التعلم غير المشرف",
+                        "التعلم المعزز",
+                        "التعلم التلقائي"
+                    ],
+                    correct: 3
+                },
+                {
+                    question: "ما هي الدالة المستخدمة لتحميل dataset في scikit-learn؟",
+                    options: [
+                        "load_data()",
+                        "fetch_data()",
+                        "get_dataset()",
+                        "import_data()"
+                    ],
+                    correct: 0
+                },
+                {
+                    question: "أي من التالي يستخدم لتقسيم البيانات إلى training وtesting؟",
+                    options: [
+                        "train_test_split",
+                        "data_split",
+                        "split_data",
+                        "divide_dataset"
+                    ],
+                    correct: 0
+                },
+                {
+                    question: "ما هو الـ activation function الأكثر استخدامًا في hidden layers؟",
+                    options: [
+                        "Sigmoid",
+                        "Tanh",
+                        "ReLU",
+                        "Softmax"
+                    ],
+                    correct: 2
+                },
+                {
+                    question: "أي metric يستخدم لقياس أداء نموذج التصنيف؟",
+                    options: [
+                        "Mean Squared Error",
+                        "R-squared",
+                        "Accuracy",
+                        "جميع ما سبق"
+                    ],
+                    correct: 2
+                },
+                {
+                    question: "ما هي المكتبة المستخدمة للتعلم المعزز في Python؟",
+                    options: [
+                        "OpenAI Gym",
+                        "TensorFlow",
+                        "PyTorch",
+                        "Keras"
+                    ],
+                    correct: 0
+                },
+                {
+                    question: "أي من التالي ليس من أنواع الشبكات العصبية؟",
+                    options: [
+                        "CNN",
+                        "RNN",
+                        "DNN",
+                        "KNN"
+                    ],
+                    correct: 3
+                }
+            ],
+            'javascript-react': [
+                {
+                    question: "ما هو الفرق بين useState و useRef في React؟",
+                    options: [
+                        "useState يسبب re-render بينما useRef لا يسبب",
+                        "useRef يسبب re-render بينما useState لا يسبب",
+                        "لا فرق بينهما",
+                        "كلاهما يسبب re-render"
+                    ],
+                    correct: 0
+                },
+                {
+                    question: "كيف نمنع component من إعادة الـ render غير الضرورية؟",
+                    options: [
+                        "استخدام React.memo",
+                        "استخدام useMemo",
+                        "استخدام useCallback",
+                        "جميع ما سبق"
+                    ],
+                    correct: 3
+                },
+                {
+                    question: "ما هو الـ Hook المناسب لإدارة side effects؟",
+                    options: [
+                        "useState",
+                        "useEffect",
+                        "useContext",
+                        "useReducer"
+                    ],
+                    correct: 1
+                                },
+                                {
+                                    question: "كيف ننقل data بين components بدون استخدام props؟",
+                                    options: [
+                                        "باستخدام Context API",
+                                        "باستخدام Redux",
+                                        "باستخدام useState فقط",
+                                        "الخياران الأول والثاني"
+                                    ],
+                                    correct: 3
+                                },
+                                {
+                                    question: "ما هو الفرق بين useEffect مع dependency array فارغ وبدونها؟",
+                                    options: [
+                                        "بدون array: ينفذ في كل render، مع فارغ: ينفذ مرة واحدة",
+                                        "لا فرق بينهما",
+                                        "مع فارغ: ينفذ في كل render، بدون: مرة واحدة",
+                                        "كلاهما ينفذ مرة واحدة"
+                                    ],
+                                    correct: 0
+                                },
+                                {
+                                    question: "أي من التالي ليس من قواعد Hooks؟",
+                                    options: [
+                                        "لا تستدع Hooks داخل loops",
+                                        "لا تستدع Hooks داخل conditions",
+                                        "لا تستدع Hooks داخل nested functions",
+                                        "لا تستدع Hooks داخل useEffect"
+                                    ],
+                                    correct: 3
+                                },
+                                {
+                                    question: "ما هو useReducer used for?",
+                                    options: [
+                                        "إدارة state معقدة",
+                                        "تحسين performance",
+                                        "تجنب re-renders",
+                                        "جميع ما سبق"
+                                    ],
+                                    correct: 0
+                                },
+                                {
+                                    question: "كيف نتحقق من type props في React?",
+                                    options: [
+                                        "باستخدام PropTypes",
+                                        "باستخدام TypeScript",
+                                        "الخياران صحيحان",
+                                        "لا يمكن التحقق من type props"
+                                    ],
+                                    correct: 2
+                                },
+                                {
+                                    question: "ما هو الفرق بين controlled و uncontrolled components?",
+                                    options: [
+                                        "Controlled: تدير React state، Uncontrolled: يدير DOM state",
+                                        "لا فرق بينهما",
+                                        "Uncontrolled: تدير React state، Controlled: يدير DOM state",
+                                        "كلاهما يدير state بنفس الطريقة"
+                                    ],
+                                    correct: 0
+                                },
+                                {
+                                    question: "أي من التالي ليس من طرق تحسين أداء React app?",
+                                    options: [
+                                        "استخدام React.memo",
+                                        "استخدام useMemo و useCallback",
+                                        "Code splitting",
+                                        "استخدام var بدل let"
+                                    ],
+                                    correct: 3
+                                }
+                            ],
+                            'java-ds': [
+                                {
+                                    question: "ما هو time complexity لـ Binary Search Tree في أسوأ حالة؟",
+                                    options: [
+                                        "O(1)",
+                                        "O(log n)",
+                                        "O(n)",
+                                        "O(n log n)"
+                                    ],
+                                    correct: 2
+                                },
+                                {
+                                    question: "أي من التالي ليس من خوارزميات sorting?",
+                                    options: [
+                                        "Quick Sort",
+                                        "Merge Sort",
+                                        "Heap Sort",
+                                        "Tree Sort"
+                                    ],
+                                    correct: 3
+                                },
+                                {
+                                    question: "ما هو الـ data structure المناسب لتطبيق LRU Cache?",
+                                    options: [
+                                        "HashMap + LinkedList",
+                                        "Array فقط",
+                                        "TreeSet",
+                                        "PriorityQueue"
+                                    ],
+                                    correct: 0
+                                },
+                                {
+                                    question: "ما هو الفرق بين ArrayList و LinkedList في Java?",
+                                    options: [
+                                        "ArrayList: access أسرع، LinkedList: insertion/deletion أسرع",
+                                        "لا فرق بينهما",
+                                        "LinkedList: access أسرع، ArrayList: insertion/deletion أسرع",
+                                        "كلاهما بنفس السرعة"
+                                    ],
+                                    correct: 0
+                                },
+                                {
+                                    question: "أي من التالي له O(1) time complexity للوصول?",
+                                    options: [
+                                        "Array",
+                                        "LinkedList",
+                                        "Tree",
+                                        "Graph"
+                                    ],
+                                    correct: 0
+                                },
+                                {
+                                    question: "ما هو الـ data structure المستخدم في تطبيق undo functionality?",
+                                    options: [
+                                        "Stack",
+                                        "Queue",
+                                        "Tree",
+                                        "Graph"
+                                    ],
+                                    correct: 0
+                                },
+                                {
+                                    question: "أي خوارزمية تستخدم للعثور على shortest path في graph?",
+                                    options: [
+                                        "Dijkstra",
+                                        "Bubble Sort",
+                                        "Binary Search",
+                                        "Quick Sort"
+                                    ],
+                                    correct: 0
+                                },
+                                {
+                                    question: "ما هو time complexity لـ HashMap operations في المتوسط?",
+                                    options: [
+                                        "O(1)",
+                                        "O(log n)",
+                                        "O(n)",
+                                        "O(n²)"
+                                    ],
+                                    correct: 0
+                                }
+                            ]
+                        };
+
+                        // إنشاء النجوم
+                        function createStars() {
+                            const starsContainer = document.getElementById('stars');
+                            const starCount = 100;
+
+                            for (let i = 0; i < starCount; i++) {
+                                const star = document.createElement('div');
+                                star.className = 'star';
+
+                                // مواقع وأحجام عشوائية
+                                const size = Math.random() * 3;
+                                const left = Math.random() * 100;
+                                const top = Math.random() * 100;
+                                const delay = Math.random() * 5;
+
+                                star.style.width = `${size}px`;
+                                star.style.height = `${size}px`;
+                                star.style.left = `${left}%`;
+                                star.style.top = `${top}%`;
+                                star.style.animationDelay = `${delay}s`;
+
+                                starsContainer.appendChild(star);
+                            }
+                        }
+
+                        // فلترة التحديات
+                        function setupFilters() {
+                            const levelTabs = document.querySelectorAll('[data-level]');
+                            const languageTabs = document.querySelectorAll('[data-language]');
+                            const challengeCards = document.querySelectorAll('.challenge-card');
+
+                            function filterChallenges() {
+                                const selectedLevel = document.querySelector('[data-level].active').dataset.level;
+                                const selectedLanguage = document.querySelector('[data-language].active').dataset.language;
+
+                                challengeCards.forEach(card => {
+                                    const cardLevel = card.dataset.level;
+                                    const cardLanguage = card.dataset.language;
+
+                                    const levelMatch = selectedLevel === 'all' || cardLevel === selectedLevel;
+                                    const languageMatch = selectedLanguage === 'all' || cardLanguage === selectedLanguage;
+
+                                    if (levelMatch && languageMatch) {
+                                        card.style.display = 'block';
+                                    } else {
+                                        card.style.display = 'none';
+                                    }
+                                });
+                            }
+
+                            levelTabs.forEach(tab => {
+                                tab.addEventListener('click', () => {
+                                    levelTabs.forEach(t => t.classList.remove('active'));
+                                    tab.classList.add('active');
+                                    filterChallenges();
+                                });
+                            });
+
+                            languageTabs.forEach(tab => {
+                                tab.addEventListener('click', () => {
+                                    languageTabs.forEach(t => t.classList.remove('active'));
+                                    tab.classList.add('active');
+                                    filterChallenges();
+                                });
+                            });
+                        }
+
+                        // إدارة التحديات والاختبارات
+                        let currentChallenge = null;
+                        let currentQuestions = [];
+                        let currentQuestionIndex = 0;
+                        let userAnswers = [];
+                        let quizTimer = null;
+                        let timeRemaining = 900; // 15 دقيقة بالثواني
+
+                        function startChallenge(challengeId) {
+                            currentChallenge = challengeId;
+                            currentQuestions = questionsDatabase[challengeId] || [];
+                            currentQuestionIndex = 0;
+                            userAnswers = new Array(currentQuestions.length).fill(null);
+                            timeRemaining = 900;
+
+                            showQuizModal();
+                            displayQuestion();
+                            startTimer();
+                        }
+
+                        function showQuizModal() {
+                            const quizModal = document.getElementById('quiz-modal');
+                            const quizTitle = document.getElementById('quiz-title');
+
+                            // تعيين عنوان التحدي
+                            const challengeTitles = {
+                                'python-ai': 'خوارزميات الذكاء الاصطناعي - Python',
+                                'javascript-react': 'تطبيقات React المتقدمة - JavaScript',
+                                'java-ds': 'هياكل البيانات المتقدمة - Java'
+                            };
+
+                            quizTitle.textContent = challengeTitles[currentChallenge] || 'تحدي البرمجة';
+                            quizModal.classList.remove('hidden');
+
+                            // تحديث شريط التقدم
+                            updateProgressBar();
+                        }
+
+                        function displayQuestion() {
+                            const quizContent = document.getElementById('quiz-content');
+                            const currentQuestion = currentQuestions[currentQuestionIndex];
+
+                            if (!currentQuestion) return;
+
+                            quizContent.innerHTML = `
+                <div class="question-container">
+                    <div class="question-text">
+                        ${currentQuestionIndex + 1}. ${currentQuestion.question}
+                    </div>
+                    <div class="options-container">
+                        ${currentQuestion.options.map((option, index) => `
+                            <div class="option ${userAnswers[currentQuestionIndex] === index ? 'selected' : ''}" 
+                                 data-index="${index}">
+                                ${String.fromCharCode(1632 + index + 1)}. ${option}
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+
+                            // إضافة event listeners للخيارات
+                            document.querySelectorAll('.option').forEach(option => {
+                                option.addEventListener('click', () => {
+                                    const selectedIndex = parseInt(option.dataset.index);
+                                    userAnswers[currentQuestionIndex] = selectedIndex;
+
+                                    // إزالة التحديد من جميع الخيارات
+                                    document.querySelectorAll('.option').forEach(opt => {
+                                        opt.classList.remove('selected');
+                                    });
+
+                                    // تحديد الخيار المختار
+                                    option.classList.add('selected');
+                                });
+                            });
+
+                            // تحديث أزرار التنقل
+                            updateNavigationButtons();
+                            updateProgressBar();
+                        }
+
+                        function updateNavigationButtons() {
+                            const prevButton = document.getElementById('prev-question');
+                            const nextButton = document.getElementById('next-question');
+
+                            // زر السابق
+                            if (currentQuestionIndex > 0) {
+                                prevButton.classList.remove('hidden');
+                            } else {
+                                prevButton.classList.add('hidden');
+                            }
+
+                            // زر التالي/إنهاء
+                            if (currentQuestionIndex === currentQuestions.length - 1) {
+                                nextButton.innerHTML = 'إنهاء التحدي <i class="fas fa-flag-checkered mr-2"></i>';
+                            } else {
+                                nextButton.innerHTML = 'التالي <i class="fas fa-arrow-left mr-2"></i>';
+                            }
+                        }
+
+                        function updateProgressBar() {
+                            const progressBar = document.getElementById('quiz-progress');
+                            const progress = ((currentQuestionIndex + 1) / currentQuestions.length) * 100;
+                            progressBar.style.width = `${progress}%`;
+                        }
+
+                        function startTimer() {
+                            const timerElement = document.getElementById('quiz-timer');
+
+                            quizTimer = setInterval(() => {
+                                timeRemaining--;
+
+                                const minutes = Math.floor(timeRemaining / 60);
+                                const seconds = timeRemaining % 60;
+
+                                timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                                if (timeRemaining <= 0) {
+                                    endQuiz();
+                                }
+                            }, 1000);
+                        }
+
+                        function endQuiz() {
+                            clearInterval(quizTimer);
+
+                            // حساب النتيجة
+                            const score = calculateScore();
+                            const timeTaken = 900 - timeRemaining;
+
+                            showResults(score, timeTaken);
+                        }
+
+                        function calculateScore() {
+                            let correctAnswers = 0;
+
+                            currentQuestions.forEach((question, index) => {
+                                if (userAnswers[index] === question.correct) {
+                                    correctAnswers++;
+                                }
+                            });
+
+                            return correctAnswers;
+                        }
+
+                        function showResults(score, timeTaken) {
+                            const resultModal = document.getElementById('result-modal');
+                            const finalScore = document.getElementById('final-score');
+                            const timeTakenElement = document.getElementById('time-taken');
+
+                            // إخفاء نافذة الاختبار
+                            document.getElementById('quiz-modal').classList.add('hidden');
+
+                            // تعيين النتائج
+                            finalScore.textContent = `${score}/${currentQuestions.length}`;
+
+                            const minutes = Math.floor(timeTaken / 60);
+                            const seconds = timeTaken % 60;
+                            timeTakenElement.textContent = `الوقت المستغرق: ${minutes}:${seconds.toString().padStart(2, '0')}`;
+
+                            // إظهار نافذة النتائج
+                            resultModal.classList.remove('hidden');
+                        }
+
+                        // تهيئة event listeners
+                        document.addEventListener('DOMContentLoaded', function () {
+                            createStars();
+                            setupFilters();
+
+                            // زر البدء العشوائي
+                            document.getElementById('start-random-challenge').addEventListener('click', function () {
+                                const challenges = Object.keys(questionsDatabase);
+                                const randomChallenge = challenges[Math.floor(Math.random() * challenges.length)];
+                                startChallenge(randomChallenge);
+                            });
+
+                            // أزرار بدء التحدي
+                            document.querySelectorAll('.start-challenge').forEach(button => {
+                                button.addEventListener('click', function () {
+                                    const challengeId = this.dataset.challenge;
+                                    startChallenge(challengeId);
+                                });
+                            });
+
+                            // أزرار الإشارات المرجعية
+                            document.querySelectorAll('.bookmark-btn').forEach(button => {
+                                button.addEventListener('click', function () {
+                                    const icon = this.querySelector('i');
+                                    if (icon.classList.contains('far')) {
+                                        icon.classList.remove('far');
+                                        icon.classList.add('fas', 'text-yellow-400');
+                                    } else {
+                                        icon.classList.remove('fas', 'text-yellow-400');
+                                        icon.classList.add('far');
+                                    }
+                                });
+                            });
+
+                            // التنقل بين الأسئلة
+                            document.getElementById('next-question').addEventListener('click', function () {
+                                if (currentQuestionIndex < currentQuestions.length - 1) {
+                                    currentQuestionIndex++;
+                                    displayQuestion();
+                                } else {
+                                    endQuiz();
+                                }
+                            });
+
+                            document.getElementById('prev-question').addEventListener('click', function () {
+                                if (currentQuestionIndex > 0) {
+                                    currentQuestionIndex--;
+                                    displayQuestion();
+                                }
+                            });
+
+                            // إغلاق النوافذ
+                            document.getElementById('close-quiz').addEventListener('click', function () {
+                                clearInterval(quizTimer);
+                                document.getElementById('quiz-modal').classList.add('hidden');
+                            });
+
+                            document.getElementById('restart-quiz').addEventListener('click', function () {
+                                document.getElementById('result-modal').classList.add('hidden');
+                                startChallenge(currentChallenge);
+                            });
+
+                            document.getElementById('close-result').addEventListener('click', function () {
+                                document.getElementById('result-modal').classList.add('hidden');
+                            });
+                        });
+                    </script>
+    </body>
+    
+    </html>

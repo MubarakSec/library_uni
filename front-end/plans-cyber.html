@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تعلم الأمن السيبراني من الصفر</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #0253B3 0%, #0175C2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo-text {
+            background: linear-gradient(135deg, #0253B3 0%, #0175C2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #0253B3 0%, #0175C2 100%);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(2, 83, 179, 0.4);
+        }
+
+        .about-section {
+            background: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .university-bg {
+            background: linear-gradient(135deg, #0253B3 0%, #0175C2 100%);
+        }
+
+        .stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 5s infinite;
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 0.2;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .tool-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            border-color: #0253B3;
+            box-shadow: 0 10px 25px rgba(2, 83, 179, 0.2);
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+        }
+
+        .course-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            border-color: #0253B3;
+            box-shadow: 0 10px 25px rgba(2, 83, 179, 0.2);
+        }
+
+        .youtube-btn {
+            background: linear-gradient(135deg, #FF0000 0%, #CC0000 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+
+        .youtube-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+        }
+
+        .flutter-color {
+            color: #0253B3;
+        }
+
+        .dart-color {
+            color: #0175C2;
+        }
+
+        .youtube-color {
+            color: #FF0000;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 text-white">
+    <!-- Stars Background -->
+    <div class="stars-container" id="stars-container"></div>
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 backdrop-blur-lg bg-opacity-80 bg-gray-900 border-b border-gray-800">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <h1 class="logo-text">Cyber <span>Security</span></h1>
+                    <nav class="hidden md:flex mr-8">
+                        <a href="index-2.html"
+                            class="mx-3 font-medium text-white hover:text-orange-300 transition">الرئيسية</a>
+                        <a href="books.html"
+                            class="mx-3 font-medium text-white hover:text-orange-300 transition">المكتبة الرقمية</a>
+                        <a href="channew.html"
+                            class="mx-3 font-medium text-white hover:text-orange-300 transition">التحديات التعليمية</a>
+                    </nav>
+                </div>
+                <div class="flex items-center">
+                    <button class="btn-primary px-4 py-2 rounded-lg text-sm">
+                        <i class="fas fa-sign-in-alt ml-2"></i>تسجيل الدخول
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+        <!-- Hero Section -->
+        <section class="mb-16 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6"><span class="gradient-text">تعلم الأمن السيبراني من
+                    الصفر</span></h1>
+            <p class="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                اكتشف عالم الأمن السيبراني واحترف حماية الأنظمة والشبكات من الهجمات الإلكترونية. ابدأ رحلتك نحو أن تصبح
+                خبير أمن معلومات
+            </p>
+        </section>
+
+        <!-- الأدوات المطلوبة Section -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-12 text-center gradient-text">أدوات الأمن السيبراني الأساسية</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Kali Linux -->
+                <div class="tool-card bg-gray-800 rounded-xl p-6">
+                    <div class="hacker-color text-4xl mb-4">
+                        <i class="fab fa-linux"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Kali Linux</h3>
+                    <p class="text-gray-300 mb-4 text-sm">
+                        نظام التشغيل المخصص لاختبار الاختراق والأمن
+                    </p>
+                    <button class="download-btn w-full" onclick="downloadTool('kali-linux')">
+                        <i class="fas fa-download ml-2"></i>
+                        تحميل Kali Linux
+                    </button>
+                </div>
+
+                <!-- VirtualBox -->
+                <div class="tool-card bg-gray-800 rounded-xl p-6">
+                    <div class="text-blue-400 text-4xl mb-4">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">VirtualBox</h3>
+                    <p class="text-gray-300 mb-4 text-sm">
+                        برنامج المحاكاة الافتراضية لتشغيل أنظمة متعددة
+                    </p>
+                    <button class="download-btn w-full" onclick="downloadTool('virtualbox')">
+                        <i class="fas fa-download ml-2"></i>
+                        تحميل VirtualBox
+                    </button>
+                </div>
+
+                <!-- Wireshark -->
+                <div class="tool-card bg-gray-800 rounded-xl p-6">
+                    <div class="security-color text-4xl mb-4">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Wireshark</h3>
+                    <p class="text-gray-300 mb-4 text-sm">
+                        أداة تحليل الشبكات وفحص الحزم
+                    </p>
+                    <button class="download-btn w-full" onclick="downloadTool('wireshark')">
+                        <i class="fas fa-download ml-2"></i>
+                        تحميل Wireshark
+                    </button>
+                </div>
+
+                <!-- Metasploit -->
+                <div class="tool-card bg-gray-800 rounded-xl p-6">
+                    <div class="cyber-color text-4xl mb-4">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Metasploit</h3>
+                    <p class="text-gray-300 mb-4 text-sm">
+                        إطار عمل لاختبار الاختراق وتطوير الثغرات
+                    </p>
+                    <button class="download-btn w-full" onclick="downloadTool('metasploit')">
+                        <i class="fas fa-download ml-2"></i>
+                        تحميل Metasploit
+                    </button>
+                </div>
+
+                <!-- Nmap -->
+                <div class="tool-card bg-gray-800 rounded-xl p-6">
+                    <div class="text-green-400 text-4xl mb-4">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Nmap</h3>
+                    <p class="text-gray-300 mb-4 text-sm">
+                        أداة مسح الشبكات واكتشاف الخدمات
+                    </p>
+                    <button class="download-btn w-full" onclick="downloadTool('nmap')">
+                        <i class="fas fa-download ml-2"></i>
+                        تحميل Nmap
+                    </button>
+                </div>
+
+                <!-- Burp Suite -->
+                <div class="tool-card bg-gray-800 rounded-xl p-6">
+                    <div class="text-purple-400 text-4xl mb-4">
+                        <i class="fas fa-bug"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Burp Suite</h3>
+                    <p class="text-gray-300 mb-4 text-sm">
+                        منصة متكاملة لاختبار أمان التطبيقات الويب
+                    </p>
+                    <button class="download-btn w-full" onclick="downloadTool('burp-suite')">
+                        <i class="fas fa-download ml-2"></i>
+                        تحميل Burp Suite
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- كورسات يوتيوب Section -->
+        <section class="mb-16">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-3xl font-bold gradient-text">أفضل كورسات الأمن السيبراني على يوتيوب</h2>
+                <div class="flex items-center youtube-color">
+                    <i class="fab fa-youtube text-2xl ml-2"></i>
+                    <span class="text-sm">جميع الكورسات مجانية على يوتيوب</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- كورس 1 -->
+                <div class="course-card bg-gray-800 rounded-xl p-6">
+                    <div class="flex items-start mb-4">
+                        <img src="https://i.ytimg.com/vi/3Kq1MIfTWCE/hqdefault.jpg" alt="Cyber Security Course"
+                            class="w-20 h-12 rounded-lg object-cover ml-3">
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg mb-1">أمن سيبراني كامل</h3>
+                            <p class="text-gray-400 text-sm">freeCodeCamp</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4 text-sm line-clamp-2">
+                        دورة شاملة في الأمن السيبراني من الصفر للإحتراف
+                    </p>
+                    <div class="flex justify-between items-center mb-3">
+                        <div class="flex items-center text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <span class="text-white mr-1 text-sm">4.9</span>
+                        </div>
+                        <span class="text-green-400 text-sm">12 ساعة</span>
+                    </div>
+                    <button class="youtube-btn w-full" onclick="watchCourse('fcc-cybersecurity')">
+                        <i class="fab fa-youtube ml-2"></i>
+                        مشاهدة على يوتيوب
+                    </button>
+                </div>
+
+                <!-- كورس 2 -->
+                <div class="course-card bg-gray-800 rounded-xl p-6">
+                    <div class="flex items-start mb-4">
+                        <img src="https://i.ytimg.com/vi/2VSNn7UIK8c/hqdefault.jpg" alt="Ethical Hacking Course"
+                            class="w-20 h-12 rounded-lg object-cover ml-3">
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg mb-1">الاختراق الأخلاقي</h3>
+                            <p class="text-gray-400 text-sm">NetworkChuck</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4 text-sm line-clamp-2">
+                        تعلم الاختراق الأخلاقي باستخدام Kali Linux
+                    </p>
+                    <div class="flex justify-between items-center mb-3">
+                        <div class="flex items-center text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <span class="text-white mr-1 text-sm">4.8</span>
+                        </div>
+                        <span class="text-green-400 text-sm">8 ساعات</span>
+                    </div>
+                    <button class="youtube-btn w-full" onclick="watchCourse('networkchuck-ethical')">
+                        <i class="fab fa-youtube ml-2"></i>
+                        مشاهدة على يوتيوب
+                    </button>
+                </div>
+
+                <!-- كورس 3 -->
+                <div class="course-card bg-gray-800 rounded-xl p-6">
+                    <div class="flex items-start mb-4">
+                        <img src="https://i.ytimg.com/vi/5F6p_-B7ms4/hqdefault.jpg" alt="Cyber Security Course"
+                            class="w-20 h-12 rounded-lg object-cover ml-3">
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg mb-1">أمن سيبراني بالعربي</h3>
+                            <p class="text-gray-400 text-sm">Mohamed Ayman</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4 text-sm line-clamp-2">
+                        دورة متكاملة في الأمن السيبراني باللغة العربية
+                    </p>
+                    <div class="flex justify-between items-center mb-3">
+                        <div class="flex items-center text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <span class="text-white mr-1 text-sm">4.7</span>
+                        </div>
+                        <span class="text-green-400 text-sm">15 ساعة</span>
+                    </div>
+                    <button class="youtube-btn w-full" onclick="watchCourse('arabic-cybersecurity')">
+                        <i class="fab fa-youtube ml-2"></i>
+                        مشاهدة على يوتيوب
+                    </button>
+                </div>
+
+                <!-- كورس 4 -->
+                <div class="course-card bg-gray-800 rounded-xl p-6">
+                    <div class="flex items-start mb-4">
+                        <img src="https://i.ytimg.com/vi/3FNYvj2U0HM/hqdefault.jpg" alt="Penetration Testing Course"
+                            class="w-20 h-12 rounded-lg object-cover ml-3">
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg mb-1">اختبار الاختراق</h3>
+                            <p class="text-gray-400 text-sm">The Cyber Mentor</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4 text-sm line-clamp-2">
+                        دورة متقدمة في اختبار الاختراق العملي
+                    </p>
+                    <div class="flex justify-between items-center mb-3">
+                        <div class="flex items-center text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <span class="text-white mr-1 text-sm">4.9</span>
+                        </div>
+                        <span class="text-green-400 text-sm">10 ساعات</span>
+                    </div>
+                    <button class="youtube-btn w-full" onclick="watchCourse('pentesting-course')">
+                        <i class="fab fa-youtube ml-2"></i>
+                        مشاهدة على يوتيوب
+                    </button>
+                </div>
+
+                <!-- كورس 5 -->
+                <div class="course-card bg-gray-800 rounded-xl p-6">
+                    <div class="flex items-start mb-4">
+                        <img src="https://i.ytimg.com/vi/sH_JKXT0nas/hqdefault.jpg" alt="Network Security Course"
+                            class="w-20 h-12 rounded-lg object-cover ml-3">
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg mb-1">أمن الشبكات</h3>
+                            <p class="text-gray-400 text-sm">PowerCert Animated Videos</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4 text-sm line-clamp-2">
+                        أساسيات أمن الشبكات والمفاهيم الأساسية
+                    </p>
+                    <div class="flex justify-between items-center mb-3">
+                        <div class="flex items-center text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <span class="text-white mr-1 text-sm">4.8</span>
+                        </div>
+                        <span class="text-green-400 text-sm">6 ساعات</span>
+                    </div>
+                    <button class="youtube-btn w-full" onclick="watchCourse('network-security')">
+                        <i class="fab fa-youtube ml-2"></i>
+                        مشاهدة على يوتيوب
+                    </button>
+                </div>
+
+                <!-- كورس 6 -->
+                <div class="course-card bg-gray-800 rounded-xl p-6">
+                    <div class="flex items-start mb-4">
+                        <img src="https://i.ytimg.com/vi/2VSNn7UIK8c/hqdefault.jpg" alt="Kali Linux Course"
+                            class="w-20 h-12 rounded-lg object-cover ml-3">
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg mb-1">Kali Linux متقدم</h3>
+                            <p class="text-gray-400 text-sm">HackerSploit</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4 text-sm line-clamp-2">
+                        استخدام Kali Linux في اختبارات الاختراق المتقدمة
+                    </p>
+                    <div class="flex justify-between items-center mb-3">
+                        <div class="flex items-center text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <span class="text-white mr-1 text-sm">4.9</span>
+                        </div>
+                        <span class="text-green-400 text-sm">7 ساعات</span>
+                    </div>
+                    <button class="youtube-btn w-full" onclick="watchCourse('kali-linux-advanced')">
+                        <i class="fab fa-youtube ml-2"></i>
+                        مشاهدة على يوتيوب
+                    </button>
+                </div>
+            </div>
+
+            <!-- ملاحظة -->
+            <div class="mt-8 p-4 bg-orange-900 bg-opacity-20 rounded-lg border border-orange-700">
+                <div class="flex items-center">
+                    <i class="fas fa-info-circle text-orange-400 ml-2 text-xl"></i>
+                    <div>
+                        <h4 class="font-bold text-orange-300 mb-1">ملاحظة هامة:</h4>
+                        <p class="text-gray-300 text-sm">
+                            جميع الكورسات أعلاه متاحة مجاناً على يوتيوب. اضغط على "مشاهدة على يوتيوب" لتنتقل مباشرة إلى
+                            الكورس.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Content -->
+        <section class="about-section rounded-2xl p-8 mb-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold mb-6 gradient-text">لماذا تتعلم الأمن السيبراني؟</h2>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        الأمن السيبراني أصبح أحد أهم المجالات التقنية في عصر الرقمنة، مع تزايد الهجمات الإلكترونية
+                        والحاجة لحماية البيانات.
+                    </p>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        ✅ طلب متزايد في سوق العمل<br>
+                        ✅ رواتب مرتفعة ومستقبل واعد<br>
+                        ✅ مجال ديناميكي ومتطور باستمرار<br>
+                        ✅ فرص عمل في جميع القطاعات<br>
+                        ✅ مسارات متعددة للتخصص<br>
+                        ✅ تأثير مباشر على أمن الدول<br>
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center">
+                            <div
+                                class="w-12 h-12 rounded-full bg-orange-900 flex items-center justify-center text-orange-400 mr-3">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold">+30%</div>
+                                <div class="text-sm text-gray-400">نمو الطلب</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div
+                                class="w-12 h-12 rounded-full bg-green-900 flex items-center justify-center text-green-400 mr-3">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold">مرتفع</div>
+                                <div class="text-sm text-gray-400">الرواتب</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative w-full max-w-md h-64 overflow-hidden rounded-2xl">
+                    <!-- Container for slides -->
+                    <div class="relative h-full w-full">
+                        <div class="absolute inset-0 flex" id="university-slider">
+                            <!-- Slide 1 -->
+                            <div class="flex-shrink-0 w-full h-full transition-opacity duration-1000">
+                                <img src="imges/cyber1.jpg" alt="الأمن السيبراني" class="w-full h-full object-cover">
+                            </div>
+                            <!-- Slide 2 -->
+                            <div class="flex-shrink-0 w-full h-full transition-opacity duration-1000">
+                                <img src="imges/cyber2.jpg" alt="اختبار الاختراق" class="w-full h-full object-cover">
+                            </div>
+                            <!-- Slide 3 -->
+                            <div class="flex-shrink-0 w-full h-full transition-opacity duration-1000">
+                                <img src="imges/cyber3.jpg" alt="أمن الشبكات" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- مؤشرات التبديل -->
+                    <div class="absolute bottom-4 left-2 right-0 flex justify-center space-x-2 rtl:space-x-reverse">
+                        <button class="w-3 h-3 rounded-full bg-white bg-opacity-50 slider-dot" data-index="0"></button>
+                        <button class="w-3 h-3 rounded-full bg-white bg-opacity-50 slider-dot" data-index="1"></button>
+                        <button class="w-3 h-3 rounded-full bg-white bg-opacity-50 slider-dot" data-index="2"></button>
+                    </div>
+
+                    <!-- أزرار التنقل -->
+                    <button
+                        class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full slider-prev">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <button
+                        class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full slider-next">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="university-bg rounded-2xl p-12 text-center">
+            <h2 class="text-3xl font-bold mb-6">ابدأ رحلتك في الأمن السيبراني اليوم</h2>
+            <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                انضم إلى آلاف المتخصصين الذين بدأوا رحلتهم في مجال الأمن السيبراني من خلال منصتنا التعليمية
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="btn-primary px-8 py-3 rounded-lg font-medium text-lg">
+                    <a href="creat-user.html"><i class="fas fa-user-plus ml-2"></i>انضم إلينا الآن</a>
+                </button>
+                <button
+                    class="px-8 py-3 rounded-lg font-medium text-lg border-2 border-white text-white hover:bg-white hover:bg-opacity-10 transition">
+                    <a href="index-2.html"><i class="fab fa-youtube ml-2"></i>استكشف الكورسات</a>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h1 class="logo-text">Cyber <span>Security</span></h1>
+                    <p class="text-gray-400 mt-2">
+                        منصة متخصصة في تعليم الأمن السيبراني والاختراق الأخلاقي
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-white">المسارات التعليمية</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-orange-300 transition">أساسيات الأمن</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-orange-300 transition">الاختراق الأخلاقي</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-orange-300 transition">أمن الشبكات</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-white">الدعم الفني</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-orange-300 transition">الأسئلة الشائعة</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-orange-300 transition">تواصل معنا</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-orange-300 transition">المجتمع</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-white">تابعنا</h3>
+                    <div class="flex space-x-4 rtl:space-x-reverse">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-blue-600 hover:text-white transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-pink-600 hover:text-white transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-blue-700 hover:text-white transition">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-red-600 hover:text-white transition">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
+                &copy; 2024 Cyber Security Academy. جميع الحقوق محفوظة.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // دالة التحميل للأدوات
+        function downloadTool(toolName) {
+            const downloadUrls = {
+                'kali-linux': 'https://www.kali.org/get-kali/',
+                'virtualbox': 'https://www.virtualbox.org/wiki/Downloads',
+                'wireshark': 'https://www.wireshark.org/download.html',
+                'metasploit': 'https://www.metasploit.com/download',
+                'nmap': 'https://nmap.org/download.html',
+                'burp-suite': 'https://portswigger.net/burp/communitydownload'
+            };
+
+            const url = downloadUrls[toolName];
+            if (url) {
+                window.open(url, '_blank');
+                alert(`جاري توجيهك لتحميل ${toolName}...`);
+            }
+        }
+
+        // دالة مشاهدة الكورسات على يوتيوب
+        function watchCourse(courseName) {
+            const youtubeUrls = {
+                'fcc-cybersecurity': 'https://www.youtube.com/watch?v=3Kq1MIfTWCE',
+                'networkchuck-ethical': 'https://www.youtube.com/watch?v=2VSNn7UIK8c',
+                'arabic-cybersecurity': 'https://www.youtube.com/watch?v=5F6p_-B7ms4',
+                'pentesting-course': 'https://www.youtube.com/watch?v=3FNYvj2U0HM',
+                'network-security': 'https://www.youtube.com/watch?v=sH_JKXT0nas',
+                'kali-linux-advanced': 'https://www.youtube.com/watch?v=2VSNn7UIK8c'
+            };
+
+            const url = youtubeUrls[courseName];
+            if (url) {
+                window.open(url, '_blank');
+            }
+        }
+
+        // إنشاء النجوم الخلفية
+        function createStars() {
+            const container = document.getElementById('stars-container');
+            const starsCount = 100;
+
+            for (let i = 0; i < starsCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+
+                const size = Math.random() * 3;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.animationDelay = `${Math.random() * 5}s`;
+
+                container.appendChild(star);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', createStars);
+    </script>
+</body>
+
+</html>

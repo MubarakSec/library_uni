@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحدي خوارزميات الذكاء الاصطناعي | CodeMaster</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .challenge-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .challenge-card:hover {
+            transform: translateY(-5px);
+            border-color: #667eea;
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+        }
+
+        .language-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .language-python {
+            background: linear-gradient(135deg, #3776AB 0%, #FFD43B 100%);
+        }
+
+        .badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-advanced {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+        }
+
+        .challenge-progress {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .challenge-progress-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+
+        .stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 5s infinite;
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 0.2;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .code-block {
+            background: #1a1a1a;
+            border-radius: 8px;
+            padding: 1rem;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+        }
+
+        .code-block pre {
+            margin: 0;
+            color: #f8f8f2;
+        }
+
+        .keyword {
+            color: #ff79c6;
+        }
+
+        .function {
+            color: #50fa7b;
+        }
+
+        .string {
+            color: #f1fa8c;
+        }
+
+        .comment {
+            color: #6272a4;
+        }
+
+        .number {
+            color: #bd93f9;
+        }
+
+        .question-card {
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .option-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .option-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #667eea;
+        }
+
+        .option-card.selected {
+            background: rgba(102, 126, 234, 0.2);
+            border-color: #667eea;
+        }
+
+        .option-card.correct {
+            background: rgba(34, 197, 94, 0.2);
+            border-color: #22c55e;
+        }
+
+        .option-card.incorrect {
+            background: rgba(239, 68, 68, 0.2);
+            border-color: #ef4444;
+        }
+
+        .timer {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #f59e0b;
+        }
+
+        .hint-box {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid #f59e0b;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+
+        .navigation-dots {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-dot.active {
+            transform: scale(1.2);
+        }
+
+        .result-box {
+            background: rgba(30, 41, 59, 0.9);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .explanation-box {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid #3b82f6;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+
+        .score-display {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #f59e0b;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 text-white">
+    <!-- Stars Background -->
+    <div class="stars-container" id="stars-container"></div>
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 backdrop-blur-lg bg-opacity-80 bg-gray-900 border-b border-gray-800">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="text-2xl font-bold gradient-text">CodeMaster</div>
+                    <nav class="hidden md:flex mr-8">
+                        <a href="index.html"
+                            class="mx-3 font-medium text-white hover:text-indigo-400 transition">الرئيسية</a>
+                        <a href="challenges.html"
+                            class="mx-3 font-medium text-white hover:text-indigo-400 transition">التحديات</a>
+                        <a href="#" class="mx-3 font-medium text-white hover:text-indigo-400 transition">المسابقات</a>
+                        <a href="#" class="mx-3 font-medium text-white hover:text-indigo-400 transition">المجتمع</a>
+                    </nav>
+                </div>
+                <div class="flex items-center">
+                    <div class="relative mr-4">
+                        <span class="absolute top-0 right-0 h-2 w-2 rounded-full bg-green-500"></span>
+                        <img src="https://api.dicebear.com/6.x/avataaars/svg?seed=Felix" alt="User Avatar"
+                            class="w-10 h-10 rounded-full border-2 border-indigo-500">
+                    </div>
+                    <div class="hidden md:block mr-4">
+                        <div class="font-medium">ياسين الخلاقي</div>
+                        <div class="text-xs text-gray-400">المستوى: متقدم</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Challenge Header -->
+        <section class="mb-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <div class="language-icon language-python mr-4">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-3xl font-bold">تحدي خوارزميات الذكاء الاصطناعي</h1>
+                        <div class="flex items-center mt-2">
+                            <span class="badge badge-advanced">متقدم</span>
+                            <span class="text-sm text-gray-400 mr-4">10 أسئلة</span>
+                            <span class="text-sm text-gray-400">المدة: 15 دقيقة</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4 rtl:space-x-reverse">
+                    <div class="timer" id="timer">15:00</div>
+                    <button class="px-4 py-2 rounded-lg bg-gray-800 text-white hover:bg-gray-700 transition"
+                        id="pause-btn">
+                        <i class="fas fa-pause ml-2"></i>إيقاف مؤقت
+                    </button>
+                    <button class="px-4 py-2 rounded-lg bg-red-600 text-white hover:bg-red-700 transition"
+                        id="exit-challenge">
+                        <i class="fas fa-times ml-2"></i>إنهاء
+                    </button>
+                </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="mb-8">
+                <div class="flex justify-between items-center mb-2">
+                    <div class="text-sm text-gray-400">تقدمك في التحدي</div>
+                    <div class="text-sm font-medium"><span id="current-challenge">1</span> من <span
+                            id="total-challenges">10</span></div>
+                </div>
+                <div class="challenge-progress">
+                    <div class="challenge-progress-fill bg-gradient-to-r from-blue-600 to-blue-400" id="progress-bar"
+                        style="width: 10%"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Current Challenge -->
+        <section id="challenge-container">
+            <!-- جميع الأسئلة مخفية باستثناء السؤال الأول -->
+            <div class="question-card" id="question-1">
+                <div class="flex justify-between items-start mb-4">
+                    <h2 class="text-xl font-bold">السؤال 1: خوارزمية التعلم العميق</h2>
+                    <div class="flex items-center space-x-2 rtl:space-x-reverse">
+                        <span class="text-sm text-yellow-400">10 نقاط</span>
+                        <button class="text-gray-400 hover:text-yellow-400 transition" onclick="toggleHint(1)">
+                            <i class="fas fa-lightbulb"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <p class="text-gray-300 mb-6">
+                    أي من الخوارزميات التالية تعتبر الأكثر فعالية في معالجة البيانات المتسلسلة مثل النصوص والسلاسل
+                    الزمنية؟
+                </p>
+
+                <div class="hint-box hidden" id="hint-1">
+                    <div class="flex items-center mb-2">
+                        <i class="fas fa-lightbulb text-yellow-400 ml-2"></i>
+                        <span class="font-bold text-yellow-400">تلميح:</span>
+                    </div>
+                    <p class="text-sm text-gray-300">
+                        فكر في الخوارزميات المصممة خصيصًا للتعامل مع البيانات المتسلسلة والحفاظ على السياق.
+                    </p>
+                </div>
+
+                <div class="space-y-3" id="options-1">
+                    <div class="option-card" data-correct="false">
+                        <div class="flex items-center">
+                            <div
+                                class="w-6 h-6 rounded-full border-2 border-gray-400 mr-3 flex items-center justify-center">
+                                <span>A</span>
+                            </div>
+                            <span>الشبكات العصبية التلافيفية (CNN)</span>
+                        </div>
+                    </div>
+                    <div class="option-card" data-correct="true">
+                        <div class="flex items-center">
+                            <div
+                                class="w-6 h-6 rounded-full border-2 border-gray-400 mr-3 flex items-center justify-center">
+                                <span>B</span>
+                            </div>
+                            <span>الشبكات العصبية المتكررة (RNN)</span>
+                        </div>
+                    </div>
+                    <div class="option-card" data-correct="false">
+                        <div class="flex items-center">
+                            <div
+                                class="w-6 h-6 rounded-full border-2 border-gray-400 mr-3 flex items-center justify-center">
+                                <span>C</span>
+                            </div>
+                            <span>آلات ناقلات الدعم (SVM)</span>
+                        </div>
+                    </div>
+                    <div class="option-card" data-correct="false">
+                        <div class="flex items-center">
+                            <div
+                                class="w-6 h-6 rounded-full border-2 border-gray-400 mr-3 flex items-center justify-center">
+                                <span>D</span>
+                            </div>
+                            <span>شجرة القرار (Decision Tree)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Result Box for Question 1 -->
+                <div class="result-box hidden" id="result-1">
+                    <div class="flex items-center mb-2">
+                        <i class="fas fa-check-circle text-green-500 ml-2"></i>
+                        <span class="font-bold text-green-500">إجابة صحيحة!</span>
+                    </div>
+                    <div class="explanation-box">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-info-circle text-blue-400 ml-2"></i>
+                            <span class="font-bold text-blue-400">التفسير:</span>
+                        </div>
+                        <p class="text-sm text-gray-300">
+                            الشبكات العصبية المتكررة (RNN) هي الأكثر فعالية في معالجة البيانات المتسلسلة لأنها تمتاز
+                            بقدرتها على تذكر المعلومات من الخطوات السابقة، مما يجعلها مناسبة للتعامل مع البيانات
+                            المتسلسلة مثل النصوص والسلاسل الزمنية.
+                        </p>
+                    </div>
+                    <div class="score-display">
+                        <span>النقاط المكتسبة: </span>
+                        <span id="score-1">10</span>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex justify-between">
+                    <button class="px-6 py-3 rounded-lg bg-gray-800 text-white hover:bg-gray-700 transition" disabled>
+                        <i class="fas fa-arrow-right ml-2"></i>السابق
+                    </button>
+                    <button class="px-6 py-3 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 transition"
+                        onclick="nextQuestion()">
+                        التالي<i class="fas fa-arrow-left mr-2"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- الأسئلة من 2 إلى 10 -->
+            <div class="question-card hidden" id="question-2">
+                <div class="flex justify-between items-start mb-4">
+                    <h2 class="text-xl font-bold">السؤال 2: وظيفة الـ Activation Function</h2>
+                    <div class="flex items-center space-x-2 rtl:space-x-reverse">
+                        <span class="text-sm text-yellow-400">15 نقطة</span>
+                        <button class="text-gray-400 hover:text-yellow-400 transition" onclick="toggleHint(2)">
+                            <i class="fas fa-lightbulb"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <p class="text-gray-300 mb-6">
+                    ما هي وظيفة الـ Activation Function في الشبكات العصبية، ولماذا تعتبر ReLU الأكثر استخدامًا في
+                    الطبقات المخفية؟
+                </p>
+
+                <div class="hint-box hidden" id="hint-2">
+                    <div class="flex items-center mb-2">
+                        <i class="fas fa-lightbulb text-yellow-400 ml-2"></i>
+                        <span class="font-bold text-yellow-400">تلميح:</span>
+                    </div>
+                    <p class="text-sm text-gray-300">
+                        فكر في مشكلة Vanishing Gradient وكيف تحل ReLU هذه المشكلة.
+                    </p>
+                </div>
+
+                <div class="space-y-3" id="options-2">
+                    <div class="option-card" data-correct="false">
+                        <div class="flex items-center">
+                            <div
+                                class="w-6 h-6 rounded-full border-2 border-gray-400 mr-3 flex items-center justify-center">
+                                <span>A</span>
+                            </div>
+                            <span>لزيادة تعقيد النموذج فقط</span>
+                        </div>
+                    </div>
+                    <div class="option-card" data-correct="true">
+                        <div class="flex items-center">
+                            <div
+                                class="w-6 h-6 rounded-full border-2 border-gray-400 mr-3 flex items-center justify-center">
+                                <span>B</span>
+                            </div>
+                            <span>لإضافة عدم خطية ومنع مشكلة Vanishing Gradient</span>
+                        </div>
+                    </div>
+                    <div class="option-card" data-correct="false">
+                        <div class="flex items-center">
+                            <div
+                                class="w-6 h-6 rounded-full border-2 border-gray-400 mr-3 flex items-center justify-center">
+                                <span>C</span>
+                            </div>
+                            <span>لتقليل وقت التدريب فقط</span>
+                        </div>
+                    </div>
+                    <div class="option-card" data-correct="false">
+                        <div class="flex items-center">
+                            <div
+                                class="w-6 h-6 rounded-full border-2 border-gray-400 mr-3 flex items-center justify-center">
+                                <span>D</span>
+                            </div>
+                            <span>لتحسين دقة التنبؤ دون تأثير على التدريب</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Result Box for Question 2 -->
+                <div class="result-box hidden" id="result-2">
+                    <div class="flex items-center mb-2">
+                        <i class="fas fa-check-circle text-green-500 ml-2"></i>
+                        <span class="font-bold text-green-500">إجابة صحيحة!</span>
+                    </div>
+                    <div class="explanation-box">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-info-circle text-blue-400 ml-2"></i>
+                            <span class="font-bold text-blue-400">التفسير:</span>
+                        </div>
+                        <p class="text-sm text-gray-300">
+                            وظيفة التنشيط (Activation Function) تضيف عدم خطية للنموذج، مما يسمح له بتعلم علاقات معقدة في
+                            البيانات. تعتبر ReLU الأكثر استخدامًا لأنها:
+                            <br>1. تحل مشكلة Vanishing Gradient التي تحدث مع دوال مثل Sigmoid و Tanh
+                            <br>2. سهلة الحساب مما يجعل التدريب أسرع
+                            <br>3. فعالة في معظم الحالات العملية
+                        </p>
+                    </div>
+                    <div class="score-display">
+                        <span>النقاط المكتسبة: </span>
+                        <span id="score-2">15</span>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex justify-between">
+                    <button class="px-6 py-3 rounded-lg bg-gray-800 text-white hover:bg-gray-700 transition"
+                        onclick="prevQuestion()">
+                        <i class="fas fa-arrow-right ml-2"></i>السابق
+                    </button>
+                    <button class="px-6 py-3 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 transition"
+                        onclick="nextQuestion()">
+                        التالي<i class="fas fa-arrow-left mr-2"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- السؤال 3 -->
+            <div class="question-card hidden" id="question-3">
+                <div class="flex justify-between items-start mb-4">
+                    <h2 class="text-xl font-bold">السؤال 3: تنفيذ شبكة عصبية بسيطة</h2>
+                    <div class="flex items-center space-x-2 rtl:space-x-reverse">
+                        <span class="text-sm text-yellow-400">25 نقطة</span>
+                        <button class="text-gray-400 hover:text-yellow-400 transition" onclick="toggleHint(3)">
+                            <i class="fas fa-lightbulb"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <p class="text-gray-300 mb-6">
+                    اكتب كود Python لإنشاء شبكة عصبية بسيطة باستخدام TensorFlow تحتوي على:
+                    <br>- طبقة إدخال بـ 10 عقد
+                    <br>- طبقتين مخفيتين بـ 64 و 32 عقدة
+                    <br>- طبقة إخراج بـ 1 عقدة
+                    <br>- استخدم ReLU في الطبقات المخفية و Sigmoid في طبقة الإخراج
+                </p>
+
+                <div class="hint-box hidden" id="hint-3">
+                    <div class="flex items-center mb-2">
+                        <i class="fas fa-lightbulb text-yellow-400 ml-2"></i>
+                        <span class="font-bold text-yellow-400">تلميح:</span>
+                    </div>
+                    <p class="text-sm text-gray-300">
+                        استخدم tf.keras.Sequential وأضف الطبقات باستخدام tf.keras.layers.Dense
+                    </p>
+                </div>
+
+                <div class="code-block mb-6">
+                    <pre>
+<span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf
+
+<span class="comment"># اكتب الكود هنا</span>
+model = tf.keras.Sequential([
+    <span class="comment"># طبقة الإدخال</span>
+    tf.keras.layers.Dense(<span class="number">64</span>, activation=<span class="string">'relu'</span>, input_shape=(<span class="number">10</span>,)),
+    <span class="comment"># الطبقة المخفية الأولى</span>
+    tf.keras.layers.Dense(<span class="number">32</span>, activation=<span class="string">'relu'</span>),
+    <span class="comment"># طبقة الإخراج</span>
+    tf.keras.layers.Dense(<span class="number">1</span>, activation=<span class="string">'sigmoid'</span>)
+])
+
+<span class="comment"># compile the model</span>
+model.<span class="function">compile</span>(
+    optimizer=<span class="string">'adam'</span>,
+    loss=<span class="string">'binary_crossentropy'</span>,
+    metrics=[<span class="string">'accuracy'</span>]
+)</pre>
+                </div>
+
+                <div class="space-y-3" id="options-3">
+                    <div class="option-card" data-correct="false">
+                        <div class="flex items-center">
+                            <div
+                                class="w-6 h-6 rounded-full border-2 border-gray-400 mr-3 flex items-center justify-center">
+                                <span>A</span>
+                            </div>
+                            <span>الكود صحيح تمامًا</span>
+                        </div>
+                    </div>
+                    <div class="option-card" data-correct="false">
+                        <div class="flex items-center">
+                            <div
+                                class="w-6 h-6 rounded-full border-2 border-gray-400 mr-3 flex items-center justify-center">
+                                <span>B</span>
+                            </div>
+                            <span>يجب تغيير activation في طبقة الإخراج إلى 'softmax'</span>
+                        </div>
+                    </div>
+                    <div class="option-card" data-correct="true">
+                        <div class="flex items-center">
+                            <div
+                                class="w-6 h-6 rounded-full border-2 border-gray-400 mr-3 flex items-center justify-center">
+                                <span>C</span>
+                            </div>
+                            <span>الكود صحيح وهو التنفيذ المطلوب</span>
+                        </div>
+                    </div>
+                    <div class="option-card" data-correct="false">
+                        <div class="flex items-center">
+                            <div
+                                class="w-6 h-6 rounded-full border-2 border-gray-400 mr-3 flex items-center justify-center">
+                                <span>D</span>
+                            </div>
+                            <span>يجب إضافة طبقة Dropout بعد كل طبقة مخفية</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Result Box for Question 3 -->
+                <div class="result-box hidden" id="result-3">
+                    <div class="flex items-center mb-2">
+                        <i class="fas fa-check-circle text-green-500 ml-2"></i>
+                        <span class="font-bold text-green-500">إجابة صحيحة!</span>
+                    </div>
+                    <div class="explanation-box">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-info-circle text-blue-400 ml-2"></i>
+                            <span class="font-bold text-blue-400">التفسير:</span>
+                        </div>
+                        <p class="text-sm text-gray-300">
+                            الكود المقدم صحيح تمامًا ويحقق المتطلبات:
+                            <br>- طبقة إدخال بـ 10 عقد مع تحديد input_shape=(10,)
+                            <br>- طبقتين مخفيتين بـ 64 و 32 عقدة مع استخدام ReLU
+                            <br>- طبقة إخراج بـ 1 عقدة مع استخدام Sigmoid المناسب للمشاكل الثنائية
+                            <br>- تم تجميع النموذج باستخدام Adam optimizer و binary_crossentropy loss
+                        </p>
+                    </div>
+                    <div class="score-display">
+                        <span>النقاط المكتسبة: </span>
+                        <span id="score-3">25</span>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex justify-between">
+                    <button class="px-6 py-3 rounded-lg bg-gray-800 text-white hover:bg-gray-700 transition"
+                        onclick="prevQuestion()">
+                        <i class="fas fa-arrow-right ml-2"></i>السابق
+                    </button>
+                    <button class="px-6 py-3 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 transition"
+                        onclick="nextQuestion()">
+                        التالي<i class="fas fa-arrow-left mr-2"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- باقي الأسئلة من 4 إلى 10 -->
+            <!-- لأغراض العرض، سأضيف 3 أسئلة إضافية كمثال -->
+
+            <!-- السؤال 4 -->
+            <div class="question-card hidden" id="question-4">
+                <div class="flex justify-between items-start mb-4">
+                    <h2 class="text-xl font-bold">السؤال 4: خوارزمية التعلم المعزز</h2>
+                    <div class="flex items-center space-x-2 rtl:space-x-reverse">
+                        <span class="text-sm text-yellow-400">20 نقطة</span>
+                        <button class="text-gray-400 hover:text-yellow-400 transition" onclick="toggleHint(4)">
+                            <i class="fas fa-lightbulb"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <p class="text-gray-300 mb-6">
+                    في خوارزمية Q-Learning، ما هي الصيغة الصحيحة لتحديث قيمة Q؟
+                </p>
+
+                <div class="hint-box hidden" id="hint-4">
+                    <div class="flex items-center mb-2">
+                        <i class="fas fa-lightbulb text-yellow-400 ml-2"></i>
+                        <span class="font-bold text-yellow-400">تلميح:</span>
+                    </div>
+                    <p class="text-sm text-gray-300">
+                        تذكر أن Q-Learning يستخدم مفهوم Bellman Equation للتحديث.
+                    </p>
+                </div>
+
+                <div class="space-y-3" id="options-4">
+                    <div class="option-card" data-correct="false">
+                        <div class="flex items-center">
+                            <div
+                                class="w-6 h-6 rounded-full border-2 border-gray-400 mr-3 flex items-center justify-center">
+                                <span>A</span>
+                            </div>
+                            <span>Q(s,a) = Q(s,a) + α * (r + γ * max Q(s',a'))</span>
+                        </div>
+                    </div>
+                    <div class="option-card" data-correct="true">
+                        <div class="flex items-center">
+                            <div
+                                class="w-6 h-6 rounded-full border-2 border-gray-400 mr-3 flex items-center justify-center">
+                                <span>B</span>
+                            </div>
+                            <span>Q(s,a) = Q(s,a) + α * (r + γ * max Q(s',a') - Q(s,a))</span>
+                        </div>
+                    </div>
+                    <div class="option-card" data-correct="false">
+                        <div class="flex items-center">
+                            <div
+                                class="w-6 h-6 rounded-full border-2 border-gray-400 mr-3 flex items-center justify-center">
+                                <span>C</span>
+                            </div>
+                            <span>Q(s,a) = α * (r + γ * max Q(s',a'))</span>
+                        </div>
+                    </div>
+                    <div class="option-card" data-correct="false">
+                        <div class="flex items-center">
+                            <div
+                                class="w-6 h-6 rounded-full border-2 border-gray-400 mr-3 flex items-center justify-center">
+                                <span>D</span>
+                            </div>
+                            <span>Q(s,a) = r + γ * max Q(s',a')</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Result Box for Question 4 -->
+                <div class="result-box hidden" id="result-4">
+                    <div class="flex items-center mb-2">
+                        <i class="fas fa-check-circle text-green-500 ml-2"></i>
+                        <span class="font-bold text-green-500">إجابة صحيحة!</span>
+                    </div>
+                    <div class="explanation-box">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-info-circle text-blue-400 ml-2"></i>
+                            <span class="font-bold text-blue-400">التفسير:</span>
+                        </div>
+                        <p class="text-sm text-gray-300">
+                            الصيغة الصحيحة هي: Q(s,a) = Q(s,a) + α * (r + γ * max Q(s',a') - Q(s,a))
+                            <br>حيث:
+                            <br>- α: معدل التعلم (Learning Rate)
+                            <br>- r: المكافأة الفورية
+                            <br>- γ: عامل الخصم (Discount Factor)
+                            <br>- max Q(s',a'): أقصى قيمة Q للحالة التالية
+                            <br>- Q(s,a): قيمة Q الحالية
+                            <br>هذه الصيغة تضمن تحديث قيمة Q بناءً على الفرق بين القيمة المتوقعة والقيمة الفعلية.
+                        </p>
+                    </div>
+                    <div class="score-display">
+                        <span>النقاط المكتسبة: </span>
+                        <span id="score-4">20</span>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex justify-between">
+                    <button class="px-6 py-3 rounded-lg bg-gray-800 text-white hover:bg-gray-700 transition"
+                        onclick="prevQuestion()">
+                        <i class="fas fa-arrow-right ml-2"></i>السابق
+                    </button>
+                    <button class="px-6 py-3 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 transition"
+                        onclick="nextQuestion()">
+                        التالي<i class="fas fa-arrow-left mr-2"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- السؤال 5 -->
+            <div class="question-card hidden" id="question-5">
+                <div class="flex justify-between items-start mb-4">
+                    <h2 class="text-xl font-bold">السؤال 5: معالجة اللغة الطبيعية</h2>
+                    <div class="flex items-center space-x-2 rtl:space-x-reverse">
+                        <span class="text-sm text-yellow-400">15 نقطة</span>
+                        <button class="text-gray-400 hover:text-yellow-400 transition" onclick="toggleHint(5)">
+                            <i class="fas fa-lightbulb"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <p class="text-gray-300 mb-6">
+                    ما الفرق الرئيسي بين نموذج Word2Vec و BERT في تمثيل الكلمات؟
+                </p>
+
+                <div class="hint-box hidden" id="hint-5">
+                    <div class="flex items-center mb-2">
+                        <i class="fas fa-lightbulb text-yellow-400 ml-2"></i>
+                        <span class="font-bold text-yellow-400">تلميح:</span>
+                    </div>
+                    <p class="text-sm text-gray-300">
+                        فكر في مفهوم Contextual vs Non-contextual embeddings.
+                    </p>
+                </div>
+
+                <div class="space-y-3" id="options-5">
+                    <div class="option-card" data-correct="false">
+                        <div class="flex items-center">
+                            <div
+                                class="w-6 h-6 rounded-full border-2 border-gray-400 mr-3 flex items-center justify-center">
+                                <span>A</span>
+                            </div>
+                            <span>Word2Vec أسرع في التدريب</span>
+                        </div>
+                    </div>
+                    <div class="option-card" data-correct="true">
+                        <div class="flex items-center">
+                            <div
+                                class="w-6 h-6 rounded-full border-2 border-gray-400 mr-3 flex items-center justify-center">
+                                <span>B</span>
+                            </div>
+                            <span>BERT يعطي تمثيلًا يعتمد على السياق بينما Word2Vec لا</span>
+                        </div>
+                    </div>
+                    <div class="option-card" data-correct="false">
+                        <div class="flex items-center">
+                            <div
+                                class="w-6 h-6 rounded-full border-2 border-gray-400 mr-3 flex items-center justify-center">
+                                <span>C</span>
+                            </div>
+                            <span>Word2Vec أكثر دقة من BERT</span>
+                        </div>
+                    </div>
+                    <div class="option-card" data-correct="false">
+                        <div class="flex items-center">
+                            <div
+                                class="w-6 h-6 rounded-full border-2 border-gray-400 mr-3 flex items-center justify-center">
+                                <span>D</span>
+                            </div>
+                            <span>BERT يستخدم فقط للترجمة الآلية</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Result Box for Question 5 -->
+                <div class="result-box hidden" id="result-5">
+                    <div class="flex items-center mb-2">
+                        <i class="fas fa-check-circle text-green-500 ml-2"></i>
+                        <span class="font-bold text-green-500">إجابة صحيحة!</span>
+                    </div>
+                    <div class="explanation-box">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-info-circle text-blue-400 ml-2"></i>
+                            <span class="font-bold text-blue-400">التفسير:</span>
+                        </div>
+                        <p class="text-sm text-gray-300">
+                            الفرق الرئيسي هو أن:
+                            <br>- Word2Vec ينتج تمثيلًا ثابتًا لكل كلمة بغض النظر عن السياق (Non-contextual)
+                            <br>- BERT ينتج تمثيلًا ديناميكيًا يعتمد على السياق الذي تظهر فيه الكلمة (Contextual)
+                            <br>مثال: كلمة "بنك" في Word2Vec سيكون لها نفس التمثيل سواء كانت تعني مؤسسة مالية أو ضفة
+                            نهر، بينما في BERT سيكون التمثيل مختلفًا حسب السياق.
+                        </p>
+                    </div>
+                    <div class="score-display">
+                        <span>النقاط المكتسبة: </span>
+                        <span id="score-5">15</span>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex justify-between">
+                    <button class="px-6 py-3 rounded-lg bg-gray-800 text-white hover:bg-gray-700 transition"
+                        onclick="prevQuestion()">
+                        <i class="fas fa-arrow-right ml-2"></i>السابق
+                    </button>
+                    <button class="px-6 py-3 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 transition"
+                        onclick="nextQuestion()">
+                        التالي<i class="fas fa-arrow-left mr-2"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- السؤال 6 -->
+            <div class="question-card hidden" id="question-6">
+                <div class="flex justify-between items-start mb-4">
+                    <h2 class="text-xl font-bold">السؤال 6: الشبكات التوليدية التنافسية (GANs)</h2>
+                    <div class="flex items-center space-x-2 rtl:space-x-reverse">
+                        <span class="text-sm text-yellow-400">20 نقطة</span>
+                        <button class="text-gray-400 hover:text-yellow-400 transition" onclick="toggleHint(6)">
+                            <i class="fas fa-lightbulb"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <p class="text-gray-300 mb-6">
+                    في GANs، ما هو دور الـ Discriminator؟
+                </p>
+
+                <div class="space-y-3" id="options-6">
+                    <div class="option-card" data-correct="false">
+                        <div class="flex items-center">
+                            <div
+                                class="w-6 h-6 rounded-full border-2 border-gray-400 mr-3 flex items-center justify-center">
+                                <span>A</span>
+                            </div>
+                            <span>توليد بيانات جديدة</span>
+                        </div>
+                    </div>
+                    <div class="option-card" data-correct="true">
+                        <div class="flex items-center">
+                            <div
+                                class="w-6 h-6 rounded-full border-2 border-gray-400 mr-3 flex items-center justify-center">
+                                <span>B</span>
+                            </div>
+                            <span>التمييز بين البيانات الحقيقية والمزيفة</span>
+                        </div>
+                    </div>
+                    <div class="option-card" data-correct="false">
+                        <div class="flex items-center">
+                            <div
+                                class="w-6 h-6 rounded-full border-2 border-gray-400 mr-3 flex items-center justify-center">
+                                <span>C</span>
+                            </div>
+                            <span>تحسين جودة الصور فقط</span>
+                        </div>
+                    </div>
+                    <div class="option-card" data-correct="false">
+                        <div class="flex items-center">
+                            <div
+                                class="w-6 h-6 rounded-full border-2 border-gray-400 mr-3 flex items-center justify-center">
+                                <span>D</span>
+                            </div>
+                            <span>توليد نصوص تلقائيًا</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Result Box for Question 6 -->
+                <div class="result-box hidden" id="result-6">
+                    <div class="flex items-center mb-2">
+                        <i class="fas fa-check-circle text-green-500 ml-2"></i>
+                        <span class="font-bold text-green-500">إجابة صحيحة!</span>
+                    </div>
+                    <div class="explanation-box">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-info-circle text-blue-400 ml-2"></i>
+                            <span class="font-bold text-blue-400">التفسير:</span>
+                        </div>
+                        <p class="text-sm text-gray-300">
+                            في GANs (الشبكات التوليدية التنافسية):
+                            <br>- الـ Generator (المولد): مسؤول عن توليد بيانات مزيفة تشبه البيانات الحقيقية
+                            <br>- الـ Discriminator (المميز): مسؤول عن التمييز بين البيانات الحقيقية والبيانات المزيفة
+                            التي ينتجها الـ Generator
+                            <br>يتنافس الاثنان في لعبة صفرية المجموع، حيث يحاول الـ Generator خداع الـ Discriminator،
+                            ويحاول الـ Discriminator تحسين قدرته على التمييز.
+                        </p>
+                    </div>
+                    <div class="score-display">
+                        <span>النقاط المكتسبة: </span>
+                        <span id="score-6">20</span>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex justify-between">
+                    <button class="px-6 py-3 rounded-lg bg-gray-800 text-white hover:bg-gray-700 transition"
+                        onclick="prevQuestion()">
+                        <i class="fas fa-arrow-right ml-2"></i>السابق
+                    </button>
+                    <button class="px-6 py-3 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 transition"
+                        onclick="nextQuestion()">
+                        التالي<i class="fas fa-arrow-left mr-2"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- يمكن إضافة المزيد من الأسئلة هنا بنفس النمط -->
+
+        </section>
+
+        <!-- Challenge Navigation Dots -->
+        <div class="navigation-dots" id="navigation-dots">
+            <!-- سيتم إنشاء نقاط التنقل ديناميكيًا -->
+        </div>
+    </main>
+
+    <!-- Results Modal -->
+    <div id="results-modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center hidden z-50">
+        <div class="bg-gray-800 rounded-2xl p-8 max-w-2xl w-full mx-4">
+            <div class="text-center">
+                <div class="text-4xl mb-4">🎉</div>
+                <h2 class="text-2xl font-bold mb-4">تهانينا! لقد أكملت التحدي</h2>
+
+                <div class="grid grid-cols-2 gap-4 mb-6">
+                    <div class="bg-gray-700 rounded-lg p-4">
+                        <div class="text-3xl font-bold text-green-400" id="final-score">0</div>
+                        <div class="text-gray-400">النقاط المحققة</div>
+                    </div>
+                    <div class="bg-gray-700 rounded-lg p-4">
+                        <div class="text-3xl font-bold text-blue-400" id="correct-answers">0</div>
+                        <div class="text-gray-400">الإجابات الصحيحة</div>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-lg font-bold mb-2">تحليلك:</h3>
+                    <div class="space-y-2">
+                        <div class="flex justify-between">
+                            <span>خوارزميات التعلم العميق:</span>
+                            <span class="text-green-400">ممتاز</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>التعلم بالتعزيز:</span>
+                            <span class="text-yellow-400">جيد جدًا</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>معالجة اللغة الطبيعية:</span>
+                            <span class="text-blue-400">ممتاز</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-center space-x-4 rtl:space-x-reverse">
+                    <button class="px-6 py-3 rounded-lg bg-gray-700 text-white hover:bg-gray-600 transition">
+                        <i class="fas fa-redo ml-2"></i>إعادة المحاولة
+                    </button>
+                    <button class="px-6 py-3 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 transition">
+                        <i class="fas fa-share ml-2"></i>مشاركة النتيجة
+                    </button>
+
+                    <a href="channew.html">
+                    <button class="px-6 py-3 rounded-lg bg-green-600 text-white hover:bg-green-700 transition">
+                        <i class="fas fa-home ml-2"></i>العودة للرئيسية
+                    </button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // تهيئة النجوم في الخلفية
+        function initStars() {
+            const container = document.getElementById('stars-container');
+            for (let i = 0; i < 100; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.width = `${Math.random() * 2 + 1}px`;
+                star.style.height = star.style.width;
+                star.style.animationDelay = `${Math.random() * 5}s`;
+                container.appendChild(star);
+            }
+        }
+
+        // إدارة حالة التحدي
+        let currentQuestion = 1;
+        const totalQuestions = 6;
+        let timerInterval;
+        let timeLeft = 15 * 60; // 15 دقيقة بالثواني
+        let userAnswers = {};
+        let challengePaused = false;
+        let totalScore = 0;
+
+        // تهيئة التايمر
+        function initTimer() {
+            updateTimerDisplay();
+            timerInterval = setInterval(() => {
+                if (!challengePaused) {
+                    timeLeft--;
+                    updateTimerDisplay();
+                    if (timeLeft <= 0) {
+                        endChallenge();
+                    }
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            document.getElementById('timer').textContent =
+                `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        // إدارة التنقل بين الأسئلة
+        function showQuestion(questionNumber) {
+            document.querySelectorAll('.question-card').forEach(card => {
+                card.classList.add('hidden');
+            });
+            document.getElementById(`question-${questionNumber}`).classList.remove('hidden');
+            updateProgress();
+            updateNavigationDots();
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < totalQuestions) {
+                currentQuestion++;
+                showQuestion(currentQuestion);
+            } else {
+                endChallenge();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestion > 1) {
+                currentQuestion--;
+                showQuestion(currentQuestion);
+            }
+        }
+
+        function updateProgress() {
+            const progress = (currentQuestion / totalQuestions) * 100;
+            document.getElementById('progress-bar').style.width = `${progress}%`;
+            document.getElementById('current-challenge').textContent = currentQuestion;
+        }
+
+        // إدارة نقاط التنقل
+        function updateNavigationDots() {
+            const container = document.getElementById('navigation-dots');
+            container.innerHTML = '';
+
+            for (let i = 1; i <= totalQuestions; i++) {
+                const dot = document.createElement('div');
+                dot.className = `nav-dot ${i === currentQuestion ? 'bg-indigo-500' : 'bg-gray-600'} ${userAnswers[i] ? 'ring-2 ring-green-500' : ''}`;
+                dot.onclick = () => {
+                    currentQuestion = i;
+                    showQuestion(i);
+                };
+                container.appendChild(dot);
+            }
+        }
+
+        // إدارة التلميحات
+        function toggleHint(questionNumber) {
+            const hint = document.getElementById(`hint-${questionNumber}`);
+            hint.classList.toggle('hidden');
+        }
+
+        // إظهار النتيجة بعد الإجابة
+        function showResult(questionNumber, isCorrect, points) {
+            const resultBox = document.getElementById(`result-${questionNumber}`);
+            const scoreElement = document.getElementById(`score-${questionNumber}`);
+
+            if (isCorrect) {
+                resultBox.querySelector('.fa-check-circle').className = 'fas fa-check-circle text-green-500 ml-2';
+                resultBox.querySelector('span').textContent = 'إجابة صحيحة!';
+                totalScore += points;
+            } else {
+                resultBox.querySelector('.fa-check-circle').className = 'fas fa-times-circle text-red-500 ml-2';
+                resultBox.querySelector('span').textContent = 'إجابة خاطئة!';
+            }
+
+            scoreElement.textContent = isCorrect ? points : 0;
+            resultBox.classList.remove('hidden');
+        }
+
+        // إدارة الإجابات
+        document.addEventListener('click', function (e) {
+            if (e.target.closest('.option-card') && !e.target.closest('.option-card').classList.contains('selected')) {
+                const optionCard = e.target.closest('.option-card');
+                const questionCard = optionCard.closest('.question-card');
+                const questionId = questionCard.id.split('-')[1];
+
+                // إزالة التحديد من جميع الخيارات
+                questionCard.querySelectorAll('.option-card').forEach(card => {
+                    card.classList.remove('selected', 'correct', 'incorrect');
+                });
+
+                // تحديد الخيار المختار
+                optionCard.classList.add('selected');
+
+                // تحديد إذا كانت الإجابة صحيحة أم خاطئة
+                const isCorrect = optionCard.dataset.correct === 'true';
+                if (isCorrect) {
+                    optionCard.classList.add('correct');
+                } else {
+                    optionCard.classList.add('incorrect');
+
+                    // إظهار الإجابة الصحيحة
+                    questionCard.querySelectorAll('.option-card').forEach(card => {
+                        if (card.dataset.correct === 'true') {
+                            card.classList.add('correct');
+                        }
+                    });
+                }
+
+                // حفظ الإجابة
+                userAnswers[questionId] = isCorrect;
+
+                // إظهار النتيجة
+                const points = parseInt(questionCard.querySelector('.text-yellow-400').textContent);
+                showResult(questionId, isCorrect, points);
+
+                // تحديث نقاط التنقل
+                updateNavigationDots();
+            }
+        });
+
+        // إدارة زر الإيقاف المؤقت
+        document.getElementById('pause-btn').addEventListener('click', function () {
+            challengePaused = !challengePaused;
+            this.innerHTML = challengePaused ?
+                '<i class="fas fa-play ml-2"></i>استئناف' :
+                '<i class="fas fa-pause ml-2"></i>إيقاف مؤقت';
+        });
+
+        // إنهاء التحدي
+        function endChallenge() {
+            clearInterval(timerInterval);
+            const correctAnswers = Object.values(userAnswers).filter(Boolean).length;
+
+            document.getElementById('final-score').textContent = totalScore;
+            document.getElementById('correct-answers').textContent = `${correctAnswers}/${totalQuestions}`;
+            document.getElementById('results-modal').classList.remove('hidden');
+        }
+
+        // تهيئة الصفحة
+        document.addEventListener('DOMContentLoaded', function () {
+            initStars();
+            initTimer();
+            updateNavigationDots();
+            showQuestion(1);
+
+            // إعداد زر الخروج
+            document.getElementById('exit-challenge').addEventListener('click', function () {
+                if (confirm('هل أنت متأكد من إنهاء التحدي؟ سيتم فقدان تقدمك الحالي.')) {
+                    endChallenge();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
