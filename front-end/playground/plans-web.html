@@ -4,18 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تعلم Flutter و Dart لتطوير التطبيقات</title>
+    <title>تعلم تصميم وتطوير الويب من الصفر</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .gradient-text {
-            background: linear-gradient(135deg, #0253B3 0%, #0175C2 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .logo-text {
-            background: linear-gradient(135deg, #0253B3 0%, #0175C2 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: bold;
@@ -23,14 +23,14 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #0253B3 0%, #0175C2 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             transition: all 0.3s ease;
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(2, 83, 179, 0.4);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
         }
 
         .about-section {
@@ -40,7 +40,7 @@
         }
 
         .university-bg {
-            background: linear-gradient(135deg, #0253B3 0%, #0175C2 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
 
         .stars-container {
@@ -79,8 +79,8 @@
 
         .tool-card:hover {
             transform: translateY(-5px);
-            border-color: #0253B3;
-            box-shadow: 0 10px 25px rgba(2, 83, 179, 0.2);
+            border-color: #667eea;
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
         }
 
         .download-btn {
@@ -110,8 +110,8 @@
 
         .course-card:hover {
             transform: translateY(-5px);
-            border-color: #0253B3;
-            box-shadow: 0 10px 25px rgba(2, 83, 179, 0.2);
+            border-color: #667eea;
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
         }
 
         .youtube-btn {
@@ -133,12 +133,16 @@
             box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
         }
 
-        .flutter-color {
-            color: #0253B3;
+        .html-color {
+            color: #E34F26;
         }
 
-        .dart-color {
-            color: #0175C2;
+        .css-color {
+            color: #1572B6;
+        }
+
+        .js-color {
+            color: #F7DF1E;
         }
 
         .youtube-color {
@@ -156,14 +160,14 @@
         <div class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
                 <div class="flex items-center">
-                    <h1 class="logo-text">Flutter <span>Academy</span></h1>
+                    <h1 class="logo-text">WebDev <span>Academy</span></h1>
                     <nav class="hidden md:flex mr-8">
                         <a href="index-2.html"
-                            class="mx-3 font-medium text-white hover:text-blue-300 transition">الرئيسية</a>
-                        <a href="books.html" class="mx-3 font-medium text-white hover:text-blue-300 transition">المكتبة
-                            الرقمية</a>
+                            class="mx-3 font-medium text-white hover:text-purple-300 transition">الرئيسية</a>
+                        <a href="books.html"
+                            class="mx-3 font-medium text-white hover:text-purple-300 transition">المكتبة الرقمية</a>
                         <a href="channew.html"
-                            class="mx-3 font-medium text-white hover:text-blue-300 transition">التحديات التعليمية</a>
+                            class="mx-3 font-medium text-white hover:text-purple-300 transition">التحديات التعليمية</a>
                     </nav>
                 </div>
                 <div class="flex items-center">
@@ -179,76 +183,30 @@
     <main class="container mx-auto px-4 py-12">
         <!-- Hero Section -->
         <section class="mb-16 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-6"><span class="gradient-text">تعلم Flutter و Dart لتطوير
-                    التطبيقات</span></h1>
+            <h1 class="text-4xl md:text-5xl font-bold mb-6"><span class="gradient-text">تعلم تصميم وتطوير الويب من
+                    الصفر</span></h1>
             <p class="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-                اكتشف قوة Flutter في بناء تطبيقات جميلة وسريعة لأنظمة Android و iOS من كود واحد. تعلم Dart واصنع تطبيقات
-                احترافية
+                اكتشف عالم تطوير الويب واصنع مواقع وتطبيقات ويب احترافية. ابدأ رحلتك في مجال مليء بالفرص والإبداع
             </p>
         </section>
 
         <!-- الأدوات المطلوبة Section -->
         <section class="mb-16">
-            <h2 class="text-3xl font-bold mb-12 text-center gradient-text">الأدوات والبرامج المطلوبة</h2>
+            <h2 class="text-3xl font-bold mb-12 text-center gradient-text">أدوات تطوير الويب الأساسية</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Android Studio -->
-                <div class="tool-card bg-gray-800 rounded-xl p-6">
-                    <div class="text-green-400 text-4xl mb-4">
-                        <i class="fab fa-android"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Android Studio</h3>
-                    <p class="text-gray-300 mb-4 text-sm">
-                        بيئة التطوير المتكاملة لتطوير تطبيقات Flutter
-                    </p>
-                    <button class="download-btn w-full" onclick="downloadTool('android-studio')">
-                        <i class="fas fa-download ml-2"></i>
-                        تحميل Android Studio
-                    </button>
-                </div>
-
-                <!-- Visual Studio Code -->
+                <!-- VS Code -->
                 <div class="tool-card bg-gray-800 rounded-xl p-6">
                     <div class="text-blue-400 text-4xl mb-4">
                         <i class="fas fa-code"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">Visual Studio Code</h3>
                     <p class="text-gray-300 mb-4 text-sm">
-                        محرر النصوص المثالي لتطوير Flutter
+                        محرر النصوص الأكثر شعبية لتطوير الويب
                     </p>
                     <button class="download-btn w-full" onclick="downloadTool('vscode')">
                         <i class="fas fa-download ml-2"></i>
                         تحميل VS Code
-                    </button>
-                </div>
-
-                <!-- Flutter SDK -->
-                <div class="tool-card bg-gray-800 rounded-xl p-6">
-                    <div class="flutter-color text-4xl mb-4">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Flutter SDK</h3>
-                    <p class="text-gray-300 mb-4 text-sm">
-                        حزمة تطوير Flutter الرسمية من Google
-                    </p>
-                    <button class="download-btn w-full" onclick="downloadTool('flutter-sdk')">
-                        <i class="fas fa-download ml-2"></i>
-                        تحميل Flutter SDK
-                    </button>
-                </div>
-
-                <!-- Dart SDK -->
-                <div class="tool-card bg-gray-800 rounded-xl p-6">
-                    <div class="dart-color text-4xl mb-4">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Dart SDK</h3>
-                    <p class="text-gray-300 mb-4 text-sm">
-                        لغة البرمجة Dart الرسمية
-                    </p>
-                    <button class="download-btn w-full" onclick="downloadTool('dart-sdk')">
-                        <i class="fas fa-download ml-2"></i>
-                        تحميل Dart SDK
                     </button>
                 </div>
 
@@ -259,7 +217,7 @@
                     </div>
                     <h3 class="text-xl font-bold mb-3">Git</h3>
                     <p class="text-gray-300 mb-4 text-sm">
-                        نظام التحكم بالإصدارات للمشاريع
+                        نظام التحكم بالإصدارات لإدارة المشاريع
                     </p>
                     <button class="download-btn w-full" onclick="downloadTool('git')">
                         <i class="fas fa-download ml-2"></i>
@@ -267,18 +225,63 @@
                     </button>
                 </div>
 
-                <!-- Flutter Extension -->
+                <!-- Node.js -->
                 <div class="tool-card bg-gray-800 rounded-xl p-6">
-                    <div class="flutter-color text-4xl mb-4">
-                        <i class="fas fa-puzzle-piece"></i>
+                    <div class="text-green-400 text-4xl mb-4">
+                        <i class="fab fa-node-js"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Flutter Extension</h3>
+                    <h3 class="text-xl font-bold mb-3">Node.js</h3>
                     <p class="text-gray-300 mb-4 text-sm">
-                        إضافة Flutter الرسمية لـ VS Code
+                        بيئة تشغيل JavaScript من جانب الخادم
                     </p>
-                    <button class="download-btn w-full" onclick="downloadTool('flutter-extension')">
+                    <button class="download-btn w-full" onclick="downloadTool('nodejs')">
                         <i class="fas fa-download ml-2"></i>
-                        تحميل الإضافة
+                        تحميل Node.js
+                    </button>
+                </div>
+
+                <!-- Chrome DevTools -->
+                <div class="tool-card bg-gray-800 rounded-xl p-6">
+                    <div class="text-yellow-400 text-4xl mb-4">
+                        <i class="fab fa-chrome"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Chrome DevTools</h3>
+                    <p class="text-gray-300 mb-4 text-sm">
+                        أدوات المطورين المدمجة في متصفح Chrome
+                    </p>
+                    <button class="download-btn w-full" onclick="downloadTool('devtools')">
+                        <i class="fas fa-download ml-2"></i>
+                        فتح DevTools
+                    </button>
+                </div>
+
+                <!-- Figma -->
+                <div class="tool-card bg-gray-800 rounded-xl p-6">
+                    <div class="text-purple-400 text-4xl mb-4">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Figma</h3>
+                    <p class="text-gray-300 mb-4 text-sm">
+                        أداة التصميم والتخطيط للواجهات
+                    </p>
+                    <button class="download-btn w-full" onclick="downloadTool('figma')">
+                        <i class="fas fa-download ml-2"></i>
+                        استخدام Figma
+                    </button>
+                </div>
+
+                <!-- GitHub -->
+                <div class="tool-card bg-gray-800 rounded-xl p-6">
+                    <div class="text-gray-300 text-4xl mb-4">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">GitHub</h3>
+                    <p class="text-gray-300 mb-4 text-sm">
+                        منصة استضافة المشاريع والتعاون
+                    </p>
+                    <button class="download-btn w-full" onclick="downloadTool('github')">
+                        <i class="fas fa-download ml-2"></i>
+                        إنشاء حساب
                     </button>
                 </div>
             </div>
@@ -287,7 +290,7 @@
         <!-- كورسات يوتيوب Section -->
         <section class="mb-16">
             <div class="flex items-center justify-between mb-8">
-                <h2 class="text-3xl font-bold gradient-text">أفضل كورسات Flutter على يوتيوب</h2>
+                <h2 class="text-3xl font-bold gradient-text">أفضل كورسات تطوير الويب على يوتيوب</h2>
                 <div class="flex items-center youtube-color">
                     <i class="fab fa-youtube text-2xl ml-2"></i>
                     <span class="text-sm">جميع الكورسات مجانية على يوتيوب</span>
@@ -298,24 +301,24 @@
                 <!-- كورس 1 -->
                 <div class="course-card bg-gray-800 rounded-xl p-6">
                     <div class="flex items-start mb-4">
-                        <img src="https://i.ytimg.com/vi/1gDhl4leEzA/hqdefault.jpg" alt="Flutter Course"
+                        <img src="https://i.ytimg.com/vi/G3e-cpL7ofc/hqdefault.jpg" alt="Web Development Course"
                             class="w-20 h-12 rounded-lg object-cover ml-3">
                         <div class="flex-1">
-                            <h3 class="font-bold text-lg mb-1">Flutter كامل للمبتدئين</h3>
-                            <p class="text-gray-400 text-sm">The Net Ninja</p>
+                            <h3 class="font-bold text-lg mb-1">تطوير الويب كامل</h3>
+                            <p class="text-gray-400 text-sm">freeCodeCamp</p>
                         </div>
                     </div>
                     <p class="text-gray-300 mb-4 text-sm line-clamp-2">
-                        تعلم Flutter من الصفر إلى بناء تطبيقات احترافية
+                        دورة شاملة في تطوير الويب من الصفر إلى الاحتراف
                     </p>
                     <div class="flex justify-between items-center mb-3">
                         <div class="flex items-center text-yellow-400">
                             <i class="fas fa-star"></i>
-                            <span class="text-white mr-1 text-sm">4.8</span>
+                            <span class="text-white mr-1 text-sm">4.9</span>
                         </div>
-                        <span class="text-green-400 text-sm">10 ساعات</span>
+                        <span class="text-green-400 text-sm">7 ساعات</span>
                     </div>
-                    <button class="youtube-btn w-full" onclick="watchCourse('netninja-flutter')">
+                    <button class="youtube-btn w-full" onclick="watchCourse('fcc-web-dev')">
                         <i class="fab fa-youtube ml-2"></i>
                         مشاهدة على يوتيوب
                     </button>
@@ -324,24 +327,24 @@
                 <!-- كورس 2 -->
                 <div class="course-card bg-gray-800 rounded-xl p-6">
                     <div class="flex items-start mb-4">
-                        <img src="https://i.ytimg.com/vi/1ukSR1GRtMU/hqdefault.jpg" alt="Flutter Course"
+                        <img src="https://i.ytimg.com/vi/HcOc7P5BMi4/hqdefault.jpg" alt="HTML CSS Course"
                             class="w-20 h-12 rounded-lg object-cover ml-3">
                         <div class="flex-1">
-                            <h3 class="font-bold text-lg mb-1">Flutter بالعربي</h3>
-                            <p class="text-gray-400 text-sm">Osama Elzero</p>
+                            <h3 class="font-bold text-lg mb-1">HTML & CSS كامل</h3>
+                            <p class="text-gray-400 text-sm">Apna College</p>
                         </div>
                     </div>
                     <p class="text-gray-300 mb-4 text-sm line-clamp-2">
-                        دورة Flutter شاملة باللغة العربية
+                        تعلم HTML و CSS من الصفر إلى بناء مواقع كاملة
                     </p>
                     <div class="flex justify-between items-center mb-3">
                         <div class="flex items-center text-yellow-400">
                             <i class="fas fa-star"></i>
-                            <span class="text-white mr-1 text-sm">4.9</span>
+                            <span class="text-white mr-1 text-sm">4.8</span>
                         </div>
-                        <span class="text-green-400 text-sm">15 ساعة</span>
+                        <span class="text-green-400 text-sm">12 ساعة</span>
                     </div>
-                    <button class="youtube-btn w-full" onclick="watchCourse('elzero-flutter')">
+                    <button class="youtube-btn w-full" onclick="watchCourse('html-css-complete')">
                         <i class="fab fa-youtube ml-2"></i>
                         مشاهدة على يوتيوب
                     </button>
@@ -350,24 +353,24 @@
                 <!-- كورس 3 -->
                 <div class="course-card bg-gray-800 rounded-xl p-6">
                     <div class="flex items-start mb-4">
-                        <img src="https://i.ytimg.com/vi/x0uinJvhNxI/hqdefault.jpg" alt="Flutter Course"
+                        <img src="https://i.ytimg.com/vi/EjavYOFoJJ0/hqdefault.jpg" alt="JavaScript Course"
                             class="w-20 h-12 rounded-lg object-cover ml-3">
                         <div class="flex-1">
-                            <h3 class="font-bold text-lg mb-1">Dart Programming</h3>
+                            <h3 class="font-bold text-lg mb-1">JavaScript متقدم</h3>
                             <p class="text-gray-400 text-sm">Programming with Mosh</p>
                         </div>
                     </div>
                     <p class="text-gray-300 mb-4 text-sm line-clamp-2">
-                        إتقان لغة Dart قبل البدء في Flutter
+                        إتقان JavaScript من الأساسيات إلى المفاهيم المتقدمة
                     </p>
                     <div class="flex justify-between items-center mb-3">
                         <div class="flex items-center text-yellow-400">
                             <i class="fas fa-star"></i>
-                            <span class="text-white mr-1 text-sm">4.7</span>
+                            <span class="text-white mr-1 text-sm">4.9</span>
                         </div>
-                        <span class="text-green-400 text-sm">4 ساعات</span>
+                        <span class="text-green-400 text-sm">6 ساعات</span>
                     </div>
-                    <button class="youtube-btn w-full" onclick="watchCourse('mosh-dart')">
+                    <button class="youtube-btn w-full" onclick="watchCourse('javascript-advanced')">
                         <i class="fab fa-youtube ml-2"></i>
                         مشاهدة على يوتيوب
                     </button>
@@ -376,24 +379,24 @@
                 <!-- كورس 4 -->
                 <div class="course-card bg-gray-800 rounded-xl p-6">
                     <div class="flex items-start mb-4">
-                        <img src="https://i.ytimg.com/vi/VPvVD8t02U8/hqdefault.jpg" alt="Flutter Course"
+                        <img src="https://i.ytimg.com/vi/SBvmnHTQIPY/hqdefault.jpg" alt="React Course"
                             class="w-20 h-12 rounded-lg object-cover ml-3">
                         <div class="flex-1">
-                            <h3 class="font-bold text-lg mb-1">Flutter & Firebase</h3>
-                            <p class="text-gray-400 text-sm">The Net Ninja</p>
+                            <h3 class="font-bold text-lg mb-1">React.js كامل</h3>
+                            <p class="text-gray-400 text-sm">JavaScript Mastery</p>
                         </div>
                     </div>
                     <p class="text-gray-300 mb-4 text-sm line-clamp-2">
-                        دمج Flutter مع Firebase لقواعد بيانات حقيقية
+                        تعلم React.js من الصفر إلى بناء تطبيقات ويب تفاعلية
                     </p>
                     <div class="flex justify-between items-center mb-3">
                         <div class="flex items-center text-yellow-400">
                             <i class="fas fa-star"></i>
                             <span class="text-white mr-1 text-sm">4.8</span>
                         </div>
-                        <span class="text-green-400 text-sm">6 ساعات</span>
+                        <span class="text-green-400 text-sm">8 ساعات</span>
                     </div>
-                    <button class="youtube-btn w-full" onclick="watchCourse('firebase-flutter')">
+                    <button class="youtube-btn w-full" onclick="watchCourse('react-complete')">
                         <i class="fab fa-youtube ml-2"></i>
                         مشاهدة على يوتيوب
                     </button>
@@ -402,24 +405,24 @@
                 <!-- كورس 5 -->
                 <div class="course-card bg-gray-800 rounded-xl p-6">
                     <div class="flex items-start mb-4">
-                        <img src="https://i.ytimg.com/vi/26hNqOmRByY/hqdefault.jpg" alt="Flutter Course"
+                        <img src="https://i.ytimg.com/vi/wRNinF7YQqQ/hqdefault.jpg" alt="Web Design Course"
                             class="w-20 h-12 rounded-lg object-cover ml-3">
                         <div class="flex-1">
-                            <h3 class="font-bold text-lg mb-1">State Management</h3>
-                            <p class="text-gray-400 text-sm">Flutterly</p>
+                            <h3 class="font-bold text-lg mb-1">تصميم الويب بالعربي</h3>
+                            <p class="text-gray-400 text-sm">Elzero Web School</p>
                         </div>
                     </div>
                     <p class="text-gray-300 mb-4 text-sm line-clamp-2">
-                        إدارة الحالة في Flutter باستخدام Provider
+                        دورة متكاملة في تصميم الويب باللغة العربية
                     </p>
                     <div class="flex justify-between items-center mb-3">
                         <div class="flex items-center text-yellow-400">
                             <i class="fas fa-star"></i>
-                            <span class="text-white mr-1 text-sm">4.6</span>
+                            <span class="text-white mr-1 text-sm">4.9</span>
                         </div>
-                        <span class="text-green-400 text-sm">3 ساعات</span>
+                        <span class="text-green-400 text-sm">20 ساعة</span>
                     </div>
-                    <button class="youtube-btn w-full" onclick="watchCourse('state-management')">
+                    <button class="youtube-btn w-full" onclick="watchCourse('elzero-web-design')">
                         <i class="fab fa-youtube ml-2"></i>
                         مشاهدة على يوتيوب
                     </button>
@@ -428,24 +431,24 @@
                 <!-- كورس 6 -->
                 <div class="course-card bg-gray-800 rounded-xl p-6">
                     <div class="flex items-start mb-4">
-                        <img src="https://i.ytimg.com/vi/CzRQ9mnmh44/hqdefault.jpg" alt="Flutter Course"
+                        <img src="https://i.ytimg.com/vi/tgbNymZ7vqY/hqdefault.jpg" alt="Full Stack Course"
                             class="w-20 h-12 rounded-lg object-cover ml-3">
                         <div class="flex-1">
-                            <h3 class="font-bold text-lg mb-1">تطبيقات تجارية</h3>
-                            <p class="text-gray-400 text-sm">Rivaan Ranawat</p>
+                            <h3 class="font-bold text-lg mb-1">Full Stack Development</h3>
+                            <p class="text-gray-400 text-sm">Coding Addict</p>
                         </div>
                     </div>
                     <p class="text-gray-300 mb-4 text-sm line-clamp-2">
-                        بناء تطبيقات Flutter تجارية كاملة
+                        تطوير تطبيقات ويب كاملة من Frontend إلى Backend
                     </p>
                     <div class="flex justify-between items-center mb-3">
                         <div class="flex items-center text-yellow-400">
                             <i class="fas fa-star"></i>
-                            <span class="text-white mr-1 text-sm">4.9</span>
+                            <span class="text-white mr-1 text-sm">4.7</span>
                         </div>
-                        <span class="text-green-400 text-sm">8 ساعات</span>
+                        <span class="text-green-400 text-sm">15 ساعة</span>
                     </div>
-                    <button class="youtube-btn w-full" onclick="watchCourse('commercial-apps')">
+                    <button class="youtube-btn w-full" onclick="watchCourse('full-stack')">
                         <i class="fab fa-youtube ml-2"></i>
                         مشاهدة على يوتيوب
                     </button>
@@ -453,11 +456,11 @@
             </div>
 
             <!-- ملاحظة -->
-            <div class="mt-8 p-4 bg-blue-900 bg-opacity-20 rounded-lg border border-blue-700">
+            <div class="mt-8 p-4 bg-purple-900 bg-opacity-20 rounded-lg border border-purple-700">
                 <div class="flex items-center">
-                    <i class="fas fa-info-circle text-blue-400 ml-2 text-xl"></i>
+                    <i class="fas fa-info-circle text-purple-400 ml-2 text-xl"></i>
                     <div>
-                        <h4 class="font-bold text-blue-300 mb-1">ملاحظة هامة:</h4>
+                        <h4 class="font-bold text-purple-300 mb-1">ملاحظة هامة:</h4>
                         <p class="text-gray-300 text-sm">
                             جميع الكورسات أعلاه متاحة مجاناً على يوتيوب. اضغط على "مشاهدة على يوتيوب" لتنتقل مباشرة إلى
                             الكورس.
@@ -471,37 +474,38 @@
         <section class="about-section rounded-2xl p-8 mb-12">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
-                    <h2 class="text-3xl font-bold mb-6 gradient-text">لماذا تتعلم Flutter؟</h2>
+                    <h2 class="text-3xl font-bold mb-6 gradient-text">لماذا تتعلم تطوير الويب؟</h2>
                     <p class="text-gray-300 mb-6 leading-relaxed">
-                        Flutter هي إطار عمل مفتوح المصدر من Google لبناء تطبيقات أصلية جميلة ومترابطة من كود واحد.
+                        تطوير الويب هو أحد أكثر المهارات طلباً في سوق العمل الحديث، مع فرص لا حصر لها للإبداع والنمو
+                        المهني.
                     </p>
                     <p class="text-gray-300 mb-6 leading-relaxed">
-                        ✅ كود واحد لـ iOS و Android<br>
-                        ✅ أداء قريب من التطبيقات الأصلية<br>
-                        ✅ واجهة مستخدم جميلة وتفاعلية<br>
-                        ✅ مجتمع نشط ودعم من Google<br>
-                        ✅ تحديثات سريعة ومستمرة<br>
-                        ✅ سهولة التعلم والتطوير<br>
+                        ✅ طلب مستمر في سوق العمل<br>
+                        ✅ إمكانية العمل الحر والعمل عن بعد<br>
+                        ✅ رواتب تنافسية ومستقبل واعد<br>
+                        ✅ مجال ديناميكي ومتطور باستمرار<br>
+                        ✅ فرص للإبداع والابتكار<br>
+                        ✅ مجتمع داعم وموارد غنية<br>
                     </p>
                     <div class="flex flex-wrap gap-4">
                         <div class="flex items-center">
                             <div
-                                class="w-12 h-12 rounded-full bg-blue-900 flex items-center justify-center text-blue-400 mr-3">
-                                <i class="fab fa-google"></i>
+                                class="w-12 h-12 rounded-full bg-purple-900 flex items-center justify-center text-purple-400 mr-3">
+                                <i class="fas fa-laptop-code"></i>
                             </div>
                             <div>
-                                <div class="font-bold">من Google</div>
-                                <div class="text-sm text-gray-400">مدعوم من</div>
+                                <div class="font-bold">+25%</div>
+                                <div class="text-sm text-gray-400">نمو الطلب</div>
                             </div>
                         </div>
                         <div class="flex items-center">
                             <div
                                 class="w-12 h-12 rounded-full bg-green-900 flex items-center justify-center text-green-400 mr-3">
-                                <i class="fas fa-rocket"></i>
+                                <i class="fas fa-dollar-sign"></i>
                             </div>
                             <div>
-                                <div class="font-bold">سريع</div>
-                                <div class="text-sm text-gray-400">أداء عالي</div>
+                                <div class="font-bold">$75K+</div>
+                                <div class="text-sm text-gray-400">متوسط الرواتب</div>
                             </div>
                         </div>
                     </div>
@@ -513,15 +517,15 @@
                         <div class="absolute inset-0 flex" id="university-slider">
                             <!-- Slide 1 -->
                             <div class="flex-shrink-0 w-full h-full transition-opacity duration-1000">
-                                <img src="imges/dart.jpg" alt="تطوير Flutter" class="w-full h-full object-cover">
+                                <img src="../imges/web1.jpg" alt="تطوير الويب" class="w-full h-full object-cover">
                             </div>
                             <!-- Slide 2 -->
                             <div class="flex-shrink-0 w-full h-full transition-opacity duration-1000">
-                                <img src="imges/dart 2.jpg" alt="واجهات Flutter" class="w-full h-full object-cover">
+                                <img src="../imges/web2.jpg" alt="تصميم الويب" class="w-full h-full object-cover">
                             </div>
                             <!-- Slide 3 -->
                             <div class="flex-shrink-0 w-full h-full transition-opacity duration-1000">
-                                <img src="imges/dart 3.jpg" alt="برمجة Dart" class="w-full h-full object-cover">
+                                <img src="../imges/web3.jpg" alt="برمجة الويب" class="w-full h-full object-cover">
                             </div>
                         </div>
                     </div>
@@ -548,13 +552,13 @@
 
         <!-- CTA Section -->
         <section class="university-bg rounded-2xl p-12 text-center">
-            <h2 class="text-3xl font-bold mb-6">ابدأ رحلتك مع Flutter اليوم</h2>
+            <h2 class="text-3xl font-bold mb-6">ابدأ رحلتك في تطوير الويب اليوم</h2>
             <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-                انضم إلى آلاف المطورين الذين بدأوا رحلتهم في تطوير تطبيقات Flutter من خلال منصتنا التعليمية
+                انضم إلى آلاف المطورين الذين بدأوا رحلتهم في مجال تطوير الويب من خلال منصتنا التعليمية
             </p>
             <div class="flex flex-wrap justify-center gap-4">
                 <button class="btn-primary px-8 py-3 rounded-lg font-medium text-lg">
-                    <a href="creat-user.html"><i class="fas fa-user-plus ml-2"></i>انضم إلينا الآن</a>
+                    <a href="../pages/register.html"><i class="fas fa-user-plus ml-2"></i>انضم إلينا الآن</a>
                 </button>
                 <button
                     class="px-8 py-3 rounded-lg font-medium text-lg border-2 border-white text-white hover:bg-white hover:bg-opacity-10 transition">
@@ -569,25 +573,27 @@
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
                 <div>
-                    <h1 class="logo-text">Flutter <span>Academy</span></h1>
+                    <h1 class="logo-text">WebDev <span>Academy</span></h1>
                     <p class="text-gray-400 mt-2">
-                        منصة متخصصة في تعليم Flutter و Dart لتطوير تطبيقات الجوال
+                        منصة متخصصة في تعليم تصميم وتطوير الويب
                     </p>
                 </div>
                 <div>
                     <h3 class="text-lg font-bold mb-4 text-white">المسارات التعليمية</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-blue-300 transition">Dart Programming</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-300 transition">Flutter Basics</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-300 transition">Advanced Flutter</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-300 transition">Frontend Development</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-300 transition">Backend Development</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-300 transition">Full Stack</a></li>
                     </ul>
                 </div>
                 <div>
                     <h3 class="text-lg font-bold mb-4 text-white">الدعم الفني</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-blue-300 transition">الأسئلة الشائعة</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-300 transition">تواصل معنا</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-300 transition">المجتمع</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-300 transition">الأسئلة الشائعة</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-300 transition">تواصل معنا</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-300 transition">المجتمع</a></li>
                     </ul>
                 </div>
                 <div>
@@ -613,7 +619,7 @@
                 </div>
             </div>
             <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
-                &copy; 2024 Flutter Academy. جميع الحقوق محفوظة.
+                &copy; 2024 WebDev Academy. جميع الحقوق محفوظة.
             </div>
         </div>
     </footer>
@@ -622,12 +628,12 @@
         // دالة التحميل للأدوات
         function downloadTool(toolName) {
             const downloadUrls = {
-                'android-studio': 'https://developer.android.com/studio',
                 'vscode': 'https://code.visualstudio.com/download',
-                'flutter-sdk': 'https://flutter.dev/docs/get-started/install',
-                'dart-sdk': 'https://dart.dev/get-dart',
                 'git': 'https://git-scm.com/downloads',
-                'flutter-extension': 'https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter'
+                'nodejs': 'https://nodejs.org/',
+                'devtools': 'https://developers.google.com/web/tools/chrome-devtools',
+                'figma': 'https://www.figma.com/',
+                'github': 'https://github.com/'
             };
 
             const url = downloadUrls[toolName];
@@ -640,12 +646,12 @@
         // دالة مشاهدة الكورسات على يوتيوب
         function watchCourse(courseName) {
             const youtubeUrls = {
-                'netninja-flutter': 'https://www.youtube.com/watch?v=1gDhl4leEzA&list=PL4cUxeGkcC9jLYyp2Aoh6hcWuxFDX6PBJ',
-                'elzero-flutter': 'https://www.youtube.com/watch?v=1ukSR1GRtMU&list=PLM9OYymj7C7O2k6Y1O2X4bIMFq_5I1+_',
-                'mosh-dart': 'https://www.youtube.com/watch?v=x0uinJvhNxI',
-                'firebase-flutter': 'https://www.youtube.com/watch?v=VPvVD8t02U8&list=PL4cUxeGkcC9j--TKIdkb3ISfRbJeJYQwC',
-                'state-management': 'https://www.youtube.com/watch?v=26hNqOmRByY',
-                'commercial-apps': 'https://www.youtube.com/watch?v=CzRQ9mnmh44'
+                'fcc-web-dev': 'https://www.youtube.com/watch?v=G3e-cpL7ofc',
+                'html-css-complete': 'https://www.youtube.com/watch?v=HcOc7P5BMi4',
+                'javascript-advanced': 'https://www.youtube.com/watch?v=EjavYOFoJJ0',
+                'react-complete': 'https://www.youtube.com/watch?v=SBvmnHTQIPY',
+                'elzero-web-design': 'https://www.youtube.com/watch?v=wRNinF7YQqQ',
+                'full-stack': 'https://www.youtube.com/watch?v=tgbNymZ7vqY'
             };
 
             const url = youtubeUrls[courseName];

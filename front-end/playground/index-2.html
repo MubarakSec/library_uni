@@ -5,12 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مكتبتي الجامعية - المنصة التعليمية الأولى</title>
-    <script src="js/main.js"></script>
-    <script src="./search.js"></script>
+    <script src="../assets/js/main.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styls.css">
-    <link rel="stylesheet" href="./not-found.css">
+    <link rel="stylesheet" href="../assets/css/legacy.css">
+    <link rel="stylesheet" href="../assets/css/pages/not-found.css">
 
 </head>
 
@@ -50,8 +49,8 @@
                     <i class="fas fa-moon"></i>
                     <i class="fas fa-sun hidden"></i>
                 </button>
-              <a href="login.html"> <button  class="btn primary-btn">تسجيل الدخول</button></a>
-             <a href="creat-user.html">  <button class="btn secondary-btn">إنشاء حساب</button></a>
+              <a href="../pages/login.html"> <button  class="btn primary-btn">تسجيل الدخول</button></a>
+             <a href="../pages/register.html">  <button class="btn secondary-btn">إنشاء حساب</button></a>
             </div>
 
             <!-- <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -68,14 +67,14 @@
             <i class="fas fa-times"></i>
         </button>
         <ul>
-            <li><a href="index2.html" class="active"><i class="fas fa-home"></i> الرئيسية</a></li>
-            <li><a href="./books.html"><i class="fas fa-book"></i> الكتب</a></li>
-            <li><a href="plans.html"><i class="fas fa-file-alt"></i> المسارات البرمجية</a></li>
-            <li><a href="exams.html"><i class="fas fa-clipboard-check"></i> نماذج الاختبارات</a></li>
+            <li><a href="index-2.html" class="active"><i class="fas fa-home"></i> الرئيسية</a></li>
+            <li><a href="../pages/books.html"><i class="fas fa-book"></i> الكتب</a></li>
+            <li><a href="../pages/plans.html"><i class="fas fa-file-alt"></i> المسارات البرمجية</a></li>
+            <li><a href="../pages/exams.html"><i class="fas fa-clipboard-check"></i> نماذج الاختبارات</a></li>
             <li><a href="channew.html"><i class="fas fa-trophy"></i> التحديات</a></li>
-            <a href="login.html"> <button class="btn primary-btn">تسجيل الدخول</button></a><br><br>
-            <a href="creat-user.html"> <button class="btn secondary-btn"> انشاءحساب</button></a> 
-               <li><a href="./not-found.html"><i class="fas fa-cloud-upload-alt"></i> انشاء حساب</a></li>
+            <a href="../pages/login.html"> <button class="btn primary-btn">تسجيل الدخول</button></a><br><br>
+            <a href="../pages/register.html"> <button class="btn secondary-btn"> انشاءحساب</button></a> 
+               <li><a href="../pages/not-found.html"><i class="fas fa-cloud-upload-alt"></i> انشاء حساب</a></li>
 
         </ul>
     </nav>
@@ -90,12 +89,12 @@
 
     <!-- القائمة الجانبية للكمبيوتر --> 
     <div class="nav-links">
-        <a href="./index2.html">الرئيسية</a>
-        <a href="./books.html">الكتب</a>
-        <a href="./plans.html"> المسارات البرمجية</a>
-        <a href="./exams.html">نماذج الاختبارات</a>
-        <a href="./not-found.html">ارفع ملف </a>
-        <a href="./about.html">عن المكتبة </a>
+        <a href="index-2.html">الرئيسية</a>
+        <a href="../pages/books.html">الكتب</a>
+        <a href="../pages/plans.html"> المسارات البرمجية</a>
+        <a href="../pages/exams.html">نماذج الاختبارات</a>
+        <a href="../pages/not-found.html">ارفع ملف </a>
+        <a href="../pages/about.html">عن المكتبة </a>
     </div>
     
 <!-- 
@@ -117,7 +116,7 @@
                     <h2>مرحبًا بك في منصة مكتبتي الجامعية</h2>
                     <p>منصة تعليمية شاملة توفر لك كل ما تحتاجه لرحلتك الأكاديمية من كتب، ملخصات، اختبارات سابقة وتحديات
                           تعليمية لطلاب الجامعة الاماراتية الدولية</p>
-                   <a href="about.html"> <button class="btn primary-btn large-btn"> عن المكتبة </button></a>
+                   <a href="../pages/about.html"> <button class="btn primary-btn large-btn"> عن المكتبة </button></a>
                 </div>
                 <div class="welcome-image">
                 <creattie-embed src="https://d1jj76g3lut4fe.cloudfront.net/saved_colors/126316/qh1hgUtqnvpXGETC.json" delay="1"
@@ -157,7 +156,7 @@
                             <p>تصفح مئات الكتب الجامعية والمصادر التعليمية في مختلف التخصصات</p>
                             <div class="flex flex-wrap gap-4">
                                 <br>
-                                <a href="books.html"> <button
+                                <a href="../pages/books.html"> <button
                                         class="btn bg-primary hover:bg-primary-dark text-white font-bold py-3 px-6 rounded-lg transition duration-500">استكشف
                                         الكتب</button></a>
                             
@@ -219,13 +218,13 @@
                 <div class="section-header">
                     
                     <h3><i class="fas fa-star"></i> الكتب المميزة</h3>
-                    <a href="./books.html" class="view-all">عرض الكل <i class="fas fa-arrow-left"></i></a>
+                    <a href="../pages/books.html" class="view-all">عرض الكل <i class="fas fa-arrow-left"></i></a>
                 </div>
 
                 <div class="books-grid">
                     <div class="book-card">
                         <div class="book-cover">
-                            <img src="./imges/code.clash_14040504_185445667.jpg" alt="غلاف الكتاب">
+                            <img src="../imges/code.clash_14040504_185445667.jpg" alt="غلاف الكتاب">
                             <div class="book-badge">جديد</div>
                         </div>
                         <div class="book-info">
@@ -247,7 +246,7 @@
 
                     <div class="book-card">
                         <div class="book-cover">
-                            <img src="./imges/C++ image.jpg" alt="غلاف الكتاب">
+                            <img src="../imges/C++ image.jpg" alt="غلاف الكتاب">
                             <div class="book-badge">الأكثر تحميلاً</div>
                         </div>
                         <div class="book-info">
@@ -265,7 +264,7 @@
 
                     <div class="book-card">
                         <div class="book-cover">
-                            <img src="imges/computer-organisation-and-architecture-explained-home.png" alt="غلاف الكتاب">
+                            <img src="../imges/computer-organisation-and-architecture-explained-home.png" alt="غلاف الكتاب">
                         </div>
                         <div class="book-info">
                             <h4>  معماريةوتنظيم الحاسوب</h4>
@@ -282,7 +281,7 @@
 
                     <div class="book-card">
                         <div class="book-cover">
-                            <img src="./imges/istockphoto-2107018259-1024x1024.jpg" alt="غلاف الكتاب">
+                            <img src="../imges/istockphoto-2107018259-1024x1024.jpg" alt="غلاف الكتاب">
                             <div class="book-badge">موصى به</div>
                         </div>
                         <div class="book-info">
@@ -546,7 +545,7 @@
 
     
 
-    <script src="js/script.js"></script>
+    <script src="../assets/js/script.js"></script>
 
 
 

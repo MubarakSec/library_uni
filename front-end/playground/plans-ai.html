@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تعلم لغة Python من الصفر</title>
+    <title>تعلم الذكاء الاصطناعي من الصفر</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .gradient-text {
+         .gradient-text {
             background: linear-gradient(135deg, #0253B3 0%, #0175C2 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -42,7 +42,6 @@
         .university-bg {
             background: linear-gradient(135deg, #0253B3 0%, #0175C2 100%);
         }
-  }
 
         .stars-container {
             position: fixed;
@@ -80,8 +79,8 @@
 
         .tool-card:hover {
             transform: translateY(-5px);
-            border-color: #3776AB;
-            box-shadow: 0 10px 25px rgba(55, 118, 171, 0.2);
+            border-color: #667eea;
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
         }
 
         .download-btn {
@@ -111,8 +110,8 @@
 
         .course-card:hover {
             transform: translateY(-5px);
-            border-color: #3776AB;
-            box-shadow: 0 10px 25px rgba(55, 118, 171, 0.2);
+            border-color: #667eea;
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
         }
 
         .youtube-btn {
@@ -134,12 +133,20 @@
             box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
         }
 
-        .python-color {
-            color: #3776AB;
+        .ai-color {
+            color: #667eea;
+        }
+
+        .ml-color {
+            color: #764ba2;
         }
 
         .youtube-color {
             color: #FF0000;
+        }
+
+        .python-color {
+            color: #3776AB;
         }
     </style>
 </head>
@@ -153,14 +160,14 @@
         <div class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
                 <div class="flex items-center">
-                    <h1 class="logo-text">Python <span>Academy</span></h1>
+                    <h1 class="logo-text">AI <span>Academy</span></h1>
                     <nav class="hidden md:flex mr-8">
                         <a href="index-2.html"
-                            class="mx-3 font-medium text-white hover:text-blue-300 transition">الرئيسية</a>
-                        <a href="books.html" class="mx-3 font-medium text-white hover:text-blue-300 transition">المكتبة
-                            الرقمية</a>
+                            class="mx-3 font-medium text-white hover:text-purple-300 transition">الرئيسية</a>
+                        <a href="books.html"
+                            class="mx-3 font-medium text-white hover:text-purple-300 transition">المكتبة الرقمية</a>
                         <a href="channew.html"
-                            class="mx-3 font-medium text-white hover:text-blue-300 transition">التحديات التعليمية</a>
+                            class="mx-3 font-medium text-white hover:text-purple-300 transition">التحديات التعليمية</a>
                     </nav>
                 </div>
                 <div class="flex items-center">
@@ -176,16 +183,16 @@
     <main class="container mx-auto px-4 py-12">
         <!-- Hero Section -->
         <section class="mb-16 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-6"><span class="gradient-text">تعلم لغة Python من الصفر</span>
-            </h1>
+            <h1 class="text-4xl md:text-5xl font-bold mb-6"><span class="gradient-text">تعلم الذكاء الاصطناعي من
+                    الصفر</span></h1>
             <p class="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-                اكتشف قوة Python في البرمجة، تحليل البيانات، الذكاء الاصطناعي، وتطوير الويب. ابدأ رحلتك مع لغة المستقبل
+                اكتشف عالم الذكاء الاصطناعي وتعلم الآلة. ابدأ رحلتك في مجال المستقبل واصنع أنظمة ذكية تغير العالم
             </p>
         </section>
 
         <!-- الأدوات المطلوبة Section -->
         <section class="mb-16">
-            <h2 class="text-3xl font-bold mb-12 text-center gradient-text">الأدوات والبرامج المطلوبة</h2>
+            <h2 class="text-3xl font-bold mb-12 text-center gradient-text">أدوات الذكاء الاصطناعي الأساسية</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Python -->
@@ -195,7 +202,7 @@
                     </div>
                     <h3 class="text-xl font-bold mb-3">Python</h3>
                     <p class="text-gray-300 mb-4 text-sm">
-                        لغة البرمجة Python الرسمية بالإصدار 3.x
+                        لغة البرمجة الأساسية للذكاء الاصطناعي وتعلم الآلة
                     </p>
                     <button class="download-btn w-full" onclick="downloadTool('python')">
                         <i class="fas fa-download ml-2"></i>
@@ -203,59 +210,14 @@
                     </button>
                 </div>
 
-                <!-- Visual Studio Code -->
-                <div class="tool-card bg-gray-800 rounded-xl p-6">
-                    <div class="text-blue-400 text-4xl mb-4">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Visual Studio Code</h3>
-                    <p class="text-gray-300 mb-4 text-sm">
-                        محرر النصوص المثالي لتطوير Python مع إضافات متخصصة
-                    </p>
-                    <button class="download-btn w-full" onclick="downloadTool('vscode')">
-                        <i class="fas fa-download ml-2"></i>
-                        تحميل VS Code
-                    </button>
-                </div>
-
-                <!-- PyCharm -->
-                <div class="tool-card bg-gray-800 rounded-xl p-6">
-                    <div class="text-green-400 text-4xl mb-4">
-                        <i class="fas fa-jet-fighter"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">PyCharm</h3>
-                    <p class="text-gray-300 mb-4 text-sm">
-                        بيئة التطوير المتكاملة المخصصة لـ Python
-                    </p>
-                    <button class="download-btn w-full" onclick="downloadTool('pycharm')">
-                        <i class="fas fa-download ml-2"></i>
-                        تحميل PyCharm
-                    </button>
-                </div>
-
-                <!-- Git -->
-                <div class="tool-card bg-gray-800 rounded-xl p-6">
-                    <div class="text-orange-400 text-4xl mb-4">
-                        <i class="fab fa-git-alt"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Git</h3>
-                    <p class="text-gray-300 mb-4 text-sm">
-                        نظام التحكم بالإصدارات لإدارة مشاريع Python
-                    </p>
-                    <button class="download-btn w-full" onclick="downloadTool('git')">
-                        <i class="fas fa-download ml-2"></i>
-                        تحميل Git
-                    </button>
-                </div>
-
                 <!-- Jupyter Notebook -->
                 <div class="tool-card bg-gray-800 rounded-xl p-6">
-                    <div class="text-yellow-400 text-4xl mb-4">
+                    <div class="text-orange-400 text-4xl mb-4">
                         <i class="fas fa-book"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">Jupyter Notebook</h3>
                     <p class="text-gray-300 mb-4 text-sm">
-                        للبرمجة التفاعلية وتحليل البيانات
+                        بيئة تفاعلية للبرمجة وتحليل البيانات
                     </p>
                     <button class="download-btn w-full" onclick="downloadTool('jupyter')">
                         <i class="fas fa-download ml-2"></i>
@@ -263,18 +225,63 @@
                     </button>
                 </div>
 
-                <!-- Python Extension -->
+                <!-- TensorFlow -->
                 <div class="tool-card bg-gray-800 rounded-xl p-6">
-                    <div class="python-color text-4xl mb-4">
-                        <i class="fas fa-puzzle-piece"></i>
+                    <div class="ai-color text-4xl mb-4">
+                        <i class="fas fa-brain"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Python Extension</h3>
+                    <h3 class="text-xl font-bold mb-3">TensorFlow</h3>
                     <p class="text-gray-300 mb-4 text-sm">
-                        إضافة Python الرسمية لـ VS Code
+                        إطار عمل Google للتعلم العميق والذكاء الاصطناعي
                     </p>
-                    <button class="download-btn w-full" onclick="downloadTool('python-extension')">
+                    <button class="download-btn w-full" onclick="downloadTool('tensorflow')">
                         <i class="fas fa-download ml-2"></i>
-                        تحميل الإضافة
+                        تحميل TensorFlow
+                    </button>
+                </div>
+
+                <!-- PyTorch -->
+                <div class="tool-card bg-gray-800 rounded-xl p-6">
+                    <div class="ml-color text-4xl mb-4">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">PyTorch</h3>
+                    <p class="text-gray-300 mb-4 text-sm">
+                        مكتبة التعلم العميق من فيسبوك للبحث والتطوير
+                    </p>
+                    <button class="download-btn w-full" onclick="downloadTool('pytorch')">
+                        <i class="fas fa-download ml-2"></i>
+                        تحميل PyTorch
+                    </button>
+                </div>
+
+                <!-- VS Code -->
+                <div class="tool-card bg-gray-800 rounded-xl p-6">
+                    <div class="text-blue-400 text-4xl mb-4">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">VS Code</h3>
+                    <p class="text-gray-300 mb-4 text-sm">
+                        محرر النصوص المثالي لتطوير مشاريع الذكاء الاصطناعي
+                    </p>
+                    <button class="download-btn w-full" onclick="downloadTool('vscode')">
+                        <i class="fas fa-download ml-2"></i>
+                        تحميل VS Code
+                    </button>
+                </div>
+
+                <!-- Anaconda -->
+                <div class="tool-card bg-gray-800 rounded-xl p-6">
+                    <div class="text-green-400 text-4xl mb-4">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Anaconda</h3>
+                    <p class="text-gray-300 mb-4 text-sm">
+                        منصة شاملة لإدارة حزم Python ومشاريع البيانات
+                    </p>
+                    <button class="download-btn w-full" onclick="downloadTool('anaconda')">
+                        <i class="fas fa-download ml-2"></i>
+                        تحميل Anaconda
                     </button>
                 </div>
             </div>
@@ -283,7 +290,7 @@
         <!-- كورسات يوتيوب Section -->
         <section class="mb-16">
             <div class="flex items-center justify-between mb-8">
-                <h2 class="text-3xl font-bold gradient-text">أفضل كورسات Python على يوتيوب</h2>
+                <h2 class="text-3xl font-bold gradient-text">أفضل كورسات الذكاء الاصطناعي على يوتيوب</h2>
                 <div class="flex items-center youtube-color">
                     <i class="fab fa-youtube text-2xl ml-2"></i>
                     <span class="text-sm">جميع الكورسات مجانية على يوتيوب</span>
@@ -294,67 +301,15 @@
                 <!-- كورس 1 -->
                 <div class="course-card bg-gray-800 rounded-xl p-6">
                     <div class="flex items-start mb-4">
-                        <img src="https://i.ytimg.com/vi/_uQrJ0TkZlc/hqdefault.jpg" alt="Python Course"
+                        <img src="https://i.ytimg.com/vi/aircAruvnKk/hqdefault.jpg" alt="AI Course"
                             class="w-20 h-12 rounded-lg object-cover ml-3">
                         <div class="flex-1">
-                            <h3 class="font-bold text-lg mb-1">Python كامل من الصفر</h3>
-                            <p class="text-gray-400 text-sm">Programming with Mosh</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 mb-4 text-sm line-clamp-2">
-                        تعلم Python من البداية إلى الاحتراف مع مشاريع عملية
-                    </p>
-                    <div class="flex justify-between items-center mb-3">
-                        <div class="flex items-center text-yellow-400">
-                            <i class="fas fa-star"></i>
-                            <span class="text-white mr-1 text-sm">4.9</span>
-                        </div>
-                        <span class="text-green-400 text-sm">6 ساعات</span>
-                    </div>
-                    <button class="youtube-btn w-full" onclick="watchCourse('mosh-python')">
-                        <i class="fab fa-youtube ml-2"></i>
-                        مشاهدة على يوتيوب
-                    </button>
-                </div>
-
-                <!-- كورس 2 -->
-                <div class="course-card bg-gray-800 rounded-xl p-6">
-                    <div class="flex items-start mb-4">
-                        <img src="https://i.ytimg.com/vi/rfscVS0vtbw/hqdefault.jpg" alt="Python Course"
-                            class="w-20 h-12 rounded-lg object-cover ml-3">
-                        <div class="flex-1">
-                            <h3 class="font-bold text-lg mb-1">Python للمبتدئين</h3>
+                            <h3 class="font-bold text-lg mb-1">تعلم الآلة كامل</h3>
                             <p class="text-gray-400 text-sm">freeCodeCamp</p>
                         </div>
                     </div>
                     <p class="text-gray-300 mb-4 text-sm line-clamp-2">
-                        دورة Python شاملة من freeCodeCamp للمبتدئين
-                    </p>
-                    <div class="flex justify-between items-center mb-3">
-                        <div class="flex items-center text-yellow-400">
-                            <i class="fas fa-star"></i>
-                            <span class="text-white mr-1 text-sm">4.8</span>
-                        </div>
-                        <span class="text-green-400 text-sm">4.5 ساعات</span>
-                    </div>
-                    <button class="youtube-btn w-full" onclick="watchCourse('freecodecamp-python')">
-                        <i class="fab fa-youtube ml-2"></i>
-                        مشاهدة على يوتيوب
-                    </button>
-                </div>
-
-                <!-- كورس 3 -->
-                <div class="course-card bg-gray-800 rounded-xl p-6">
-                    <div class="flex items-start mb-4">
-                        <img src="https://i.ytimg.com/vi/t8pPdKYpowI/hqdefault.jpg" alt="Python Course"
-                            class="w-20 h-12 rounded-lg object-cover ml-3">
-                        <div class="flex-1">
-                            <h3 class="font-bold text-lg mb-1">Python بالعربي</h3>
-                            <p class="text-gray-400 text-sm">Elzero Web School</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 mb-4 text-sm line-clamp-2">
-                        تعلم Python باللغة العربية من الصفر إلى الاحتراف
+                        دورة شاملة في تعلم الآلة مع Python من الصفر للإحتراف
                     </p>
                     <div class="flex justify-between items-center mb-3">
                         <div class="flex items-center text-yellow-400">
@@ -363,50 +318,24 @@
                         </div>
                         <span class="text-green-400 text-sm">12 ساعة</span>
                     </div>
-                    <button class="youtube-btn w-full" onclick="watchCourse('elzero-python')">
+                    <button class="youtube-btn w-full" onclick="watchCourse('fcc-machine-learning')">
                         <i class="fab fa-youtube ml-2"></i>
                         مشاهدة على يوتيوب
                     </button>
                 </div>
 
-                <!-- كورس 4 -->
+                <!-- كورس 2 -->
                 <div class="course-card bg-gray-800 rounded-xl p-6">
                     <div class="flex items-start mb-4">
-                        <img src="https://i.ytimg.com/vi/XKHEtdqhLK8/hqdefault.jpg" alt="Python Course"
+                        <img src="https://i.ytimg.com/vi/qFJeN9V1ZsI/hqdefault.jpg" alt="AI Course"
                             class="w-20 h-12 rounded-lg object-cover ml-3">
                         <div class="flex-1">
-                            <h3 class="font-bold text-lg mb-1">Python و Data Science</h3>
-                            <p class="text-gray-400 text-sm">Bro Code</p>
+                            <h3 class="font-bold text-lg mb-1">TensorFlow كامل</h3>
+                            <p class="text-gray-400 text-sm">freeCodeCamp</p>
                         </div>
                     </div>
                     <p class="text-gray-300 mb-4 text-sm line-clamp-2">
-                        Python لتحليل البيانات والذكاء الاصطناعي
-                    </p>
-                    <div class="flex justify-between items-center mb-3">
-                        <div class="flex items-center text-yellow-400">
-                            <i class="fas fa-star"></i>
-                            <span class="text-white mr-1 text-sm">4.7</span>
-                        </div>
-                        <span class="text-green-400 text-sm">8 ساعات</span>
-                    </div>
-                    <button class="youtube-btn w-full" onclick="watchCourse('brocode-python')">
-                        <i class="fab fa-youtube ml-2"></i>
-                        مشاهدة على يوتيوب
-                    </button>
-                </div>
-
-                <!-- كورس 5 -->
-                <div class="course-card bg-gray-800 rounded-xl p-6">
-                    <div class="flex items-start mb-4">
-                        <img src="https://i.ytimg.com/vi/JJmcL1N2KQs/hqdefault.jpg" alt="Python Course"
-                            class="w-20 h-12 rounded-lg object-cover ml-3">
-                        <div class="flex-1">
-                            <h3 class="font-bold text-lg mb-1">Python للمبرمجين</h3>
-                            <p class="text-gray-400 text-sm">Clever Programmer</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 mb-4 text-sm line-clamp-2">
-                        Python مع مشاريع عملية للمبرمجين المحترفين
+                        تعلم TensorFlow من البداية إلى بناء نماذج متقدمة
                     </p>
                     <div class="flex justify-between items-center mb-3">
                         <div class="flex items-center text-yellow-400">
@@ -415,7 +344,85 @@
                         </div>
                         <span class="text-green-400 text-sm">7 ساعات</span>
                     </div>
-                    <button class="youtube-btn w-full" onclick="watchCourse('clever-python')">
+                    <button class="youtube-btn w-full" onclick="watchCourse('fcc-tensorflow')">
+                        <i class="fab fa-youtube ml-2"></i>
+                        مشاهدة على يوتيوب
+                    </button>
+                </div>
+
+                <!-- كورس 3 -->
+                <div class="course-card bg-gray-800 rounded-xl p-6">
+                    <div class="flex items-start mb-4">
+                        <img src="https://i.ytimg.com/vi/VMj-3S1tku0/hqdefault.jpg" alt="AI Course"
+                            class="w-20 h-12 rounded-lg object-cover ml-3">
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg mb-1">PyTorch للتعلم العميق</h3>
+                            <p class="text-gray-400 text-sm">freeCodeCamp</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4 text-sm line-clamp-2">
+                        دورة متكاملة في PyTorch للتعلم العميق والشبكات العصبية
+                    </p>
+                    <div class="flex justify-between items-center mb-3">
+                        <div class="flex items-center text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <span class="text-white mr-1 text-sm">4.9</span>
+                        </div>
+                        <span class="text-green-400 text-sm">10 ساعات</span>
+                    </div>
+                    <button class="youtube-btn w-full" onclick="watchCourse('fcc-pytorch')">
+                        <i class="fab fa-youtube ml-2"></i>
+                        مشاهدة على يوتيوب
+                    </button>
+                </div>
+
+                <!-- كورس 4 -->
+                <div class="course-card bg-gray-800 rounded-xl p-6">
+                    <div class="flex items-start mb-4">
+                        <img src="https://i.ytimg.com/vi/i_LwzRVP7bg/hqdefault.jpg" alt="AI Course"
+                            class="w-20 h-12 rounded-lg object-cover ml-3">
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg mb-1">الذكاء الاصطناعي بالعربي</h3>
+                            <p class="text-gray-400 text-sm">Elzero Web School</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4 text-sm line-clamp-2">
+                        دورة شاملة في الذكاء الاصطناعي باللغة العربية
+                    </p>
+                    <div class="flex justify-between items-center mb-3">
+                        <div class="flex items-center text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <span class="text-white mr-1 text-sm">4.8</span>
+                        </div>
+                        <span class="text-green-400 text-sm">15 ساعة</span>
+                    </div>
+                    <button class="youtube-btn w-full" onclick="watchCourse('elzero-ai')">
+                        <i class="fab fa-youtube ml-2"></i>
+                        مشاهدة على يوتيوب
+                    </button>
+                </div>
+
+                <!-- كورس 5 -->
+                <div class="course-card bg-gray-800 rounded-xl p-6">
+                    <div class="flex items-start mb-4">
+                        <img src="https://i.ytimg.com/vi/JcI5Vnw0b2c/hqdefault.jpg" alt="AI Course"
+                            class="w-20 h-12 rounded-lg object-cover ml-3">
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg mb-1">شبكات عصبية متقدمة</h3>
+                            <p class="text-gray-400 text-sm">StatQuest</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4 text-sm line-clamp-2">
+                        فهم الشبكات العصبية والتعلم العميق بشكل عملي
+                    </p>
+                    <div class="flex justify-between items-center mb-3">
+                        <div class="flex items-center text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <span class="text-white mr-1 text-sm">4.9</span>
+                        </div>
+                        <span class="text-green-400 text-sm">6 ساعات</span>
+                    </div>
+                    <button class="youtube-btn w-full" onclick="watchCourse('neural-networks')">
                         <i class="fab fa-youtube ml-2"></i>
                         مشاهدة على يوتيوب
                     </button>
@@ -424,24 +431,24 @@
                 <!-- كورس 6 -->
                 <div class="course-card bg-gray-800 rounded-xl p-6">
                     <div class="flex items-start mb-4">
-                        <img src="https://i.ytimg.com/vi/ix9cRaBkVe0/hqdefault.jpg" alt="Python Course"
+                        <img src="https://i.ytimg.com/vi/RnFGwxJwx-0/hqdefault.jpg" alt="AI Course"
                             class="w-20 h-12 rounded-lg object-cover ml-3">
                         <div class="flex-1">
-                            <h3 class="font-bold text-lg mb-1">Python و Django</h3>
-                            <p class="text-gray-400 text-sm">Dennis Ivy</p>
+                            <h3 class="font-bold text-lg mb-1">مشاريع عملية في AI</h3>
+                            <p class="text-gray-400 text-sm">Nicholas Renotte</p>
                         </div>
                     </div>
                     <p class="text-gray-300 mb-4 text-sm line-clamp-2">
-                        تطوير الويب باستخدام Python و Django Framework
+                        بناء مشاريع ذكاء اصطناعي عملية من البداية للنهاية
                     </p>
                     <div class="flex justify-between items-center mb-3">
                         <div class="flex items-center text-yellow-400">
                             <i class="fas fa-star"></i>
-                            <span class="text-white mr-1 text-sm">4.6</span>
+                            <span class="text-white mr-1 text-sm">4.7</span>
                         </div>
-                        <span class="text-green-400 text-sm">5 ساعات</span>
+                        <span class="text-green-400 text-sm">8 ساعات</span>
                     </div>
-                    <button class="youtube-btn w-full" onclick="watchCourse('django-python')">
+                    <button class="youtube-btn w-full" onclick="watchCourse('ai-projects')">
                         <i class="fab fa-youtube ml-2"></i>
                         مشاهدة على يوتيوب
                     </button>
@@ -449,11 +456,11 @@
             </div>
 
             <!-- ملاحظة -->
-            <div class="mt-8 p-4 bg-blue-900 bg-opacity-20 rounded-lg border border-blue-700">
+            <div class="mt-8 p-4 bg-purple-900 bg-opacity-20 rounded-lg border border-purple-700">
                 <div class="flex items-center">
-                    <i class="fas fa-info-circle text-blue-400 ml-2 text-xl"></i>
+                    <i class="fas fa-info-circle text-purple-400 ml-2 text-xl"></i>
                     <div>
-                        <h4 class="font-bold text-blue-300 mb-1">ملاحظة هامة:</h4>
+                        <h4 class="font-bold text-purple-300 mb-1">ملاحظة هامة:</h4>
                         <p class="text-gray-300 text-sm">
                             جميع الكورسات أعلاه متاحة مجاناً على يوتيوب. اضغط على "مشاهدة على يوتيوب" لتنتقل مباشرة إلى
                             الكورس.
@@ -467,38 +474,37 @@
         <section class="about-section rounded-2xl p-8 mb-12">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
-                    <h2 class="text-3xl font-bold mb-6 gradient-text">لماذا تتعلم Python؟</h2>
+                    <h2 class="text-3xl font-bold mb-6 gradient-text">لماذا تتعلم الذكاء الاصطناعي؟</h2>
                     <p class="text-gray-300 mb-6 leading-relaxed">
-                        Python هي لغة البرمجة الأسرع نمواً في العالم، وتستخدم في مجالات متعددة من تطوير الويب إلى الذكاء
-                        الاصطناعي.
+                        الذكاء الاصطناعي هو ثورة العصر الحديث، يغير كل الصناعات ويخلق فرص عمل جديدة بمعدل غير مسبوق.
                     </p>
                     <p class="text-gray-300 mb-6 leading-relaxed">
-                        ✅ سهلة التعلم للمبتدئين<br>
-                        ✅ متعددة الاستخدامات<br>
-                        ✅ مجتمع ضخم ونشط<br>
-                        ✅ مكتبات غنية ومجانية<br>
-                        ✅ مطلوبة في سوق العمل<br>
-                        ✅ مستقبل مشرق في التقنية<br>
+                        ✅ مستقبل التكنولوجيا والابتكار<br>
+                        ✅ رواتب مرتفعة وطلب متزايد<br>
+                        ✅ تطبيقات في جميع المجالات<br>
+                        ✅ فرص عمل عالمية<br>
+                        ✅ مجال بحثي ديناميكي<br>
+                        ✅ تأثير مباشر على المجتمع<br>
                     </p>
                     <div class="flex flex-wrap gap-4">
                         <div class="flex items-center">
                             <div
-                                class="w-12 h-12 rounded-full bg-yellow-900 flex items-center justify-center text-yellow-400 mr-3">
+                                class="w-12 h-12 rounded-full bg-purple-900 flex items-center justify-center text-purple-400 mr-3">
                                 <i class="fas fa-chart-line"></i>
                             </div>
                             <div>
-                                <div class="font-bold">#1</div>
-                                <div class="text-sm text-gray-400">الأكثر طلباً</div>
+                                <div class="font-bold">+40%</div>
+                                <div class="text-sm text-gray-400">نمو الطلب</div>
                             </div>
                         </div>
                         <div class="flex items-center">
                             <div
-                                class="w-12 h-12 rounded-full bg-green-900 flex items-center justify-center text-green-400 mr-3">
-                                <i class="fas fa-rocket"></i>
+                                class="w-12 h-12 rounded-full bg-blue-900 flex items-center justify-center text-blue-400 mr-3">
+                                <i class="fas fa-dollar-sign"></i>
                             </div>
                             <div>
-                                <div class="font-bold">سريع</div>
-                                <div class="text-sm text-gray-400">التعلم والتطوير</div>
+                                <div class="font-bold">$150K+</div>
+                                <div class="text-sm text-gray-400">متوسط الرواتب</div>
                             </div>
                         </div>
                     </div>
@@ -510,24 +516,19 @@
                         <div class="absolute inset-0 flex" id="university-slider">
                             <!-- Slide 1 -->
                             <div class="flex-shrink-0 w-full h-full transition-opacity duration-1000">
-                                <img src="imges/EIU-img2025-05-05-954543.jpg.webp" alt="حرم الجامعة" class="w-full h-full object-cover">
+                                <img src="../imges/ai1.jpg" alt="الذكاء الاصطناعي" class="w-full h-full object-cover">
                             </div>
                             <!-- Slide 2 -->
                             <div class="flex-shrink-0 w-full h-full transition-opacity duration-1000">
-                                <img src="imges/EIU-img2022-08-10-988684.jpg.webp" alt="مكتبة الجامعة"
-                                    class="w-full h-full object-cover">
+                                <img src="../imges/ai2.jpg" alt="تعلم الآلة" class="w-full h-full object-cover">
                             </div>
                             <!-- Slide 3 -->
                             <div class="flex-shrink-0 w-full h-full transition-opacity duration-1000">
-                                <img src="imges/EIU-img2022-08-04-610404.jpg.webp" alt="فصول الدراسة"
-                                    class="w-full h-full object-cover">
-                            </div>
-                            <div class="flex-shrink-0 w-full h-full transition-opacity duration-1000">
-                                <img src="imges/logo.png/FreeSample-Vectorizer-io-logo.svg" alt="فصول الدراسة"
-                                    class="w-full h-full object-cover">
+                                <img src="../imges/ai3.jpg" alt="الشبكات العصبية" class="w-full h-full object-cover">
                             </div>
                         </div>
                     </div>
+
                     <!-- مؤشرات التبديل -->
                     <div class="absolute bottom-4 left-2 right-0 flex justify-center space-x-2 rtl:space-x-reverse">
                         <button class="w-3 h-3 rounded-full bg-white bg-opacity-50 slider-dot" data-index="0"></button>
@@ -550,13 +551,13 @@
 
         <!-- CTA Section -->
         <section class="university-bg rounded-2xl p-12 text-center">
-            <h2 class="text-3xl font-bold mb-6">ابدأ رحلتك مع Python اليوم</h2>
+            <h2 class="text-3xl font-bold mb-6">ابدأ رحلتك في الذكاء الاصطناعي اليوم</h2>
             <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-                انضم إلى آلاف المبرمجين الذين بدأوا رحلتهم في تعلم Python من خلال منصتنا التعليمية
+                انضم إلى آلاف المطورين الذين بدأوا رحلتهم في مجال الذكاء الاصطناعي من خلال منصتنا التعليمية
             </p>
             <div class="flex flex-wrap justify-center gap-4">
                 <button class="btn-primary px-8 py-3 rounded-lg font-medium text-lg">
-                    <a href="creat-user.html"><i class="fas fa-user-plus ml-2"></i>انضم إلينا الآن</a>
+                    <a href="../pages/register.html"><i class="fas fa-user-plus ml-2"></i>انضم إلينا الآن</a>
                 </button>
                 <button
                     class="px-8 py-3 rounded-lg font-medium text-lg border-2 border-white text-white hover:bg-white hover:bg-opacity-10 transition">
@@ -571,25 +572,25 @@
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
                 <div>
-                    <h1 class="logo-text">Python <span>Academy</span></h1>
+                    <h1 class="logo-text">AI <span>Academy</span></h1>
                     <p class="text-gray-400 mt-2">
-                        منصة متخصصة في تعليم Python وتطوير المهارات البرمجية
+                        منصة متخصصة في تعليم الذكاء الاصطناعي وتعلم الآلة
                     </p>
                 </div>
                 <div>
                     <h3 class="text-lg font-bold mb-4 text-white">المسارات التعليمية</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-blue-300 transition">Python Basics</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-300 transition">Data Science</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-300 transition">Web Development</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-300 transition">أساسيات AI</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-300 transition">تعلم الآلة</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-300 transition">التعلم العميق</a></li>
                     </ul>
                 </div>
                 <div>
                     <h3 class="text-lg font-bold mb-4 text-white">الدعم الفني</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-blue-300 transition">الأسئلة الشائعة</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-300 transition">تواصل معنا</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-300 transition">المجتمع</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-300 transition">الأسئلة الشائعة</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-300 transition">تواصل معنا</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-300 transition">المجتمع</a></li>
                     </ul>
                 </div>
                 <div>
@@ -615,7 +616,7 @@
                 </div>
             </div>
             <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
-                &copy; 2024 Python Academy. جميع الحقوق محفوظة.
+                &copy; 2024 AI Academy. جميع الحقوق محفوظة.
             </div>
         </div>
     </footer>
@@ -625,11 +626,11 @@
         function downloadTool(toolName) {
             const downloadUrls = {
                 'python': 'https://www.python.org/downloads/',
-                'vscode': 'https://code.visualstudio.com/download',
-                'pycharm': 'https://www.jetbrains.com/pycharm/download/',
-                'git': 'https://git-scm.com/downloads',
                 'jupyter': 'https://jupyter.org/install',
-                'python-extension': 'https://marketplace.visualstudio.com/items?itemName=ms-python.python'
+                'tensorflow': 'https://www.tensorflow.org/install',
+                'pytorch': 'https://pytorch.org/get-started/locally/',
+                'vscode': 'https://code.visualstudio.com/download',
+                'anaconda': 'https://www.anaconda.com/download'
             };
 
             const url = downloadUrls[toolName];
@@ -642,12 +643,12 @@
         // دالة مشاهدة الكورسات على يوتيوب
         function watchCourse(courseName) {
             const youtubeUrls = {
-                'mosh-python': 'https://www.youtube.com/watch?v=_uQrJ0TkZlc',
-                'freecodecamp-python': 'https://www.youtube.com/watch?v=rfscVS0vtbw',
-                'elzero-python': 'https://www.youtube.com/watch?v=t8pPdKYpowI',
-                'brocode-python': 'https://www.youtube.com/watch?v=XKHEtdqhLK8',
-                'clever-python': 'https://www.youtube.com/watch?v=JJmcL1N2KQs',
-                'django-python': 'https://www.youtube.com/watch?v=ix9cRaBkVe0'
+                'fcc-machine-learning': 'https://www.youtube.com/watch?v=aircAruvnKk',
+                'fcc-tensorflow': 'https://www.youtube.com/watch?v=qFJeN9V1ZsI',
+                'fcc-pytorch': 'https://www.youtube.com/watch?v=VMj-3S1tku0',
+                'elzero-ai': 'https://www.youtube.com/watch?v=i_LwzRVP7bg',
+                'neural-networks': 'https://www.youtube.com/watch?v=JcI5Vnw0b2c',
+                'ai-projects': 'https://www.youtube.com/watch?v=RnFGwxJwx-0'
             };
 
             const url = youtubeUrls[courseName];
