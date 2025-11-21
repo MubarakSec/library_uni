@@ -6,16 +6,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const placeholder = document.getElementById('books-placeholder');
 
     let booksData = [];
+    let searchDebounce;
 
-    const setPlaceholder = (message) => {
-        if (placeholder) {
-            placeholder.textContent = message;
+    const ensurePlaceholder = () => {
+        if (booksList && placeholder && !placeholder.parentNode) {
+            booksList.appendChild(placeholder);
         }
     };
 
-    const clearPlaceholder = () => {
+    const showPlaceholder = (message) => {
+        ensurePlaceholder();
         if (placeholder) {
-            placeholder.remove();
+            placeholder.textContent = message;
+            placeholder.classList.remove('hidden');
+        }
+    };
+
+    const hidePlaceholder = () => {
+        if (placeholder) {
+            placeholder.classList.add('hidden');
         }
     };
 
@@ -34,7 +43,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const renderBooks = () => {
         if (!booksList) return;
 
-        booksList.innerHTML = '';
+        Array.from(booksList.children).forEach((child) => {
+            if (child !== placeholder) {
+                child.remove();
+            }
+        });
 
         const searchValue = (searchInput?.value || '').trim().toLowerCase();
         const specializationValue = (specializationFilter?.value || 'all').toLowerCase();
@@ -62,10 +75,14 @@ document.addEventListener('DOMContentLoaded', () => {
             return matchesSearch && matchesSpecialization && matchesYear;
         });
 
-        if (!filteredBooks.length) {
-            booksList.innerHTML = '<div class="col-span-full text-center text-gray-400">لا توجد كتب مطابقة للبحث.</div>';
+        const hasBooks = Boolean(filteredBooks.length);
+
+        if (!hasBooks) {
+            showPlaceholder('لا توجد كتب مطابقة للبحث.');
             return;
         }
+
+        hidePlaceholder();
 
         filteredBooks.forEach((book) => {
             const card = document.createElement('div');
@@ -109,27 +126,43 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    const loadBooks = async () => {
-        setPlaceholder('جاري تحميل الكتب...');
+    const loadBooks = async (searchQuery = '') => {
+        showPlaceholder('جاري تحميل الكتب...');
         try {
-            const response = await fetch('../../back-end/books/list.php');
+            const url = new URL('../../back-end/books/list.php', window.location.href);
+
+            if (searchQuery.trim()) {
+                url.searchParams.set('q', searchQuery.trim());
+            }
+
+            const response = await fetch(url);
             if (!response.ok) {
                 throw new Error('Unable to load books');
             }
 
             const data = await response.json();
             booksData = Array.isArray(data) ? data : [];
-            clearPlaceholder();
-            renderBooks();
+
+            if (!booksData.length) {
+                showPlaceholder('لا توجد كتب في المكتبة حتى الآن.');
+            } else {
+                hidePlaceholder();
+                renderBooks();
+            }
         } catch (error) {
             console.error(error);
-            setPlaceholder('حدث خطأ أثناء تحميل الكتب.');
+            showPlaceholder('حدث خطأ أثناء تحميل الكتب.');
         }
     };
 
     specializationFilter?.addEventListener('change', renderBooks);
     yearFilter?.addEventListener('change', renderBooks);
-    searchInput?.addEventListener('input', renderBooks);
+    searchInput?.addEventListener('input', (event) => {
+        const value = event.target.value || '';
+
+        clearTimeout(searchDebounce);
+        searchDebounce = setTimeout(() => loadBooks(value), 300);
+    });
 
     loadBooks();
 });
