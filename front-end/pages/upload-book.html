@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مكتبتي الجامعية | رفع كتاب</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+</head>
+
+<body class="bg-gray-900 text-white min-h-screen">
+    <div id="site-header"></div>
+
+    <section class="py-16 bg-gradient-to-b from-gray-900 to-gray-800">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="mb-8 text-center">
+                <p class="text-blue-400 font-semibold mb-2">لوحة الرفع</p>
+                <h1 class="text-3xl md:text-4xl font-bold mb-4">رفع كتاب جديد</h1>
+                <p class="text-gray-300 max-w-2xl mx-auto">متاح فقط للمشرفين ومساعدي المكتبة لإضافة الكتب الجديدة إلى
+                    المكتبة الرقمية.</p>
+            </div>
+
+            <div class="bg-gray-800 border border-gray-700 rounded-2xl p-8 shadow-lg">
+                <form action="../../back-end/books/upload.php" method="POST" enctype="multipart/form-data" class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-medium mb-2" for="title">عنوان الكتاب <span class="text-red-400">*</span></label>
+                        <input id="title" name="title" required type="text"
+                            class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            placeholder="أدخل عنوان الكتاب">
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium mb-2" for="author">اسم المؤلف</label>
+                            <input id="author" name="author" type="text"
+                                class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                placeholder="اختياري">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2" for="category">التخصص</label>
+                            <input id="category" name="category" type="text"
+                                class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                placeholder="مثل: علوم الحاسوب، شبكات، ...">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium mb-2" for="level">المستوى</label>
+                            <select id="level" name="level"
+                                class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="">بدون تحديد</option>
+                                <option value="مبتدئ">مبتدئ</option>
+                                <option value="متوسط">متوسط</option>
+                                <option value="متقدم">متقدم</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2" for="year">السنة</label>
+                            <input id="year" name="year" type="number" min="1" max="10"
+                                class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                placeholder="مثال: 2024">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2" for="file">ملف الكتاب (PDF) <span class="text-red-400">*</span></label>
+                            <input id="file" name="file" type="file" accept="application/pdf" required
+                                class="w-full text-sm text-gray-300 file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-blue-600 file:text-white hover:file:bg-blue-700" />
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium mb-2" for="description">الوصف</label>
+                        <textarea id="description" name="description" rows="4"
+                            class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            placeholder="أدخل وصفاً مختصراً عن الكتاب"></textarea>
+                    </div>
+
+                    <div class="flex items-center justify-end gap-4">
+                        <a href="books.html" class="btn secondary-btn">إلغاء</a>
+                        <button type="submit" class="btn primary-btn">رفع الكتاب</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <div id="site-footer"></div>
+    <script src="../assets/js/layout.js"></script>
+</body>
+
+</html>

@@ -322,30 +322,8 @@
 <body>
     <!-- النجوم المتحركة -->
     <div class="stars" id="stars"></div>
+    <div id="site-header"></div>
 
-    <!-- Header -->
-    <header class="sticky top-0 z-50 backdrop-blur-lg bg-opacity-80 bg-gray-900 border-b border-gray-800">
-        <div class="container mx-auto px-4 py-4">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center">
-                    <h1 class="logo-text"> مكتبتي <span> الجامعية</span></h1>
-                    <nav class="hidden md:flex mr-8">
-                        <a href="../playground/test-one.html"
-                            class="mx-3 font-medium text-white hover:text-blue-300 transition">الرئيسية</a>
-                        <a href="books.html" class="mx-3 font-medium text-white hover:text-blue-300 transition">المكتبة
-                            الرقمية</a>
-                        <a href="../playground/channew.html"
-                            class="mx-3 font-medium text-white hover:text-blue-300 transition">التحديات التعليمية</a>
-                    </nav>
-                </div>
-                <div class="flex items-center">
-                    <a href="login.html" class="download-btn px-6 py-2 rounded-lg font-medium">
-                        <i class="fas fa-sign-in-alt ml-2"></i>تسجيل الدخول
-                    </a>
-                </div>
-            </div>
-        </div>
-    </header>
 
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-12">
@@ -646,72 +624,7 @@
             </div>
         </section>
     </main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 border-t border-gray-800 py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-                <div>
-                    <h1 class="logo-text text-2xl mb-4"> مكتبتي <span> الجامعية</span></h1>
-                    <p class="text-gray-400">
-                        منصة تعليمية رقمية تقدم حلولاً متكاملة للتعلم الأكاديمي والبحث العلمي
-                    </p>
-                </div>
-                <div>
-                    <h3 class="text-lg font-bold mb-4 text-white">روابط سريعة</h3>
-                    <ul class="space-y-2">
-                        <li><a href="../playground/index-2.html" class="text-gray-400 hover:text-blue-300 transition">الرئيسية</a>
-                        </li>
-                        <li><a href="books.html" class="text-gray-400 hover:text-blue-300 transition">المكتبة
-                                الرقمية</a></li>
-                        <li><a href="../playground/channew.html" class="text-gray-400 hover:text-blue-300 transition">التحديات
-                                التعليمية</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-bold mb-4 text-white">تواصل معنا</h3>
-                    <ul class="space-y-2">
-                        <li class="flex items-center text-gray-400">
-                            <i class="fas fa-envelope ml-2 text-blue-400"></i>
-                            library@eiu.ac.ae
-                        </li>
-                        <li class="flex items-center text-gray-400">
-                            <i class="fas fa-phone ml-2 text-green-400"></i>
-                            780910496
-                        </li>
-                        <li class="flex items-center text-gray-400">
-                            <i class="fas fa-map-marker-alt ml-2 text-red-400"></i>
-                            اليمن صنعاء - شارع بيروت
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-bold mb-4 text-white">تابعنا</h3>
-                    <div class="flex space-x-4 rtl:space-x-reverse">
-                        <a href="#"
-                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-blue-600 hover:text-white transition">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#"
-                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-pink-600 hover:text-white transition">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#"
-                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-blue-500 hover:text-white transition">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="#"
-                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-red-600 hover:text-white transition">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
-                &copy; 2025 مكتبة الجامعة الإماراتية الدولية. جميع الحقوق محفوظة.
-            </div>
-        </div>
-    </footer>
+    <div id="site-footer"></div>
 
     <script>
         // إنشاء النجوم
@@ -855,6 +768,7 @@
         });
     </script>
     <script src="../assets/js/about.js"></script>
+    <script src="../assets/js/layout.js"></script>
 </body>
 
 </html>

@@ -210,30 +210,8 @@
 <body class="text-white">
     <!-- النجوم المتحركة -->
     <div class="stars" id="stars"></div>
+    <div id="site-header"></div>
 
-    <!-- Header -->
-    <header class="sticky top-0 z-50 backdrop-blur-lg bg-opacity-80 bg-gray-900 border-b border-gray-800">
-        <div class="container mx-auto px-4 py-4">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center">
-                    <h1 class="logo-text"> مكتبتي <span> الجامعية</span></h1>
-                    <nav class="hidden md:flex mr-8">
-                        <a href="../playground/index-2.html"
-                            class="mx-3 font-medium text-white hover:text-blue-300 transition">الرئيسية</a>
-                        <a href="books.html" class="mx-3 font-medium text-white hover:text-blue-300 transition">المكتبة
-                            الرقمية</a>
-                        <a href="../playground/channew.html"
-                            class="mx-3 font-medium text-white hover:text-blue-300 transition">التحديات التعليمية</a>
-                    </nav>
-                </div>
-                <div class="flex items-center">
-                    <button class="download-btn px-6 py-2 rounded-lg font-medium">
-                        <i class="fas fa-sign-in-alt ml-2"></i>تسجيل الدخول
-                    </button>
-                </div>
-            </div>
-        </div>
-    </header>
 
     <!-- Hero Section -->
     <section class="py-20 relative overflow-hidden">
@@ -401,55 +379,7 @@
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 py-12 border-t border-gray-800">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-                <div>
-                    <h1 class="logo-text text-2xl mb-4"> مكتبتي <span> الجامعية</span></h1>
-                    <p class="text-gray-400">
-                        كلية الهندسة - الجامعة الإماراتية الدولية
-                    </p>
-                    <p class="text-gray-500 text-sm mt-2">
-                        منصة شاملة للتعليم الأكاديمي والموارد الدراسية
-                    </p>
-                </div>
-                <div>
-                    <h4 class="text-lg font-bold mb-4">روابط سريعة</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">الرئيسية</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">الخطة الدراسية</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">الأساتذة</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">اللوائح الأكاديمية</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-lg font-bold mb-4">تواصل معنا</h4>
-                    <div class="flex space-x-4 rtl:space-x-reverse mb-4">
-                        <a href="#"
-                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-green-600 hover:text-white transition">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="#"
-                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-blue-500 hover:text-white transition">
-                            <i class="fab fa-telegram"></i>
-                        </a>
-                        <a href="#"
-                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-red-500 hover:text-white transition">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                    </div>
-                    <p class="text-gray-400">
-                        <i class="fas fa-phone mr-2"></i> 009671234567
-                    </p>
-                </div>
-            </div>
-            <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
-                &copy; 2023 كلية الهندسة - الجامعة الإماراتية الدولية. جميع الحقوق محفوظة.
-            </div>
-        </div>
-    </footer>
+    <div id="site-footer"></div>
 
     <!-- إشعار التحميل -->
     <div class="notification-toast" id="download-toast">
@@ -521,6 +451,8 @@
             });
         });
     </script>
+
+    <script src="../assets/js/layout.js"></script>
 </body>
 
 </html>
