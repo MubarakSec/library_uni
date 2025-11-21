@@ -21,9 +21,10 @@ package-lock.json
 .DS_Store
 Thumbs.db
 
-# Uploaded files (optional - uncomment if needed)
-# front-end/uploads/books/
-# front-end/uploads/images/
+# Uploaded files (user content)
+front-end/uploads/
+front-end/images/
+front-end/videos/
 
 # Logs
 *.log
