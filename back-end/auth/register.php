@@ -37,7 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $_SESSION['user_id'] = (int) $pdo->lastInsertId();
             $_SESSION['user_name'] = $first;
-            $_SESSION['role'] = 'student';
 
             header('Location: /library_uni/front-end/pages/index.html');
             exit;

@@ -17,20 +17,3 @@ function is_logged_in(): bool
 {
     return current_user_id() !== null;
 }
-
-function current_user_role(): ?string
-{
-    return $_SESSION['role'] ?? null;
-}
-
-function is_role(string $role): bool
-{
-    return current_user_role() === $role;
-}
-
-function has_any_role(array $roles): bool
-{
-    $currentRole = current_user_role();
-
-    return $currentRole !== null && in_array($currentRole, $roles, true);
-}

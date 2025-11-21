@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return gradients[index];
     };
 
-    const renderBooks = (data) => {
+    const renderBooks = () => {
         if (!booksList) return;
 
         Array.from(booksList.children).forEach((child) => {
@@ -49,14 +49,42 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        if (!data.length) {
+        const searchValue = (searchInput?.value || '').trim().toLowerCase();
+        const specializationValue = (specializationFilter?.value || 'all').toLowerCase();
+        const yearValue = (yearFilter?.value || 'all').toLowerCase();
+
+        const filteredBooks = booksData.filter((book) => {
+            const category = (book.category || '').toLowerCase();
+            const level = (book.level || '').toLowerCase();
+            const yearText = book.year ? String(book.year).toLowerCase() : '';
+            const title = (book.title || '').toLowerCase();
+            const author = (book.author || '').toLowerCase();
+
+            const matchesSearch =
+                !searchValue ||
+                title.includes(searchValue) ||
+                author.includes(searchValue) ||
+                category.includes(searchValue);
+
+            const matchesSpecialization =
+                specializationValue === 'all' || category.includes(specializationValue);
+
+            const matchesYear =
+                yearValue === 'all' || level.includes(yearValue) || yearText.includes(yearValue);
+
+            return matchesSearch && matchesSpecialization && matchesYear;
+        });
+
+        const hasBooks = Boolean(filteredBooks.length);
+
+        if (!hasBooks) {
             showPlaceholder('لا توجد كتب مطابقة للبحث.');
             return;
         }
 
         hidePlaceholder();
 
-        data.forEach((book) => {
+        filteredBooks.forEach((book) => {
             const card = document.createElement('div');
             card.className = 'book-card rounded-xl overflow-hidden bg-gray-800 border border-gray-700';
             card.dataset.category = book.category || '';
@@ -98,41 +126,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    const loadBooks = async () => {
+    const loadBooks = async (searchQuery = '') => {
         showPlaceholder('جاري تحميل الكتب...');
         try {
             const url = new URL('../../back-end/books/list.php', window.location.href);
-            const searchValue = (searchInput?.value || '').trim();
-            const specializationValue = specializationFilter?.value || '';
-            const yearValue = yearFilter?.value || '';
 
-            if (searchValue) {
-                url.searchParams.set('q', searchValue);
-            }
-
-            if (specializationValue && specializationValue !== 'all') {
-                url.searchParams.set('category', specializationValue);
-            }
-
-            const normalizedYear = (() => {
-                switch (yearValue) {
-                    case 'first-year':
-                        return 1;
-                    case 'second-year':
-                        return 2;
-                    case 'third-year':
-                        return 3;
-                    case 'fourth-year':
-                        return 4;
-                    case 'graduate':
-                        return 5;
-                    default:
-                        return '';
-                }
-            })();
-
-            if (normalizedYear !== '') {
-                url.searchParams.set('year', normalizedYear);
+            if (searchQuery.trim()) {
+                url.searchParams.set('q', searchQuery.trim());
             }
 
             const response = await fetch(url);
@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 showPlaceholder('لا توجد كتب في المكتبة حتى الآن.');
             } else {
                 hidePlaceholder();
-                renderBooks(booksData);
+                renderBooks();
             }
         } catch (error) {
             console.error(error);
@@ -155,11 +155,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    specializationFilter?.addEventListener('change', loadBooks);
-    yearFilter?.addEventListener('change', loadBooks);
-    searchInput?.addEventListener('input', () => {
+    specializationFilter?.addEventListener('change', renderBooks);
+    yearFilter?.addEventListener('change', renderBooks);
+    searchInput?.addEventListener('input', (event) => {
+        const value = event.target.value || '';
+
         clearTimeout(searchDebounce);
-        searchDebounce = setTimeout(() => loadBooks(), 300);
+        searchDebounce = setTimeout(() => loadBooks(value), 300);
     });
 
     loadBooks();

@@ -142,47 +142,6 @@
         </div>
     </section>
 
-    <!-- Book Request -->
-    <section class="py-12 bg-gray-800">
-        <div class="container mx-auto px-4 max-w-4xl">
-            <div class="bg-gray-900 border border-gray-700 rounded-2xl p-8 shadow-lg">
-                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
-                    <div>
-                        <p class="text-blue-400 text-sm font-semibold mb-1">طلب إضافة كتاب</p>
-                        <h3 class="text-2xl font-bold text-white">لم تجد الكتاب الذي تحتاجه؟</h3>
-                        <p class="text-gray-300 mt-2">أخبرنا عن الكتاب وسنقوم بمراجعته وإضافته إلى المكتبة في أقرب وقت.</p>
-                    </div>
-                    <i class="fas fa-envelope-open-text text-4xl text-blue-400"></i>
-                </div>
-                <form action="../../back-end/books/request.php" method="POST" class="space-y-4">
-                    <div>
-                        <label for="request-title" class="block text-sm font-medium mb-2">عنوان الكتاب <span class="text-red-400">*</span></label>
-                        <input id="request-title" name="title" required type="text"
-                            class="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            placeholder="اكتب اسم الكتاب الذي تريد إضافته">
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                            <label for="request-author" class="block text-sm font-medium mb-2">اسم المؤلف</label>
-                            <input id="request-author" name="author" type="text"
-                                class="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                placeholder="اختياري">
-                        </div>
-                        <div>
-                            <label for="request-notes" class="block text-sm font-medium mb-2">ملاحظات إضافية</label>
-                            <input id="request-notes" name="notes" type="text"
-                                class="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                placeholder="روابط، طبعة محددة، ...">
-                        </div>
-                    </div>
-                    <div class="flex items-center justify-end gap-3">
-                        <button type="submit" class="btn primary-btn">إرسال الطلب</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
-
     <!-- CTA -->
     <section class="py-20 bg-gradient-to-r from-blue-900 to-blue-700">
         <div class="container mx-auto px-4 text-center">
@@ -194,8 +153,67 @@
     </section>
     <div id="site-footer"></div>
 
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-book text-2xl text-blue-400 mr-3"></i>
+                        <h3 class="text-xl font-bold text-white">مكتبتي الجامعية</h3>
+                    </div>
+                    <p class="text-gray-400">
+                        منصة تعليمية متخصصة في تقديم الكتب والمواد الجامعية لطلاب الهندسة وتكنولوجيا المعلومات
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-white">التخصصات</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">علوم الحاسوب</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">هندسة البرمجيات</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">تكنولوجيا المعلومات</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">هندسة الحاسوب</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-white">روابط سريعة</h4>
+                    <ul class="space-y-2">
+                        <li><a href="../playground/test-one.html" class="text-gray-400 hover:text-blue-400 transition">الرئيسية</a>
+                        </li>
+                        <li><a href="plans.html" class="text-gray-400 hover:text-blue-400 transition">المسارات</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">الأسئلة الشائعة</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-white">تواصل معنا</h4>
+                    <div class="flex space-x-4 rtl:space-x-reverse mb-4">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-blue-600 hover:text-white transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-blue-600 hover:text-white transition">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-blue-600 hover:text-white transition">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400">
+                        <i class="fas fa-envelope mr-2"></i> info@maktabti.com
+                    </p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
+                &copy; 2023 مكتبتي الجامعية. جميع الحقوق محفوظة.
+            </div>
+        </div>
+    </footer>
+
     <script src="../assets/js/books.js"></script>
-    <script src="../assets/js/layout.js"></script>
 </body>
 
 </html>
