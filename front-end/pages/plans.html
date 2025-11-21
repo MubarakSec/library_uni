@@ -10,26 +10,8 @@
    
 </head>
 <body class="bg-gray-900">
-    <!-- Header -->
-    <header class="bg-gray-800 py-6 shadow-lg">
-        <div class="container mx-auto px-4">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center">
-                    <i class="fas fa-laptop-code text-3xl text-blue-400 mr-3"></i>
-                    <h1 class="text-2xl font-bold gradient-text">المسارات البرمجية - مكتبتي الجامعية</h1>
-                </div>
-                <nav class="hidden md:flex space-x-6 rtl:space-x-reverse">
-                    <a href="../playground/test-one.html" class="text-gray-300 hover:text-blue-400 transition">الرئيسية</a>
-                    <a href="#" class="text-blue-400 font-medium">المسارات</a>
-                    <!-- <a href="#" class="text-gray-300 hover:text-blue-400 transition">الدورات</a>
-                    <a href="#" class="text-gray-300 hover:text-blue-400 transition">المشاريع</a> -->
-                </nav>
-                <!-- <button class="md:hidden text-xl">
-                    <i class="fas fa-bars"></i>
-                </button> -->
-            </div>
-        </div>
-    </header>
+    <div id="site-header"></div>
+
 
 
     <!-- Hero Section -->
@@ -262,67 +244,13 @@
             </button></a>
         </div>
     </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-                <div>
-                    <div class="flex items-center mb-4">
-                        <i class="fas fa-laptop-code text-2xl text-blue-400 mr-3"></i>
-                        <h3 class="text-xl font-bold">أكاديمية البرمجة</h3>
-                    </div>
-                    <p class="text-gray-400">
-                        منصة تعليمية متخصصة في تقديم مسارات برمجية شاملة لبناء المهارات التكنولوجية
-                    </p>
-                </div>
-                <div>
-                    <h4 class="text-lg font-bold mb-4">المسارات</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">مسار بايثون</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">مسار تطوير الويب</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">مسار التطبيقات</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">مسار الذكاء الاصطناعي</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-lg font-bold mb-4">روابط سريعة</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">الرئيسية</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">عن الأكاديمية</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">الأسئلة الشائعة</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">اتصل بنا</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-lg font-bold mb-4">تواصل معنا</h4>
-                    <div class="flex space-x-4 rtl:space-x-reverse mb-4">
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-blue-600 hover:text-white transition">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-blue-600 hover:text-white transition">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-blue-600 hover:text-white transition">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                    </div>
-                    <p class="text-gray-400">
-                        <i class="fas fa-envelope mr-2"></i> info@codeacademy.com
-                    </p>
-                </div>
-            </div>
-            <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
-                &copy; 2023 أكاديمية البرمجة. جميع الحقوق محفوظة.
-            </div>
-        </div>
-    </footer>
+    <div id="site-footer"></div>
 
     <script>
         // كود لجعل أيقونات المسارات تطفو
         document.addEventListener('DOMContentLoaded', function() {
             const floatingIcons = document.querySelectorAll('.floating-icon');
-            
+
             floatingIcons.forEach(icon => {
                 // إعطاء كل أيقونة تأخير عشوائي للتنوع
                 const delay = Math.random() * 2;
@@ -331,5 +259,6 @@
         });
     </script>
     <script src="../assets/js/plans.js"></script>
+    <script src="../assets/js/layout.js"></script>
 </body>
 </html>

@@ -1,0 +1,29 @@
+<header class="sticky top-0 z-50 backdrop-blur-lg bg-opacity-80 bg-gray-900 border-b border-gray-800">
+    <div class="container mx-auto px-4 py-4">
+        <div class="flex justify-between items-center">
+            <div class="flex items-center gap-6">
+                <h1 class="logo-text"> مكتبتي <span> الجامعية</span></h1>
+                <nav class="hidden md:flex mr-2 space-x-4 space-x-reverse text-sm md:text-base">
+                    <a href="index.html">الرئيسية</a>
+                    <a href="books.html">الكتب الجامعية</a>
+                    <a href="plans.html">المسارات</a>
+                    <a href="exams.html">نماذج الاختبارات</a>
+                    <a href="about.html">عن المكتبة</a>
+                    <a href="setting.html">الإعدادات</a>
+                </nav>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <div id="header-auth-guest" class="flex items-center gap-2">
+                    <a href="login.html" class="btn primary-btn">تسجيل الدخول</a>
+                    <a href="register.html" class="btn secondary-btn">إنشاء حساب</a>
+                </div>
+                <div id="header-auth-user" class="hidden items-center gap-3">
+                    <span id="header-username" class="text-sm text-gray-200"></span>
+                    <a id="header-upload-link" href="upload-book.html" class="hidden btn secondary-btn text-sm">رفع كتاب</a>
+                    <a href="../../back-end/auth/logout.php" class="btn primary-btn text-sm">تسجيل الخروج</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
