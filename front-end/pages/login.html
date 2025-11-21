@@ -278,10 +278,10 @@
             </div>
 
             <!-- Login Form -->
-            <form class="space-y-6" id="login-form">
+            <form class="space-y-6" id="login-form" action="../../back-end/auth/login.php" method="POST">
                 <div>
                     <label class="block text-gray-300 text-sm font-medium mb-2" for="email">البريد الإلكتروني</label>
-                    <input type="email" id="email" placeholder="أدخل بريدك الإلكتروني"
+                    <input type="email" id="email" name="email" placeholder="أدخل بريدك الإلكتروني"
                         class="form-input w-full px-4 py-3 rounded-lg focus:outline-none" required>
                 </div>
 
@@ -291,7 +291,7 @@
                         <a href="#" class="text-sm text-indigo-400 hover:text-indigo-300 transition duration-300">نسيت
                             كلمة المرور؟</a>
                     </div>
-                    <input type="password" id="password" placeholder="أدخل كلمة المرور"
+                    <input type="password" id="password" name="password" placeholder="أدخل كلمة المرور"
                         class="form-input w-full px-4 py-3 rounded-lg focus:outline-none" required>
                 </div>
 
@@ -352,9 +352,7 @@
                 return;
             }
 
-            // Simulate successful login
-            alert('تم تسجيل الدخول بنجاح!');
-            // In a real application, you would submit the form to a server here
+            this.submit();
         });
 
         // Social login buttons functionality

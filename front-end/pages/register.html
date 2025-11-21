@@ -314,31 +314,43 @@
             </div>
 
             <!-- Signup Form -->
-            <form class="space-y-4" id="signup-form">
+            <form class="space-y-4" id="signup-form" action="../../back-end/auth/register.php" method="POST">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-gray-300 text-sm font-medium mb-2" for="firstName">الاسم الأول</label>
-                        <input type="text" id="firstName" placeholder="أدخل اسمك الأول"
+                        <input type="text" id="firstName" name="first_name" placeholder="أدخل اسمك الأول"
                             class="form-input w-full px-4 py-3 rounded-lg focus:outline-none" required>
                     </div>
                     <div>
                         <label class="block text-gray-300 text-sm font-medium mb-2" for="lastName">اسم العائلة</label>
-                        <input type="text" id="lastName" placeholder="أدخل اسم العائلة"
+                        <input type="text" id="lastName" name="last_name" placeholder="أدخل اسم العائلة"
                             class="form-input w-full px-4 py-3 rounded-lg focus:outline-none" required>
                     </div>
                 </div>
 
                 <div>
                     <label class="block text-gray-300 text-sm font-medium mb-2" for="email">البريد الإلكتروني</label>
-                    <input type="email" id="email" placeholder="أدخل بريدك الإلكتروني"
+                    <input type="email" id="email" name="email" placeholder="أدخل بريدك الإلكتروني"
                         class="form-input w-full px-4 py-3 rounded-lg focus:outline-none" required>
                 </div>
 
-              
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-gray-300 text-sm font-medium mb-2" for="college">الجامعة / الكلية</label>
+                        <input type="text" id="college" name="college" placeholder="أدخل اسم الجامعة أو الكلية"
+                            class="form-input w-full px-4 py-3 rounded-lg focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-gray-300 text-sm font-medium mb-2" for="major">التخصص</label>
+                        <input type="text" id="major" name="major" placeholder="أدخل تخصصك الدراسي"
+                            class="form-input w-full px-4 py-3 rounded-lg focus:outline-none">
+                    </div>
+                </div>
 
                 <div>
                     <label class="block text-gray-300 text-sm font-medium mb-2" for="password">كلمة المرور</label>
-                    <input type="password" id="password" placeholder="أنشئ كلمة مرور قوية"
+                    <input type="password" id="password" name="password" placeholder="أنشئ كلمة مرور قوية"
                         class="form-input w-full px-4 py-3 rounded-lg focus:outline-none" required>
                     <div id="password-strength" class="password-strength password-weak"></div>
                     <p class="text-xs text-gray-400 mt-1">يجب أن تحتوي كلمة المرور على 8 أحرف على الأقل</p>
@@ -403,14 +415,14 @@
             const firstName = document.getElementById('firstName').value;
             const lastName = document.getElementById('lastName').value;
             const email = document.getElementById('email').value;
-            const university = document.getElementById('university').value;
+            const college = document.getElementById('college').value;
             const major = document.getElementById('major').value;
             const password = document.getElementById('password').value;
             const confirmPassword = document.getElementById('confirmPassword').value;
             const agreeTerms = document.getElementById('agreeTerms').checked;
 
             // Simple validation
-            if (!firstName || !lastName || !email || !university || !major || !password || !confirmPassword) {
+            if (!firstName || !lastName || !email || !password || !confirmPassword) {
                 alert('يرجى ملء جميع الحقول المطلوبة');
                 return;
             }
@@ -430,9 +442,7 @@
                 return;
             }
 
-            // Simulate successful signup
-            alert('تم إنشاء الحساب بنجاح! سيتم توجيهك إلى صفحة تسجيل الدخول');
-            // In a real application, you would submit the form to a server here
+            this.submit();
         });
 
         // Password strength indicator
