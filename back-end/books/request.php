@@ -1,4 +1,10 @@
 <?php
+/**
+ * Book Request Handler
+ * Allows logged-in users to request books not in the library
+ * Rate limited to 5 requests per day per user
+ */
+
 require __DIR__ . '/../config/db.php';
 require __DIR__ . '/../config/session.php';
 require __DIR__ . '/../middleware/require-login.php';
@@ -8,17 +14,18 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
+// Get form data
 $title = trim($_POST['title'] ?? '');
 $author = trim($_POST['author'] ?? '');
 $notes = trim($_POST['notes'] ?? '');
 
-// Validate title
+// Validate required field: title
 if ($title === '') {
-    echo 'حقل العنوان مطلوب.';
+    echo '<div style="color: red; padding: 20px; direction: rtl;">حقل العنوان مطلوب.</div>';
     exit;
 }
 
-// Check daily request limit (max 5 requests per day)
+// Check daily request limit (max 5 requests per day per user)
 $userId = current_user_id();
 $today = date('Y-m-d');
 
@@ -30,18 +37,24 @@ $stmt->execute([$userId, $today]);
 $requestCount = $stmt->fetch()['count'];
 
 if ($requestCount >= 5) {
-    echo 'لقد وصلت للحد الأقصى من الطلبات اليومية (5 طلبات). يرجى المحاولة غداً.';
+    echo '<div style="color: red; padding: 20px; direction: rtl;">لقد وصلت للحد الأقصى من الطلبات اليومية (5 طلبات). يرجى المحاولة غداً.</div>';
     exit;
 }
 
-// Insert request
-$stmt = $pdo->prepare('INSERT INTO book_requests (user_id, title, author, notes) VALUES (?, ?, ?, ?)');
+// FIX: INSERT matches database.sql schema for book_requests
+// Columns: user_id, title, author, notes (status defaults to 'pending')
+$stmt = $pdo->prepare('
+    INSERT INTO book_requests (user_id, title, author, notes) 
+    VALUES (?, ?, ?, ?)
+');
 $stmt->execute([
     $userId,
     $title,
-    $author ?: null,
-    $notes ?: null,
+    $author ?: null,  // NULL if empty
+    $notes ?: null,   // NULL if empty
 ]);
 
+// Redirect back to books page
 header('Location: /library_uni/front-end/pages/books.html');
 exit;
+

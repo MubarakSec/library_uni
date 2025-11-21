@@ -1,18 +1,26 @@
 <?php
+/**
+ * Books List API
+ * Returns paginated list of books with optional search
+ * Supports: ?q=search_term&page=1
+ */
+
 require __DIR__ . '/../config/db.php';
 
 header('Content-Type: application/json; charset=utf-8');
 
+// Get query parameters
 $search = trim($_GET['q'] ?? '');
 $page = isset($_GET['page']) ? max(1, (int)$_GET['page']) : 1;
 $perPage = 20;
 $offset = ($page - 1) * $perPage;
 
-// Fields to select (instead of SELECT *)
-$fields = 'id, title, author, category, level, description, year, file_path, created_at';
+// Select specific fields (matches database.sql schema)
+// Columns: id, title, author, category, level, description, year, file_path, uploaded_by, created_at
+$fields = 'id, title, author, category, level, description, year, file_path, uploaded_by, created_at';
 
 if ($search !== '') {
-    // Search query with pagination
+    // Search with pagination
     $stmt = $pdo->prepare("
         SELECT $fields FROM books
         WHERE title LIKE ? OR author LIKE ? OR category LIKE ?
@@ -22,7 +30,7 @@ if ($search !== '') {
     $like = "%$search%";
     $stmt->execute([$like, $like, $like, $perPage, $offset]);
     
-    // Get total count for pagination
+    // Get total count for pagination metadata
     $countStmt = $pdo->prepare("
         SELECT COUNT(*) as total FROM books
         WHERE title LIKE ? OR author LIKE ? OR category LIKE ?
@@ -51,4 +59,5 @@ echo json_encode([
         'total' => $total,
         'totalPages' => ceil($total / $perPage)
     ]
-]);
+], JSON_UNESCAPED_UNICODE);
+
