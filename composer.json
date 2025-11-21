@@ -1,0 +1,15 @@
+{
+    "name": "library_uni/university-library",
+    "description": "منصة المكتبة الجامعية الرقمية",
+    "type": "project",
+    "require": {
+        "php": ">=7.4",
+        "vlucas/phpdotenv": "^5.5"
+    },
+    "autoload": {
+        "files": [
+            "back-end/config/db.php",
+            "back-end/config/session.php"
+        ]
+    }
+}

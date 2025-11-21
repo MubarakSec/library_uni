@@ -1,0 +1,29 @@
+# Environment files
+.env
+.env.local
+
+# Composer
+vendor/
+composer.lock
+
+# Node modules
+node_modules/
+package-lock.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Uploaded files (optional - uncomment if needed)
+# front-end/uploads/books/
+# front-end/uploads/images/
+
+# Logs
+*.log
