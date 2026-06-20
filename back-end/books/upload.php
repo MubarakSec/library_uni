@@ -12,7 +12,7 @@ require __DIR__ . '/../middleware/require-role.php';
 require_any_role(['assistant', 'admin']);
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: /library_uni/front-end/pages/upload-book.html');
+    header('Location: /front-end/pages/upload-book.html');
     exit;
 }
 
@@ -100,7 +100,7 @@ if (!move_uploaded_file($file['tmp_name'], $targetPath)) {
 }
 
 // Prepare file path for database (relative to web root)
-$filePathForDb = '/library_uni/front-end/uploads/books/' . $filename;
+$filePathForDb = '/front-end/uploads/books/' . $filename;
 
 // FIX: INSERT statement matches database.sql schema exactly
 // Columns: title, author, category, level, description, year, file_path, uploaded_by
@@ -120,6 +120,6 @@ $stmt->execute([
 ]);
 
 // Redirect back to books page
-header('Location: /library_uni/front-end/pages/books.html');
+header('Location: /front-end/pages/books.html');
 exit;
 

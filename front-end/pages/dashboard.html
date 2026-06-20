@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مكتبتي الجامعية | لوحة التحكم</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+</head>
+<body class="bg-gray-900 text-white min-h-screen">
+    <div id="site-header"></div>
+    <section class="py-16 bg-gradient-to-b from-gray-900 to-gray-800">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold mb-8 text-white">لوحة تحكم المشرف</h1>
+            <div id="stats-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <!-- Stats loaded dynamically -->
+                <div class="col-span-full text-center text-gray-400">جاري التحميل...</div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-700">
+                    <h2 class="text-2xl font-bold mb-4">الكتب الأكثر شعبية</h2>
+                    <ul id="popular-books" class="space-y-3"></ul>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-700">
+                    <h2 class="text-2xl font-bold mb-4">أحدث التقييمات</h2>
+                    <ul id="recent-reviews" class="space-y-3"></ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="site-footer"></div>
+    <script src="../assets/js/layout.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const res = await fetch('../../back-end/admin/dashboard.php');
+                const result = await res.json();
+
+                if (!result.success) {
+                    document.getElementById('stats-grid').innerHTML = `<div class="col-span-full text-center text-red-500">${result.error || 'خطأ في التحميل'}</div>`;
+                    return;
+                }
+
+                const data = result.data;
+                document.getElementById('stats-grid').innerHTML = `
+                    <div class="bg-blue-900 p-6 rounded-xl text-center">
+                        <i class="fas fa-users text-4xl mb-2 text-blue-300"></i>
+                        <h3 class="text-xl font-bold text-white mb-1">${data.users.total} مستخدم</h3>
+                        <p class="text-sm text-blue-200">طلاب: ${data.users.students}</p>
+                    </div>
+                    <div class="bg-purple-900 p-6 rounded-xl text-center">
+                        <i class="fas fa-book text-4xl mb-2 text-purple-300"></i>
+                        <h3 class="text-xl font-bold text-white mb-1">${data.books.total} كتاب</h3>
+                        <p class="text-sm text-purple-200">متوسط التقييم: ${data.books.avg_rating || 'N/A'}</p>
+                    </div>
+                    <div class="bg-green-900 p-6 rounded-xl text-center">
+                        <i class="fas fa-envelope-open-text text-4xl mb-2 text-green-300"></i>
+                        <h3 class="text-xl font-bold text-white mb-1">${data.requests.total} طلب</h3>
+                        <p class="text-sm text-green-200">معلقة: ${data.requests.pending}</p>
+                    </div>
+                    <div class="bg-yellow-900 p-6 rounded-xl text-center">
+                        <i class="fas fa-star text-4xl mb-2 text-yellow-300"></i>
+                        <h3 class="text-xl font-bold text-white mb-1">${data.books.total_reviews} مراجعة</h3>
+                    </div>
+                `;
+
+                document.getElementById('popular-books').innerHTML = data.popular_books.length ?
+                    data.popular_books.map(b => `<li class="flex justify-between border-b border-gray-700 pb-2"><span>${b.title}</span><span class="text-yellow-400"><i class="fas fa-star text-sm"></i> ${b.avg_rating}</span></li>`).join('') :
+                    '<li class="text-gray-400">لا توجد بيانات</li>';
+
+                document.getElementById('recent-reviews').innerHTML = data.recent_reviews.length ?
+                    data.recent_reviews.map(r => `<li class="border-b border-gray-700 pb-2"><strong>${r.book_title}</strong><br><span class="text-sm text-gray-400">${r.reviewer_name} قيم بـ ${r.rating} نجوم</span></li>`).join('') :
+                    '<li class="text-gray-400">لا توجد بيانات</li>';
+            } catch(e) {
+                document.getElementById('stats-grid').innerHTML = `<div class="col-span-full text-center text-red-500">حدث خطأ في الاتصال بالسيرفر</div>`;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -10,7 +10,7 @@ require __DIR__ . '/../config/session.php';
 require __DIR__ . '/../middleware/require-login.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: /library_uni/front-end/pages/books.html');
+    header('Location: /front-end/pages/books.html');
     exit;
 }
 
@@ -55,6 +55,6 @@ $stmt->execute([
 ]);
 
 // Redirect back to books page
-header('Location: /library_uni/front-end/pages/books.html');
+header('Location: /front-end/pages/books.html');
 exit;
 

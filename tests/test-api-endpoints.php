@@ -46,7 +46,7 @@ function testAPI($name, $url, $method = 'GET', $postData = null) {
 echo "NOTE: These tests require the PHP server to be running!\n";
 echo "Start with: php -S localhost:8000\n\n";
 
-$baseUrl = 'http://localhost:8000/library_uni/back-end';
+$baseUrl = 'http://localhost:8000/back-end';
 
 // Check if server is running
 $ch = curl_init($baseUrl . '/books/list.php');
