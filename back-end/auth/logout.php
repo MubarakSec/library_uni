@@ -17,5 +17,5 @@ if (ini_get("session.use_cookies")) {
 session_unset();
 session_destroy();
 
-header('Location: /library_uni/front-end/pages/login.html');
+header('Location: /front-end/pages/login.html');
 exit;

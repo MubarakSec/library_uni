@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['CREATED'] = time();           // Session creation timestamp
 
         // Redirect to homepage
-        header('Location: /library_uni/front-end/pages/index.html');
+        header('Location: /front-end/pages/index.html');
         exit;
     }
 }

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مكتبتي الجامعية | إضافة تقييم</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+</head>
+<body class="bg-gray-900 text-white min-h-screen">
+    <div id="site-header"></div>
+    <section class="py-16 bg-gradient-to-b from-gray-900 to-gray-800">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="mb-8 text-center">
+                <p class="text-blue-400 font-semibold mb-2">تقييم كتاب</p>
+                <h1 class="text-3xl md:text-4xl font-bold mb-4">أضف تقييماً للكتاب</h1>
+            </div>
+            <div class="bg-gray-800 border border-gray-700 rounded-2xl p-8 shadow-lg">
+                <form action="../../back-end/books/add-review.php" method="POST" class="space-y-6" id="review-form">
+                    <div>
+                        <label class="block text-sm font-medium mb-2" for="book_id">رقم الكتاب <span class="text-red-400">*</span></label>
+                        <input id="book_id" name="book_id" required type="number"
+                            class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2" for="rating">التقييم (1-5) <span class="text-red-400">*</span></label>
+                        <select id="rating" name="rating" required
+                            class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="5">5 نجوم - ممتاز</option>
+                            <option value="4">4 نجوم - جيد جداً</option>
+                            <option value="3">3 نجوم - جيد</option>
+                            <option value="2">نجمتان - مقبول</option>
+                            <option value="1">نجمة واحدة - ضعيف</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2" for="review_text">مراجعتك المكتوبة</label>
+                        <textarea id="review_text" name="review_text" rows="4"
+                            class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            placeholder="شارك رأيك حول الكتاب"></textarea>
+                    </div>
+                    <div id="form-message" class="text-center"></div>
+                    <div class="flex items-center justify-end gap-4">
+                        <a href="books.html" class="btn secondary-btn">إلغاء</a>
+                        <button type="submit" class="btn primary-btn">إرسال التقييم</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <div id="site-footer"></div>
+    <script src="../assets/js/layout.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const bookId = params.get('book_id');
+            if (bookId) {
+                document.getElementById('book_id').value = bookId;
+                document.getElementById('book_id').readOnly = true;
+            }
+
+            document.getElementById('review-form').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const form = e.target;
+                const messageEl = document.getElementById('form-message');
+                messageEl.textContent = 'جاري الإرسال...';
+                messageEl.className = 'text-center text-blue-400';
+
+                try {
+                    const formData = new FormData(form);
+                    const res = await fetch(form.action, {
+                        method: 'POST',
+                        body: formData
+                    });
+                    const result = await res.json();
+
+                    if (result.success) {
+                        messageEl.textContent = result.message;
+                        messageEl.className = 'text-center text-green-500';
+                        setTimeout(() => {
+                            window.location.href = 'books.html';
+                        }, 2000);
+                    } else {
+                        messageEl.textContent = result.error || 'حدث خطأ';
+                        messageEl.className = 'text-center text-red-500';
+                    }
+                } catch(err) {
+                    messageEl.textContent = 'حدث خطأ في الاتصال';
+                    messageEl.className = 'text-center text-red-500';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

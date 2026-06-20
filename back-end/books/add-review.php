@@ -6,7 +6,7 @@
  */
 
 require __DIR__ . '/../config/db.php';
-require __DIR__ . '/../config/session.php';
+require_once __DIR__ . '/../config/session.php';
 require __DIR__ . '/../middleware/require-login.php';
 
 header('Content-Type: application/json; charset=utf-8');

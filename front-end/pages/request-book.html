@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مكتبتي الجامعية | طلب كتاب</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+</head>
+<body class="bg-gray-900 text-white min-h-screen">
+    <div id="site-header"></div>
+    <section class="py-16 bg-gradient-to-b from-gray-900 to-gray-800">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="mb-8 text-center">
+                <p class="text-blue-400 font-semibold mb-2">الطلبات</p>
+                <h1 class="text-3xl md:text-4xl font-bold mb-4">اطلب كتاب</h1>
+                <p class="text-gray-300 max-w-2xl mx-auto">لم تجد الكتاب الذي تبحث عنه؟ اطلبه هنا وسنحاول توفيره في أقرب وقت.</p>
+            </div>
+            <div class="bg-gray-800 border border-gray-700 rounded-2xl p-8 shadow-lg">
+                <form action="../../back-end/books/request.php" method="POST" class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-medium mb-2" for="title">عنوان الكتاب <span class="text-red-400">*</span></label>
+                        <input id="title" name="title" required type="text"
+                            class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            placeholder="أدخل عنوان الكتاب">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2" for="author">اسم المؤلف</label>
+                        <input id="author" name="author" type="text"
+                            class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            placeholder="اختياري">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2" for="notes">ملاحظات إضافية</label>
+                        <textarea id="notes" name="notes" rows="4"
+                            class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            placeholder="أية معلومات إضافية عن الكتاب (مثل سنة النشر، دار النشر، إلخ)"></textarea>
+                    </div>
+                    <div class="flex items-center justify-end gap-4">
+                        <a href="books.html" class="btn secondary-btn">إلغاء</a>
+                        <button type="submit" class="btn primary-btn">إرسال الطلب</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <div id="site-footer"></div>
+    <script src="../assets/js/layout.js"></script>
+</body>
+</html>
