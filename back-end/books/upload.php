@@ -16,6 +16,12 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
+$csrf = $_POST['csrf_token'] ?? $_SERVER['HTTP_X_CSRF_TOKEN'] ?? '';
+if (!verify_csrf_token($csrf)) {
+    echo '<div style="color: red; padding: 20px; direction: rtl; font-family: sans-serif;">رمز التحقق الأمني (CSRF) غير صالح.</div>';
+    exit;
+}
+
 // Retrieve and sanitize form data
 $title = trim($_POST['title'] ?? '');
 $author = trim($_POST['author'] ?? '');

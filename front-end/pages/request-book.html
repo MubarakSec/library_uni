@@ -19,6 +19,7 @@
             </div>
             <div class="bg-gray-800 border border-gray-700 rounded-2xl p-8 shadow-lg">
                 <form action="../../back-end/books/request.php" method="POST" class="space-y-6">
+                    <input type="hidden" id="request-csrf" name="csrf_token">
                     <div>
                         <label class="block text-sm font-medium mb-2" for="title">عنوان الكتاب <span class="text-red-400">*</span></label>
                         <input id="title" name="title" required type="text"
@@ -47,5 +48,18 @@
     </section>
     <div id="site-footer"></div>
     <script src="../assets/js/layout.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const res = await fetch('../../back-end/auth/me.php', { credentials: 'include' });
+                const data = await res.json();
+                if (data.csrf_token) {
+                    document.getElementById('request-csrf').value = data.csrf_token;
+                }
+            } catch (e) {
+                console.error(e);
+            }
+        });
+    </script>
 </body>
 </html>

@@ -1,86 +1,60 @@
-document.addEventListener('DOMContentLoaded', function () {
-    // تصفية حسب السنة
-    const yearButtons = document.querySelectorAll('.year-btn');
-    const examCards = document.querySelectorAll('.exam-card');
-
-    yearButtons.forEach(button => {
-        button.addEventListener('click', function () {
-            // إزالة التنشيط من جميع الأزرار
-            yearButtons.forEach(btn => btn.classList.remove('active'));
-
-            // تنشيط الزر الحالي
-            this.classList.add('active');
-
-            const selectedYear = this.dataset.year;
-
-            // تصفية البطاقات
-            examCards.forEach(card => {
-                if (selectedYear === 'all' || card.dataset.year === selectedYear) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
-    });
-
-    // نظام البحث
+document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('.year-tab');
+    const contents = document.querySelectorAll('.year-content');
+    const downloadToast = document.getElementById('download-toast');
     const searchInput = document.getElementById('exam-search');
 
-    searchInput.addEventListener('input', function () {
-        const searchTerm = this.value.toLowerCase();
+    // Year Tabs Switching
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function () {
+            tabs.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
 
-        examCards.forEach(card => {
-            const subject = card.dataset.subject.toLowerCase();
-            const title = card.querySelector('h3').textContent.toLowerCase();
+            contents.forEach(content => {
+                content.classList.add('hidden');
+            });
 
-            if (subject.includes(searchTerm) || title.includes(searchTerm)) {
-                card.style.display = 'flex';
-            } else {
-                card.style.display = 'none';
+            const year = this.dataset.year;
+            const targetSection = document.getElementById(`${year}-year`);
+            if (targetSection) {
+                targetSection.classList.remove('hidden');
             }
         });
     });
 
-    // معاينة الملفات (يمكن تطويرها لاحقاً)
-    const previewButtons = document.querySelectorAll('.preview-btn');
-
-    previewButtons.forEach(button => {
-        button.addEventListener('click', function (e) {
-            e.preventDefault();
-            alert('سيتم تطوير خاصية المعاينة قريباً!');
+    // Download handlers
+    document.querySelectorAll('.download-exam').forEach(btn => {
+        btn.addEventListener('click', function () {
+            const examTitle = this.dataset.exam || this.closest('.exam-card')?.querySelector('h3')?.textContent || 'النموذج';
+            
+            if (downloadToast) {
+                const textEl = downloadToast.querySelector('.notification-text');
+                if (textEl) {
+                    textEl.innerHTML = `<strong>جاري التحميل</strong><br>تم بدء تحميل: ${examTitle}`;
+                }
+                downloadToast.classList.add('show');
+                setTimeout(() => {
+                    downloadToast.classList.remove('show');
+                }, 4000);
+            }
         });
     });
-});
 
-// دالة تفعيل الوضع الداكن
-function initDarkMode() {
-    const darkModeToggle = document.getElementById('dark-mode-switch');
-    const savedMode = localStorage.getItem('darkMode');
+    // Realtime search
+    if (searchInput) {
+        searchInput.addEventListener('input', function () {
+            const query = this.value.trim().toLowerCase();
+            const activeYearSection = document.querySelector('.year-content:not(.hidden)');
+            const cards = (activeYearSection || document).querySelectorAll('.exam-card');
 
-    // تطبيق الوضع المحفوظ
-    if (savedMode === 'dark') {
-        document.body.classList.add('dark-mode');
-        darkModeToggle.checked = true;
+            cards.forEach(card => {
+                const title = card.querySelector('h3')?.textContent.toLowerCase() || '';
+                const desc = card.querySelector('p')?.textContent.toLowerCase() || '';
+                const tags = Array.from(card.querySelectorAll('.rounded-full')).map(el => el.textContent.toLowerCase()).join(' ');
+
+                const matches = !query || title.includes(query) || desc.includes(query) || tags.includes(query);
+                card.style.display = matches ? 'block' : 'none';
+            });
+        });
     }
-
-    // حدث تغيير الوضع
-    darkModeToggle.addEventListener('change', function () {
-        if (this.checked) {
-            document.body.classList.add('dark-mode');
-            localStorage.setItem('darkMode', 'dark');
-        } else {
-            document.body.classList.remove('dark-mode');
-            localStorage.setItem('darkMode', 'light');
-        }
-    });
-}
-
-// بدء التشغيل عند تحميل الصفحة
-document.addEventListener('DOMContentLoaded', function () {
-    initDarkMode();
-
-    // بقية الكود الخاص بالاختبارات...
-    const yearButtons = document.querySelectorAll('.year-btn');
-    // ... إلخ
 });

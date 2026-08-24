@@ -38,6 +38,7 @@ async function hydrateHeaderAuthState() {
         const guest = document.getElementById('header-auth-guest');
         const user = document.getElementById('header-auth-user');
         const nameEl = document.getElementById('header-username');
+        const dashboardLink = document.getElementById('header-dashboard-link');
         const uploadLink = document.getElementById('header-upload-link');
 
         if (!guest || !user) return;
@@ -53,6 +54,14 @@ async function hydrateHeaderAuthState() {
 
         if (nameEl && data.name) {
             nameEl.textContent = `مرحباً، ${data.name}`;
+        }
+
+        if (dashboardLink) {
+            if (data.role === 'admin') {
+                dashboardLink.classList.remove('hidden');
+            } else {
+                dashboardLink.classList.add('hidden');
+            }
         }
 
         if (uploadLink) {

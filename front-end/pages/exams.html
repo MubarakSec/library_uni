@@ -244,22 +244,29 @@
         </div>
     </section>
 
-    <!-- Year Tabs -->
+    <!-- Year Tabs & Search -->
     <section class="py-8 glass">
         <div class="container mx-auto px-4">
-            <div class="flex flex-wrap justify-center gap-4">
-                <button class="year-tab active px-6 py-3 rounded-lg font-medium" data-year="first">
-                    <i class="fas fa-1 ml-2"></i>السنة الأولى
-                </button>
-                <button class="year-tab px-6 py-3 rounded-lg font-medium" data-year="second">
-                    <i class="fas fa-2 ml-2"></i>السنة الثانية
-                </button>
-                <button class="year-tab px-6 py-3 rounded-lg font-medium" data-year="third">
-                    <i class="fas fa-3 ml-2"></i>السنة الثالثة
-                </button>
-                <button class="year-tab px-6 py-3 rounded-lg font-medium" data-year="fourth">
-                    <i class="fas fa-4 ml-2"></i>السنة الرابعة
-                </button>
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="flex flex-wrap justify-center gap-3">
+                    <button class="year-tab active px-6 py-3 rounded-lg font-medium" data-year="first">
+                        <i class="fas fa-1 ml-2"></i>السنة الأولى
+                    </button>
+                    <button class="year-tab px-6 py-3 rounded-lg font-medium" data-year="second">
+                        <i class="fas fa-2 ml-2"></i>السنة الثانية
+                    </button>
+                    <button class="year-tab px-6 py-3 rounded-lg font-medium" data-year="third">
+                        <i class="fas fa-3 ml-2"></i>السنة الثالثة
+                    </button>
+                    <button class="year-tab px-6 py-3 rounded-lg font-medium" data-year="fourth">
+                        <i class="fas fa-4 ml-2"></i>السنة الرابعة
+                    </button>
+                </div>
+                <div class="relative w-full md:w-72">
+                    <input type="text" id="exam-search" placeholder="ابحث في الاختبارات..."
+                        class="w-full bg-gray-800 border border-gray-700 text-white px-4 py-2.5 pr-10 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm">
+                    <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                </div>
             </div>
         </div>
     </section>
@@ -385,7 +392,7 @@
     <div class="notification-toast" id="download-toast">
         <div class="flex items-center gap-3">
             <i class="fas fa-check-circle text-green-400 text-xl"></i>
-            <div>
+            <div class="notification-text">
                 <div class="font-bold">تم بدء التحميل!</div>
                 <div class="text-sm text-gray-300">سيبدأ تحميل الملف خلال ثوانٍ</div>
             </div>
@@ -396,7 +403,8 @@
         // إنشاء النجوم
         function createStars() {
             const starsContainer = document.getElementById('stars');
-            for (let i = 0; i < 100; i++) {
+            if (!starsContainer) return;
+            for (let i = 0; i < 60; i++) {
                 const star = document.createElement('div');
                 star.className = 'star';
                 star.style.width = Math.random() * 2 + 'px';
@@ -407,51 +415,9 @@
                 starsContainer.appendChild(star);
             }
         }
-
-        // تبديل السنوات الدراسية
-        document.addEventListener('DOMContentLoaded', function () {
-            createStars();
-
-            const tabs = document.querySelectorAll('.year-tab');
-            const contents = document.querySelectorAll('.year-content');
-            const downloadButtons = document.querySelectorAll('.download-exam');
-            const downloadToast = document.getElementById('download-toast');
-
-            tabs.forEach(tab => {
-                tab.addEventListener('click', function () {
-                    tabs.forEach(t => t.classList.remove('active'));
-                    this.classList.add('active');
-
-                    contents.forEach(content => {
-                        content.classList.add('hidden');
-                    });
-
-                    const year = this.dataset.year;
-                    document.getElementById(`${year}-year`).classList.remove('hidden');
-                });
-            });
-
-            // محاكاة التحميل
-            downloadButtons.forEach(button => {
-                button.addEventListener('click', function () {
-                    // إظهار إشعار التحميل
-                    downloadToast.classList.add('show');
-
-                    // محاكاة التحميل
-                    setTimeout(() => {
-                        // هنا يمكنك إضافة كود التحميل الفعلي
-                        console.log('تحميل الملف:', this.dataset.exam);
-                    }, 1000);
-
-                    // إخفاء الإشعار بعد 3 ثواني
-                    setTimeout(() => {
-                        downloadToast.classList.remove('show');
-                    }, 5000);
-                });
-            });
-        });
+        document.addEventListener('DOMContentLoaded', createStars);
     </script>
-
+    <script src="../assets/js/exams.js"></script>
     <script src="../assets/js/layout.js"></script>
 </body>
 

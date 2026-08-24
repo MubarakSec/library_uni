@@ -18,6 +18,7 @@
             </div>
             <div class="bg-gray-800 border border-gray-700 rounded-2xl p-8 shadow-lg">
                 <form action="../../back-end/books/add-review.php" method="POST" class="space-y-6" id="review-form">
+                    <input type="hidden" id="review-csrf" name="csrf_token">
                     <div>
                         <label class="block text-sm font-medium mb-2" for="book_id">رقم الكتاب <span class="text-red-400">*</span></label>
                         <input id="book_id" name="book_id" required type="number"
@@ -52,7 +53,17 @@
     <div id="site-footer"></div>
     <script src="../assets/js/layout.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const res = await fetch('../../back-end/auth/me.php', { credentials: 'include' });
+                const data = await res.json();
+                if (data.csrf_token) {
+                    document.getElementById('review-csrf').value = data.csrf_token;
+                }
+            } catch (e) {
+                console.error(e);
+            }
+
             const params = new URLSearchParams(window.location.search);
             const bookId = params.get('book_id');
             if (bookId) {

@@ -15,4 +15,5 @@ echo json_encode([
     'id' => current_user_id(),
     'name' => current_user_name(),
     'role' => current_user_role(),
+    'csrf_token' => csrf_token(),
 ]);

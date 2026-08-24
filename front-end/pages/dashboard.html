@@ -13,9 +13,39 @@
     <section class="py-16 bg-gradient-to-b from-gray-900 to-gray-800">
         <div class="container mx-auto px-4">
             <h1 class="text-3xl font-bold mb-8 text-white">لوحة تحكم المشرف</h1>
+            
             <div id="stats-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                <!-- Stats loaded dynamically -->
                 <div class="col-span-full text-center text-gray-400">جاري التحميل...</div>
+            </div>
+
+            <!-- إدارة طلبات الكتب -->
+            <div class="bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-700 mb-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold flex items-center gap-2">
+                        <i class="fas fa-tasks text-indigo-400"></i> إدارة طلبات الكتب
+                    </h2>
+                    <span id="requests-count-badge" class="bg-indigo-900 text-indigo-300 text-xs px-3 py-1 rounded-full font-bold"></span>
+                </div>
+                
+                <div class="overflow-x-auto">
+                    <table class="w-full text-right border-collapse">
+                        <thead>
+                            <tr class="border-b border-gray-700 text-gray-400 text-sm">
+                                <th class="pb-3 px-4">عنوان الكتاب</th>
+                                <th class="pb-3 px-4">المؤلف</th>
+                                <th class="pb-3 px-4">مقدم الطلب</th>
+                                <th class="pb-3 px-4">ملاحظات</th>
+                                <th class="pb-3 px-4">الحالة</th>
+                                <th class="pb-3 px-4 text-center">الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="requests-table-body">
+                            <tr>
+                                <td colspan="6" class="text-center py-6 text-gray-400">جاري تحميل الطلبات...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -33,9 +63,82 @@
     <div id="site-footer"></div>
     <script src="../assets/js/layout.js"></script>
     <script>
+        const STATUS_BADGES = {
+            'pending': '<span class="bg-yellow-900/80 text-yellow-300 px-2.5 py-1 rounded-full text-xs">معلق</span>',
+            'approved': '<span class="bg-green-900/80 text-green-300 px-2.5 py-1 rounded-full text-xs">موافق عليه</span>',
+            'rejected': '<span class="bg-red-900/80 text-red-300 px-2.5 py-1 rounded-full text-xs">مرفوض</span>',
+            'completed': '<span class="bg-blue-900/80 text-blue-300 px-2.5 py-1 rounded-full text-xs">مكتمل</span>'
+        };
+
+        async function loadRequests() {
+            try {
+                const res = await fetch('../../back-end/admin/requests.php', { credentials: 'include' });
+                const result = await res.json();
+                const tbody = document.getElementById('requests-table-body');
+                const badge = document.getElementById('requests-count-badge');
+
+                if (!result.success || !result.data) {
+                    tbody.innerHTML = '<tr><td colspan="6" class="text-center py-4 text-red-400">فشل تحميل الطلبات</td></tr>';
+                    return;
+                }
+
+                const requests = result.data;
+                badge.textContent = `${requests.length} طلب`;
+
+                if (!requests.length) {
+                    tbody.innerHTML = '<tr><td colspan="6" class="text-center py-6 text-gray-400">لا توجد طلبات كتب حتى الآن</td></tr>';
+                    return;
+                }
+
+                tbody.innerHTML = requests.map(req => `
+                    <tr class="border-b border-gray-700/60 hover:bg-gray-700/30 transition">
+                        <td class="py-4 px-4 font-bold text-white">${req.title}</td>
+                        <td class="py-4 px-4 text-gray-300">${req.author || 'غير محدد'}</td>
+                        <td class="py-4 px-4 text-gray-300">${req.requested_by}<br><span class="text-xs text-gray-500">${req.requester_email}</span></td>
+                        <td class="py-4 px-4 text-gray-400 text-xs max-w-xs truncate">${req.notes || '-'}</td>
+                        <td class="py-4 px-4">${STATUS_BADGES[req.status] || req.status}</td>
+                        <td class="py-4 px-4 text-center">
+                            <div class="flex justify-center gap-2">
+                                <button onclick="updateRequestStatus(${req.id}, 'approved')" class="bg-green-600 hover:bg-green-700 text-white text-xs px-3 py-1.5 rounded-lg transition" title="قبول">
+                                    <i class="fas fa-check"></i>
+                                </button>
+                                <button onclick="updateRequestStatus(${req.id}, 'rejected')" class="bg-red-600 hover:bg-red-700 text-white text-xs px-3 py-1.5 rounded-lg transition" title="رفض">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                `).join('');
+            } catch (e) {
+                console.error(e);
+            }
+        }
+
+        async function updateRequestStatus(requestId, status) {
+            const formData = new FormData();
+            formData.append('request_id', requestId);
+            formData.append('status', status);
+
+            try {
+                const res = await fetch('../../back-end/admin/requests.php', {
+                    method: 'POST',
+                    body: formData,
+                    credentials: 'include'
+                });
+                const result = await res.json();
+                if (result.success) {
+                    loadRequests();
+                } else {
+                    alert(result.error || 'حدث خطأ في التحديث');
+                }
+            } catch (err) {
+                alert('فشل الاتصال بالسيرفر');
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', async () => {
             try {
-                const res = await fetch('../../back-end/admin/dashboard.php');
+                const res = await fetch('../../back-end/admin/dashboard.php', { credentials: 'include' });
                 const result = await res.json();
 
                 if (!result.success) {
@@ -45,22 +148,22 @@
 
                 const data = result.data;
                 document.getElementById('stats-grid').innerHTML = `
-                    <div class="bg-blue-900 p-6 rounded-xl text-center">
+                    <div class="bg-blue-900/80 p-6 rounded-xl text-center border border-blue-700">
                         <i class="fas fa-users text-4xl mb-2 text-blue-300"></i>
                         <h3 class="text-xl font-bold text-white mb-1">${data.users.total} مستخدم</h3>
                         <p class="text-sm text-blue-200">طلاب: ${data.users.students}</p>
                     </div>
-                    <div class="bg-purple-900 p-6 rounded-xl text-center">
+                    <div class="bg-purple-900/80 p-6 rounded-xl text-center border border-purple-700">
                         <i class="fas fa-book text-4xl mb-2 text-purple-300"></i>
                         <h3 class="text-xl font-bold text-white mb-1">${data.books.total} كتاب</h3>
                         <p class="text-sm text-purple-200">متوسط التقييم: ${data.books.avg_rating || 'N/A'}</p>
                     </div>
-                    <div class="bg-green-900 p-6 rounded-xl text-center">
+                    <div class="bg-green-900/80 p-6 rounded-xl text-center border border-green-700">
                         <i class="fas fa-envelope-open-text text-4xl mb-2 text-green-300"></i>
                         <h3 class="text-xl font-bold text-white mb-1">${data.requests.total} طلب</h3>
                         <p class="text-sm text-green-200">معلقة: ${data.requests.pending}</p>
                     </div>
-                    <div class="bg-yellow-900 p-6 rounded-xl text-center">
+                    <div class="bg-yellow-900/80 p-6 rounded-xl text-center border border-yellow-700">
                         <i class="fas fa-star text-4xl mb-2 text-yellow-300"></i>
                         <h3 class="text-xl font-bold text-white mb-1">${data.books.total_reviews} مراجعة</h3>
                     </div>
@@ -73,6 +176,8 @@
                 document.getElementById('recent-reviews').innerHTML = data.recent_reviews.length ?
                     data.recent_reviews.map(r => `<li class="border-b border-gray-700 pb-2"><strong>${r.book_title}</strong><br><span class="text-sm text-gray-400">${r.reviewer_name} قيم بـ ${r.rating} نجوم</span></li>`).join('') :
                     '<li class="text-gray-400">لا توجد بيانات</li>';
+
+                loadRequests();
             } catch(e) {
                 document.getElementById('stats-grid').innerHTML = `<div class="col-span-full text-center text-red-500">حدث خطأ في الاتصال بالسيرفر</div>`;
             }

@@ -119,31 +119,24 @@
 
 
                         <div class="flex flex-wrap gap-4">
-
-
-                            <a href="about.html"> <button
-                                    class="btn bg-transparent border border-white/20 text-white font-bold py-3 px-6 rounded-lg transition duration-500">
-                                    عن المكتبة</button></a>
+                            <a href="books.html" class="btn primary-btn py-3 px-6 rounded-lg font-bold">
+                                تصفح الكتب الجامعية <i class="fas fa-arrow-left mr-2"></i>
+                            </a>
+                            <a href="about.html" class="btn bg-transparent border border-white/20 text-white font-bold py-3 px-6 rounded-lg transition duration-500 hover:bg-white/10">
+                                عن المكتبة
+                            </a>
                         </div>
-
                     </div>
-
-
-
                 </div>
+            </div>
         </section>
-
-        <!-- <creattie-embed src="https://d1jj76g3lut4fe.cloudfront.net/saved_colors/126316/H4wvsvEpDsT2tSne.json" delay="1"
-                speed="100" frame_rate="24" stroke_width="15" trigger="loop" style="width:140px;background-color:none">
-            </creattie-embed> -->
-        <script src="https://creattie.com/js/embed.js?id=3f6954fde297cd31b441" defer></script>
 
         <!-- قسم المسارات التعليمية -->
         <section class="mb-16">
-            <h2 class="section-title text-2xl font-bold mb-8">المسارات التعليمية</h2>
-
-
-
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="section-title text-2xl font-bold text-white">المسارات التعليمية</h2>
+                <a href="plans.html" class="text-blue-400 hover:text-blue-300 transition text-sm">عرض كل المسارات <i class="fas fa-arrow-left ml-1"></i></a>
+            </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- مسار تطوير الواجهات -->
@@ -160,12 +153,9 @@
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-4">
                             <h3 class="text-xl font-bold">تصميم وتطوير مواقع الويب</h3>
-                            <span class="badge bg-primary/20 text-primary text-xs py-1 px-2 rounded-full">الأكثر
-                                شعبية</span>
+                            <span class="badge bg-primary/20 text-primary text-xs py-1 px-2 rounded-full">الأكثر شعبية</span>
                         </div>
-                        <p class="text-gray-300 mb-4">تعلم تطوير واجهات المستخدم باستخدام HTML و CSS و JavaScript
-                            وأطر
-                            العمل الحديثة.</p>
+                        <p class="text-gray-300 mb-4">تعلم تطوير واجهات المستخدم باستخدام HTML و CSS و JavaScript وأطر العمل الحديثة.</p>
                         <div class="flex justify-between items-center mb-3">
                             <span class="text-sm text-gray-400">12 دورة • 15 مشروع</span>
                             <span class="text-sm text-gray-400">المستوى: مبتدئ</span>
@@ -173,15 +163,11 @@
                         <div class="progress-bar mb-6">
                             <div class="progress" style="width: 75%; --progress-color: var(--primary);"></div>
                         </div>
-                        <a href="plans-web.html"> <button
-                                class="btn w-full bg-transparent border border-primary/50 text-primary hover:text-white font-bold py-2 px-4 rounded-lg transition duration-300">عرض
-                                المسار</button></a>
+                        <a href="plans.html" class="block w-full text-center btn bg-transparent border border-primary/50 text-primary hover:text-white font-bold py-2 px-4 rounded-lg transition duration-300">
+                            عرض المسار
+                        </a>
                     </div>
                 </div>
-
-
-
-
 
                 <!-- مسار تطوير تطبيقات الويب -->
                 <div class="card glass rounded-xl overflow-hidden">
@@ -197,23 +183,19 @@
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-4">
                             <h3 class="text-xl font-bold">تطوير تطبيقات الويب</h3>
-                            <span
-                                class="badge bg-secondary/20 text-secondary text-xs py-1 px-2 rounded-full">جديد</span>
+                            <span class="badge bg-secondary/20 text-secondary text-xs py-1 px-2 rounded-full">جديد</span>
                         </div>
-                        <p class="text-gray-300 mb-4">تعلم بناء تطبيقات الويب المتكاملة باستخدام React و Node.js
-                            وقواعد
-                            البيانات.</p>
+                        <p class="text-gray-300 mb-4">تعلم بناء تطبيقات الويب المتكاملة باستخدام React و Node.js وقواعد البيانات.</p>
                         <div class="flex justify-between items-center mb-3">
                             <span class="text-sm text-gray-400">10 دورات • 24 مشروع</span>
                             <span class="text-sm text-gray-400">المستوى: متوسط</span>
                         </div>
                         <div class="progress-bar mb-6">
-                            <div class="progress" style="width: 45%; --progress-color: var(--secondary);">
-                            </div>
+                            <div class="progress" style="width: 45%; --progress-color: var(--secondary);"></div>
                         </div>
-                        <button
-                            class="btn w-full bg-transparent border border-secondary/50 text-secondary hover:text-white font-bold py-2 px-4 rounded-lg transition duration-300">عرض
-                            المسار</button>
+                        <a href="plans.html" class="block w-full text-center btn bg-transparent border border-secondary/50 text-secondary hover:text-white font-bold py-2 px-4 rounded-lg transition duration-300">
+                            عرض المسار
+                        </a>
                     </div>
                 </div>
 
@@ -231,22 +213,19 @@
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-4">
                             <h3 class="text-xl font-bold">تطوير تطبيقات الجوال</h3>
-                            <span
-                                class="badge bg-tertiary-glow/20 text-tertiary-glow text-xs py-1 px-2 rounded-full">شائع</span>
+                            <span class="badge bg-tertiary-glow/20 text-tertiary-glow text-xs py-1 px-2 rounded-full">شائع</span>
                         </div>
-                        <p class="text-gray-300 mb-4">تعلم تطوير تطبيقات الجوال باستخدام React Native و Flutter
-                            للأندرويد و iOS.</p>
+                        <p class="text-gray-300 mb-4">تعلم تطوير تطبيقات الجوال باستخدام React Native و Flutter للأندرويد و iOS.</p>
                         <div class="flex justify-between items-center mb-3">
                             <span class="text-sm text-gray-400">8 دورات • 18 مشروع</span>
                             <span class="text-sm text-gray-400">المستوى: متقدم</span>
                         </div>
                         <div class="progress-bar mb-6">
-                            <div class="progress" style="width: 20%; --progress-color: var(--tertiary-glow);">
-                            </div>
+                            <div class="progress" style="width: 20%; --progress-color: var(--tertiary-glow);"></div>
                         </div>
-                        <a href="plans-app.html"> <button
-                                class="btn w-full bg-transparent border border-primary/50 text-primary hover:text-white font-bold py-2 px-4 rounded-lg transition duration-300">عرض
-                                المسار</button></a>
+                        <a href="plans.html" class="block w-full text-center btn bg-transparent border border-primary/50 text-primary hover:text-white font-bold py-2 px-4 rounded-lg transition duration-300">
+                            عرض المسار
+                        </a>
                     </div>
                 </div>
             </div>
@@ -260,28 +239,13 @@
                 trigger="loop"
                 attributes='{"variationThumbColour":"#536DFE","variationName":"Two Tone","variationNumber":2,"numberOfGroups":2,"backgroundIsGroup":false,"strokeWidth":1,"defaultColours":{"group-1":"#000000","group-2":"#536DFE","background":"#FFFFFF"}}'
                 height="200" width="200"></animated-icons> -->
-        <section class="challenges-section">
-            <div class="section-header">
-                <div class="flex flex-col md:flex-row justify-between items-center">
-
-                    <div class="text-2xl font-bold gradient-text mb-2">CodeMaster</div>
-                    <p class="text-gray-400">منصة تحديات البرمجة التفاعلية</p>
+        <section class="challenges-section mb-16">
+            <div class="flex justify-between items-center mb-8">
+                <div>
+                    <div class="text-2xl font-bold gradient-text mb-1">CodeMaster</div>
+                    <p class="text-gray-400 text-sm">منصة تحديات البرمجة التفاعلية - اختبر مهاراتك البرمجية</p>
                 </div>
-                <!--             
-                    <h3><i class="fas fa-trophy"></i> تحديات البرمجة</h3> -->
-                <a href="channew.html" class="view-all">عرض الكل <i class="fas fa-arrow-left"></i></a>
             </div>
-
-
-            <section class="challenges-section">
-
-                <div class="section-header">
-
-                    <div class="flex fles-col md:flex-row justify-between"></div>
-                </div>
-
-            </section>
-
 
             <!-- بطاقات اللغات  -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -529,6 +493,40 @@
 
     </main>
 
+    <!-- قسم التحدي التفاعلي -->
+    <div id="challenge-section" class="fixed inset-0 z-50 bg-gray-900/95 backdrop-blur-md p-6 overflow-y-auto hidden flex flex-col justify-center items-center">
+        <div class="max-w-2xl w-full bg-gray-800 border border-gray-700 rounded-2xl p-6 shadow-2xl relative">
+            <div class="flex justify-between items-center mb-6">
+                <div>
+                    <h2 id="challenge-title" class="text-2xl font-bold text-white mb-1">تحدي البرمجة</h2>
+                    <p class="text-sm text-gray-400">السؤال <span id="current-question">1</span> من <span id="total-questions">10</span></p>
+                </div>
+                <button id="exit-challenge" class="text-gray-400 hover:text-white text-2xl font-bold p-2 transition">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <!-- شريط التقدم -->
+            <div class="w-full bg-gray-700 h-2 rounded-full mb-6 overflow-hidden">
+                <div id="progress-bar" class="progress-fill h-full bg-gradient-to-r from-blue-500 to-indigo-600 transition-all duration-300" style="width: 10%"></div>
+            </div>
+            <div id="progress-dots" class="flex gap-2 mb-6 justify-center"></div>
+
+            <!-- حاوية الأسئلة -->
+            <div id="question-container"></div>
+
+            <!-- أزرار التنقل -->
+            <div class="flex justify-between items-center mt-6 pt-4 border-t border-gray-700">
+                <button id="prev-btn" class="btn secondary-btn px-6 py-2 rounded-lg text-sm disabled:opacity-50 disabled:cursor-not-allowed">
+                    <i class="fas fa-arrow-right mr-1"></i> السابق
+                </button>
+                <button id="next-btn" class="btn primary-btn px-6 py-2 rounded-lg text-sm disabled:opacity-50 disabled:cursor-not-allowed">
+                    التالي <i class="fas fa-arrow-left ml-1"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- إشعار التطوير -->
     <div class="notification-toast" id="development-toast">
         <div class="notification-content">
@@ -560,6 +558,7 @@
             });
         });
     </script>
+    <script src="../assets/js/chanell.js"></script>
     <script src="../assets/js/layout.js"></script>
 </body>
 

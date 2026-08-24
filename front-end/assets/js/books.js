@@ -28,16 +28,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    const CATEGORY_THEMES = {
+        'computer-science': 'from-blue-900 to-blue-700',
+        'software-engineering': 'from-indigo-900 to-indigo-700',
+        'information-technology': 'from-teal-900 to-teal-700',
+        'cybersecurity': 'from-red-900 to-red-700',
+        'ai': 'from-purple-900 to-purple-700',
+        'data-science': 'from-yellow-900 to-yellow-700',
+        'networks': 'from-emerald-900 to-emerald-700',
+        'web-development': 'from-cyan-900 to-cyan-700',
+        'default': 'from-gray-800 to-gray-700'
+    };
+
     const cardGradient = (category) => {
-        const gradients = [
-            'from-blue-900 to-blue-700',
-            'from-purple-900 to-purple-700',
-            'from-green-900 to-green-700',
-            'from-indigo-900 to-indigo-700',
-            'from-teal-900 to-teal-700',
-        ];
-        const index = Math.abs(category?.length || 0) % gradients.length;
-        return gradients[index];
+        const key = (category || '').toLowerCase().trim();
+        return CATEGORY_THEMES[key] || CATEGORY_THEMES.default;
     };
 
     const renderBooks = () => {
@@ -86,38 +91,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
         filteredBooks.forEach((book) => {
             const card = document.createElement('div');
-            card.className = 'book-card rounded-xl overflow-hidden bg-gray-800 border border-gray-700';
+            card.className = 'book-card rounded-xl overflow-hidden bg-gray-800 border border-gray-700 flex flex-col justify-between';
             card.dataset.category = book.category || '';
             card.dataset.level = book.level || '';
             card.dataset.year = book.year ? String(book.year) : '';
 
             const gradient = cardGradient(book.category);
-            const availability = Number(book.available_copies || 0) > 0 ? 'متاح' : 'غير متاح';
-            const levelLabel = book.level || (book.year ? `السنة ${book.year}` : '');
+            const levelLabel = book.level || (book.year ? `السنة ${book.year}` : 'عام');
+            const ratingDisplay = book.avg_rating ? `⭐ ${Number(book.avg_rating).toFixed(1)}` : '⭐ جديد';
+            const downloadUrl = book.file_path ? `../..${book.file_path}` : '#';
 
             card.innerHTML = `
-                <div class="relative h-48 bg-gradient-to-r ${gradient} flex items-center justify-center">
-                    <i class="fas fa-book-open text-8xl text-white opacity-20 floating-icon"></i>
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <i class="fas fa-book text-5xl text-white"></i>
+                <div>
+                    <div class="relative h-48 bg-gradient-to-r ${gradient} flex items-center justify-center">
+                        <i class="fas fa-book-open text-8xl text-white opacity-20 floating-icon"></i>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-book text-5xl text-white"></i>
+                        </div>
+                        <span class="absolute top-3 left-3 bg-gray-900/80 text-yellow-400 text-xs px-2.5 py-1 rounded-full font-bold">
+                            ${ratingDisplay}
+                        </span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold text-white">${book.title || 'كتاب بدون عنوان'}</h3>
+                            <span class="bg-blue-900 text-blue-300 text-xs px-3 py-1 rounded-full">${levelLabel}</span>
+                        </div>
+                        <p class="text-gray-300 mb-4 line-clamp-3">${book.description || 'لا يوجد وصف متاح لهذا الكتاب.'}</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            ${book.category ? `<span class="course-badge bg-gray-700 text-blue-400 text-xs px-3 py-1 rounded-full">${book.category}</span>` : ''}
+                            ${book.author ? `<span class="course-badge bg-gray-700 text-blue-400 text-xs px-3 py-1 rounded-full">${book.author}</span>` : ''}
+                        </div>
                     </div>
                 </div>
-                <div class="p-6">
-                    <div class="flex justify-between items-start mb-3">
-                        <h3 class="text-xl font-bold text-white">${book.title || 'كتاب بدون عنوان'}</h3>
-                        <span class="bg-blue-900 text-blue-300 text-xs px-3 py-1 rounded-full">${levelLabel || 'عام'}</span>
-                    </div>
-                    <p class="text-gray-300 mb-4">${book.description || 'لا يوجد وصف متاح لهذا الكتاب.'}</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        ${book.category ? `<span class="course-badge bg-gray-700 text-blue-400 text-xs px-3 py-1 rounded-full">${book.category}</span>` : ''}
-                        ${book.author ? `<span class="course-badge bg-gray-700 text-blue-400 text-xs px-3 py-1 rounded-full">${book.author}</span>` : ''}
-                    </div>
-                    <div class="flex justify-between items-center">
-                        <div class="flex items-center text-sm text-gray-400">
-                            <i class="fas fa-user mr-1"></i>
-                            <span>${book.author || 'مؤلف غير معروف'}</span>
-                        </div>
-                        <span class="download-btn bg-blue-600 text-white px-4 py-2 rounded-lg text-sm flex items-center">${availability}</span>
+                <div class="p-6 pt-0 border-t border-gray-700/50 mt-auto">
+                    <div class="flex justify-between items-center mt-4">
+                        <a href="add-review.html?book_id=${book.id}" class="text-xs text-blue-400 hover:text-blue-300 transition">
+                            <i class="fas fa-star ml-1"></i> تقييم
+                        </a>
+                        ${book.file_path ? 
+                            `<a href="${downloadUrl}" download class="download-btn bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm flex items-center gap-1">
+                                <i class="fas fa-download"></i> تحميل PDF
+                            </a>` : 
+                            `<span class="text-xs text-gray-500">غير متوفر للتحميل</span>`
+                        }
                     </div>
                 </div>
             `;
@@ -140,8 +157,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 throw new Error('Unable to load books');
             }
 
-            const data = await response.json();
-            booksData = Array.isArray(data) ? data : [];
+            const resData = await response.json();
+            booksData = Array.isArray(resData) ? resData : (Array.isArray(resData?.data) ? resData.data : []);
 
             if (!booksData.length) {
                 showPlaceholder('لا توجد كتب في المكتبة حتى الآن.');

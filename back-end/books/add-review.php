@@ -19,6 +19,15 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
+$csrf = $_POST['csrf_token'] ?? $_SERVER['HTTP_X_CSRF_TOKEN'] ?? '';
+if (!verify_csrf_token($csrf)) {
+    echo json_encode([
+        'success' => false,
+        'error' => 'رمز التحقق الأمني (CSRF) غير صالح'
+    ], JSON_UNESCAPED_UNICODE);
+    exit;
+}
+
 $bookId = isset($_POST['book_id']) ? (int)$_POST['book_id'] : 0;
 $rating = isset($_POST['rating']) ? (int)$_POST['rating'] : 0;
 $reviewText = trim($_POST['review_text'] ?? '');

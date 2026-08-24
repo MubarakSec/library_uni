@@ -617,156 +617,15 @@
                 <a href="register.html" class="download-btn px-8 py-3 rounded-lg font-medium text-lg">
                     <i class="fas fa-user-plus ml-2"></i>انضم إلينا الآن
                 </a>
-                <a href="../playground/test-one.html"
+                <a href="books.html"
                     class="px-8 py-3 rounded-lg font-medium text-lg border-2 border-white text-white hover:bg-white hover:bg-opacity-10 transition">
-                    <i class="fas fa-question-circle ml-2"></i>تعرف أكثر
+                    <i class="fas fa-book-open ml-2"></i>تصفح الكتب
                 </a>
             </div>
         </section>
     </main>
     <div id="site-footer"></div>
 
-    <script>
-        // إنشاء النجوم
-        function createStars() {
-            const starsContainer = document.querySelector('.stars');
-            for (let i = 0; i < 100; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
-                star.style.width = Math.random() * 2 + 'px';
-                star.style.height = star.style.width;
-                star.style.left = Math.random() * 100 + '%';
-                star.style.top = Math.random() * 100 + '%';
-                star.style.animationDelay = Math.random() * 5 + 's';
-                starsContainer.appendChild(star);
-            }
-        }
-
-        // السلايدر
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        const dots = document.querySelectorAll('.slider-dot');
-        const slider = document.getElementById('university-slider');
-        const totalSlides = slides.length;
-
-        function showSlide(index) {
-            if (index >= totalSlides) currentSlide = 0;
-            else if (index < 0) currentSlide = totalSlides - 1;
-            else currentSlide = index;
-
-            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
-
-            // تحديث النقاط
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === currentSlide);
-            });
-        }
-
-        function nextSlide() {
-            showSlide(currentSlide + 1);
-        }
-
-        function prevSlide() {
-            showSlide(currentSlide - 1);
-        }
-
-        // التحكم في الفيديو
-        const video = document.getElementById('university-video');
-        const playBtn = document.getElementById('play-btn');
-        const muteBtn = document.getElementById('mute-btn');
-        const fullscreenBtn = document.getElementById('fullscreen-btn');
-        const progressBar = document.getElementById('progress-bar');
-        const progressContainer = document.getElementById('progress-container');
-        const currentTimeEl = document.getElementById('current-time');
-        const durationEl = document.getElementById('duration');
-        const autoplayOverlay = document.getElementById('autoplay-overlay');
-
-        function formatTime(seconds) {
-            const mins = Math.floor(seconds / 60);
-            const secs = Math.floor(seconds % 60);
-            return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-        }
-
-        function updateProgress() {
-            const percent = (video.currentTime / video.duration) * 100;
-            progressBar.style.width = `${percent}%`;
-            currentTimeEl.textContent = formatTime(video.currentTime);
-        }
-
-        function setProgress(e) {
-            const width = this.clientWidth;
-            const clickX = e.offsetX;
-            const duration = video.duration;
-            video.currentTime = (clickX / width) * duration;
-        }
-
-        // الأحداث
-        document.addEventListener('DOMContentLoaded', function () {
-            createStars();
-
-            // السلايدر التلقائي
-            setInterval(nextSlide, 5000);
-
-            // أحداث السلايدر
-            document.querySelector('.slider-next').addEventListener('click', nextSlide);
-            document.querySelector('.slider-prev').addEventListener('click', prevSlide);
-
-            dots.forEach(dot => {
-                dot.addEventListener('click', () => {
-                    showSlide(parseInt(dot.dataset.index));
-                });
-            });
-
-            // أحداث الفيديو
-            video.addEventListener('loadedmetadata', () => {
-                durationEl.textContent = formatTime(video.duration);
-            });
-
-            video.addEventListener('timeupdate', updateProgress);
-            progressContainer.addEventListener('click', setProgress);
-
-            playBtn.addEventListener('click', () => {
-                if (video.paused) {
-                    video.play();
-                    playBtn.innerHTML = '<i class="fas fa-pause"></i>';
-                    autoplayOverlay.style.display = 'none';
-                } else {
-                    video.pause();
-                    playBtn.innerHTML = '<i class="fas fa-play"></i>';
-                }
-            });
-
-            muteBtn.addEventListener('click', () => {
-                video.muted = !video.muted;
-                muteBtn.innerHTML = video.muted ?
-                    '<i class="fas fa-volume-mute"></i>' :
-                    '<i class="fas fa-volume-up"></i>';
-            });
-
-            fullscreenBtn.addEventListener('click', () => {
-                if (video.requestFullscreen) {
-                    video.requestFullscreen();
-                }
-            });
-
-            autoplayOverlay.addEventListener('click', () => {
-                video.play();
-                playBtn.innerHTML = '<i class="fas fa-pause"></i>';
-                autoplayOverlay.style.display = 'none';
-            });
-
-            video.addEventListener('click', () => {
-                if (video.paused) {
-                    video.play();
-                    playBtn.innerHTML = '<i class="fas fa-pause"></i>';
-                    autoplayOverlay.style.display = 'none';
-                } else {
-                    video.pause();
-                    playBtn.innerHTML = '<i class="fas fa-play"></i>';
-                }
-            });
-        });
-    </script>
     <script src="../assets/js/about.js"></script>
     <script src="../assets/js/layout.js"></script>
 </body>

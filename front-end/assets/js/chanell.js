@@ -268,36 +268,48 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // زر بدء التحدي العام
-    document.getElementById('start-general-challenge').addEventListener('click', function () {
-        startChallenge('python');
-    });
+    const startGenBtn = document.getElementById('start-general-challenge');
+    if (startGenBtn) {
+        startGenBtn.addEventListener('click', function () {
+            startChallenge('python');
+        });
+    }
 
     // زر الخروج من التحدي
-    document.getElementById('exit-challenge').addEventListener('click', function () {
-        document.getElementById('challenge-section').classList.add('hidden');
-        document.querySelectorAll('main > section').forEach(section => {
-            section.classList.remove('hidden');
+    const exitBtn = document.getElementById('exit-challenge');
+    if (exitBtn) {
+        exitBtn.addEventListener('click', function () {
+            document.getElementById('challenge-section')?.classList.add('hidden');
+            document.querySelectorAll('main > section').forEach(section => {
+                section.classList.remove('hidden');
+            });
         });
-    });
+    }
 
     // أحداث أزرار التنقل بين الأسئلة
     let currentChallenge = '';
     let currentQuestionIndex = 0;
 
-    document.getElementById('prev-btn').addEventListener('click', function () {
-        if (currentQuestionIndex > 0) {
-            currentQuestionIndex--;
-            loadQuestion(currentChallenge, currentQuestionIndex);
-        }
-    });
+    const prevBtn = document.getElementById('prev-btn');
+    if (prevBtn) {
+        prevBtn.addEventListener('click', function () {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                loadQuestion(currentChallenge, currentQuestionIndex);
+            }
+        });
+    }
 
-    document.getElementById('next-btn').addEventListener('click', function () {
-        const challenge = challenges[currentChallenge];
-        if (currentQuestionIndex < challenge.questions.length - 1) {
-            currentQuestionIndex++;
-            loadQuestion(currentChallenge, currentQuestionIndex);
-        }
-    });
+    const nextBtn = document.getElementById('next-btn');
+    if (nextBtn) {
+        nextBtn.addEventListener('click', function () {
+            const challenge = challenges[currentChallenge];
+            if (challenge && currentQuestionIndex < challenge.questions.length - 1) {
+                currentQuestionIndex++;
+                loadQuestion(currentChallenge, currentQuestionIndex);
+            }
+        });
+    }
 
     // تحديث المتغيرات عند بدء التحدي
     const originalStartChallenge = startChallenge;

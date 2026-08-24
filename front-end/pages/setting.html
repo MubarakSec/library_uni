@@ -4,273 +4,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مكتبتي الجامعية | الإعدادات</title>
+    <title>مكتبتي الجامعية | الإعدادات والملف الشخصي</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-   <link rel="stylesheet" href="../assets/css/pages/setting.css">
-  
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/pages/setting.css">
 </head>
 
-<body class="min-h-screen">
+<body class="bg-gray-900 text-white min-h-screen">
     <!-- طبقات الفضاء -->
     <div class="space-container fixed inset-0 -z-10">
         <div class="stars absolute inset-0 bg-gradient-to-b from-transparent to-gray-900 opacity-30"></div>
     </div>
     <div id="site-header"></div>
 
-
-    <!-- التنقل العلوي -->
-    <div class="top-nav">
-        <div class="top-nav-links">
-            <a href="index.html">الرئيسية</a>
-            <a href="books.html">الكتب</a>
-            <a href="plans.html">المسارات البرمجية</a>
-            <a href="exams.html">نماذج الاختبارات</a>
-            <a href="upload-book.html">ارفع كتاب</a>
-            <a href="about.html">عن المكتبة</a>
-            <a href="#" class="active">الإعدادات</a>
-        </div>
-
-        <div class="user-info">
-            <button class="edit-profile-btn">
-                <i class="fas fa-edit ml-2"></i>
-                تعديل الملف الشخصي
-            </button>
-            <a href="../../back-end/auth/logout.php" class="text-red-400 hover:text-red-300 transition">
-                <i class="fas fa-sign-out-alt ml-2"></i>
-                تسجيل الخروج
-            </a>
-        </div>
-    </div>
-
-    <!-- القائمة الجانبية للكمبيوتر -->
-
-    <!-- المحتوى الرئيسي -->
-    <main class="container mx-auto px-4 py-8 mt-8">
+    <main class="container mx-auto px-4 py-8 max-w-4xl">
         <!-- قسم الملف الشخصي -->
-        <section class="mb-12">
-            <div class="profile-header glass">
-                <div class="profile-avatar">
+        <section class="mb-8">
+            <div class="profile-header glass p-6 rounded-2xl flex items-center gap-6 border border-gray-700">
+                <div class="w-20 h-20 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-3xl font-bold text-white shadow-lg" id="profile-avatar">
                     <span>م</span>
                 </div>
                 <div class="profile-info">
-                    <h2> ياسين عبد العزيز</h2>
-                    <p>طالب امن سيبراني - الجامعة الإماراتية الدولية</p>
-                    <p class="text-sm">عضوية منذ: سبتمبر 2023</p>
-                    <button class="edit-profile-btn mt-2">
-                        <i class="fas fa-edit ml-2"></i>
-                        تعديل الملف الشخصي
-                    </button>
+                    <h2 class="text-2xl font-bold" id="profile-display-name">جاري التحميل...</h2>
+                    <p class="text-gray-400" id="profile-display-role">طالب</p>
+                    <p class="text-xs text-gray-500 mt-1" id="profile-display-joined">عضوية نشطة</p>
                 </div>
             </div>
         </section>
 
-        <!-- قسم الإعدادات -->
-        <section class="glass rounded-2xl p-8 glow-border">
-            <h2 class="section-title text-2xl font-bold mb-8">الإعدادات</h2>
+        <!-- قسم الإعدادات وتعديل البيانات -->
+        <section class="glass rounded-2xl p-8 glow-border border border-gray-700">
+            <h2 class="text-2xl font-bold mb-6 text-white border-b border-gray-700 pb-4">
+                <i class="fas fa-user-cog ml-2 text-indigo-400"></i> تعديل الملف الشخصي
+            </h2>
 
-            <!-- إعدادات الحساب -->
-            <div class="settings-section">
-                <h3>إعدادات الحساب</h3>
-                <div class="settings-item">
+            <form id="profile-form" class="space-y-6">
+                <input type="hidden" id="csrf_token" name="csrf_token">
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <p class="font-medium">البريد الإلكتروني</p>
-                        <p class="text-sm text-gray-400">m.ahmed@example.com</p>
+                        <label class="block text-sm font-medium mb-2 text-gray-300" for="first_name">الاسم الأول <span class="text-red-400">*</span></label>
+                        <input id="first_name" name="first_name" required type="text"
+                            class="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                            placeholder="الاسم الأول">
                     </div>
-                    <button class="text-primary hover:text-secondary transition">
-                        <i class="fas fa-edit"></i>
+                    <div>
+                        <label class="block text-sm font-medium mb-2 text-gray-300" for="last_name">اسم العائلة <span class="text-red-400">*</span></label>
+                        <input id="last_name" name="last_name" required type="text"
+                            class="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                            placeholder="اسم العائلة">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium mb-2 text-gray-300" for="email">البريد الإلكتروني</label>
+                        <input id="email" name="email" type="email" readonly
+                            class="w-full bg-gray-800/50 border border-gray-700 rounded-xl px-4 py-3 text-gray-400 cursor-not-allowed">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2 text-gray-300" for="college">الكلية</label>
+                        <input id="college" name="college" type="text"
+                            class="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                            placeholder="مثال: كلية الهندسة وتكنولوجيا المعلومات">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium mb-2 text-gray-300" for="major">التخصص الأكاديمي</label>
+                    <input id="major" name="major" type="text"
+                        class="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        placeholder="مثال: علوم الحاسوب / الأمن السيبراني">
+                </div>
+
+                <div class="border-t border-gray-700 pt-6 mt-6">
+                    <h3 class="text-lg font-bold mb-4 text-gray-200">
+                        <i class="fas fa-lock ml-2 text-indigo-400"></i> تغيير كلمة المرور (اختياري)
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-300" for="current_password">كلمة المرور الحالية</label>
+                            <input id="current_password" name="current_password" type="password"
+                                class="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                placeholder="أدخل كلمة المرور الحالية">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-300" for="new_password">كلمة المرور الجديدة</label>
+                            <input id="new_password" name="new_password" type="password"
+                                class="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                placeholder="8 أحرف على الأقل">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="profile-message" class="text-center font-medium"></div>
+
+                <div class="flex justify-end gap-4 pt-4 border-t border-gray-700">
+                    <a href="index.html" class="btn secondary-btn px-6 py-2 rounded-lg">إلغاء</a>
+                    <button type="submit" class="btn primary-btn px-8 py-3 rounded-lg font-bold">
+                        حفظ التغييرات
                     </button>
                 </div>
-                <div class="settings-item">
-                    <div>
-                        <p class="font-medium">كلمة المرور</p>
-                        <p class="text-sm text-gray-400">********</p>
-                    </div>
-                    <button class="text-primary hover:text-secondary transition">
-                        <i class="fas fa-edit"></i>
-                    </button>
-                </div>
-                <div class="settings-item">
-                    <div>
-                        <p class="font-medium">رقم الهاتف</p>
-                        <p class="text-sm text-gray-400">+971 50 123 4567</p>
-                    </div>
-                    <button class="text-primary hover:text-secondary transition">
-                        <i class="fas fa-edit"></i>
-                    </button>
-                </div>
-            </div>
-
-            <!-- إعدادات الإشعارات -->
-            <div class="settings-section">
-                <h3>إعدادات الإشعارات</h3>
-                <div class="settings-item">
-                    <div>
-                        <p class="font-medium">الإشعارات البريدية</p>
-                        <p class="text-sm text-gray-400">تلقي إشعارات على البريد الإلكتروني</p>
-                    </div>
-                    <label class="toggle-switch">
-                        <input type="checkbox" checked>
-                        <span class="toggle-slider"></span>
-                    </label>
-                </div>
-                <div class="settings-item">
-                    <div>
-                        <p class="font-medium">إشعارات الدفع</p>
-                        <p class="text-sm text-gray-400">إشعارات حول المدفوعات والاشتراكات</p>
-                    </div>
-                    <label class="toggle-switch">
-                        <input type="checkbox" checked>
-                        <span class="toggle-slider"></span>
-                    </label>
-                </div>
-                <div class="settings-item">
-                    <div>
-                        <p class="font-medium">إشعارات المسارات التعليمية</p>
-                        <p class="text-sm text-gray-400">إشعارات حول المسارات التعليمية الجديدة</p>
-                    </div>
-                    <label class="toggle-switch">
-                        <input type="checkbox">
-                        <span class="toggle-slider"></span>
-                    </label>
-                </div>
-            </div>
-
-            <!-- إعدادات الخصوصية -->
-            <div class="settings-section">
-                <h3>إعدادات الخصوصية</h3>
-                <div class="settings-item">
-                    <div>
-                        <p class="font-medium">الملف الشخصي العام</p>
-                        <p class="text-sm text-gray-400">جعل الملف الشخصي مرئياً للجميع</p>
-                    </div>
-                    <label class="toggle-switch">
-                        <input type="checkbox" checked>
-                        <span class="toggle-slider"></span>
-                    </label>
-                </div>
-                <div class="settings-item">
-                    <div>
-                        <p class="font-medium">إظهار التقدم الدراسي</p>
-                        <p class="text-sm text-gray-400">إظهار تقدمك في المسارات التعليمية للآخرين</p>
-                    </div>
-                    <label class="toggle-switch">
-                        <input type="checkbox">
-                        <span class="toggle-slider"></span>
-                    </label>
-                </div>
-                <div class="settings-item">
-                    <div>
-                        <p class="font-medium">البحث في المحرك</p>
-                        <p class="text-sm text-gray-400">السماح لمحركات البحث بإدراج ملفك الشخصي</p>
-                    </div>
-                    <label class="toggle-switch">
-                        <input type="checkbox" checked>
-                        <span class="toggle-slider"></span>
-                    </label>
-                </div>
-            </div>
-
-            <!-- إعدادات اللغة -->
-            <div class="settings-section">
-                <h3>إعدادات اللغة</h3>
-                <div class="settings-item">
-                    <div>
-                        <p class="font-medium">لغة الواجهة</p>
-                        <p class="text-sm text-gray-400">اختر اللغة المعروضة في الموقع</p>
-                    </div>
-                    <select class="bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-white"
-                        id="language-select">
-                        <option value="ar" selected>العربية</option>
-                        <option value="en">English</option>
-                    </select>
-                </div>
-            </div>
-
-            <!-- إعدادات متقدمة -->
-            <div class="settings-section">
-                <h3>إعدادات متقدمة</h3>
-                <div class="settings-item">
-                    <div>
-                        <p class="font-medium">حذف الحساب</p>
-                        <p class="text-sm text-gray-400">حذف حسابك بشكل دائم وجميع البيانات المرتبطة به</p>
-                    </div>
-                    <button class="text-red-500 hover:text-red-400 transition font-medium">
-                        حذف الحساب
-                    </button>
-                </div>
-            </div>
-
-            <!-- أزرار الحفظ والإلغاء -->
-            <div class="flex justify-end space-x-4 space-x-reverse mt-8">
-                <button class="btn secondary-btn">
-                    إلغاء التغييرات
-                </button>
-                <button class="btn primary-btn">
-                    حفظ التغييرات
-                </button>
-            </div>
+            </form>
         </section>
     </main>
 
-    <!-- إشعار تغيير اللغة -->
-    <div class="overlay" id="overlay"></div>
-    <div class="notification-popup" id="language-notification">
-        <h3>قريباً</h3>
-        <p>ميزة تغيير اللغة قيد التطوير حالياً وسيتم إطلاقها قريباً. شكراً لتفهمك.</p>
-        <button class="btn primary-btn" id="close-notification">
-            موافق
-        </button>
-    </div>
-
+    <div id="site-footer"></div>
+    <script src="../assets/js/layout.js"></script>
     <script>
-        // التحكم في القائمة المنسدلة
-        document.addEventListener('DOMContentLoaded', function () {
-            const userMenuButton = document.getElementById('user-menu-button');
-            const userDropdown = document.getElementById('user-dropdown');
-            const languageSelect = document.getElementById('language-select');
-            const languageNotification = document.getElementById('language-notification');
-            const overlay = document.getElementById('overlay');
-            const closeNotification = document.getElementById('close-notification');
+        document.addEventListener('DOMContentLoaded', async () => {
+            const form = document.getElementById('profile-form');
+            const messageEl = document.getElementById('profile-message');
 
-            userMenuButton.addEventListener('click', function () {
-                userDropdown.classList.toggle('show');
-            });
+            try {
+                // Fetch profile and CSRF token
+                const res = await fetch('../../back-end/auth/profile.php', { credentials: 'include' });
+                const result = await res.json();
 
-            // إغلاق القائمة المنسدلة عند النقر خارجها
-            document.addEventListener('click', function (event) {
-                if (!userMenuButton.contains(event.target) && !userDropdown.contains(event.target)) {
-                    userDropdown.classList.remove('show');
+                if (!result.success) {
+                    messageEl.textContent = result.error || 'يرجى تسجيل الدخول أولاً';
+                    messageEl.className = 'text-center text-red-400';
+                    return;
                 }
-            });
 
-            // عرض إشعار تغيير اللغة
-            languageSelect.addEventListener('change', function () {
-                if (this.value === 'en') {
-                    languageNotification.classList.add('show');
-                    overlay.classList.add('show');
+                const user = result.data;
+                document.getElementById('first_name').value = user.first_name || '';
+                document.getElementById('last_name').value = user.last_name || '';
+                document.getElementById('email').value = user.email || '';
+                document.getElementById('college').value = user.college || '';
+                document.getElementById('major').value = user.major || '';
+
+                // Header display
+                const fullName = `${user.first_name || ''} ${user.last_name || ''}`.trim();
+                document.getElementById('profile-display-name').textContent = fullName || 'المستخدم';
+                document.getElementById('profile-display-role').textContent = user.role === 'admin' ? 'مدير النظام' : (user.role === 'assistant' ? 'مساعد المكتبة' : 'طالب');
+                document.getElementById('profile-avatar').textContent = (user.first_name ? user.first_name[0] : 'م').toUpperCase();
+
+                if (user.created_at) {
+                    const date = new Date(user.created_at);
+                    document.getElementById('profile-display-joined').textContent = `عضوية منذ: ${date.toLocaleDateString('ar-EG', { year: 'numeric', month: 'long' })}`;
                 }
-            });
 
-            // إغلاق الإشعار
-            closeNotification.addEventListener('click', function () {
-                languageNotification.classList.remove('show');
-                overlay.classList.remove('show');
-                languageSelect.value = 'ar'; // إعادة اللغة إلى العربية
-            });
+                // Fetch me.php for CSRF token
+                const meRes = await fetch('../../back-end/auth/me.php', { credentials: 'include' });
+                const meData = await meRes.json();
+                if (meData.csrf_token) {
+                    document.getElementById('csrf_token').value = meData.csrf_token;
+                }
 
-            // إغلاق الإشعار بالضغط على الخلفية
-            overlay.addEventListener('click', function () {
-                languageNotification.classList.remove('show');
-                overlay.classList.remove('show');
-                languageSelect.value = 'ar'; // إعادة اللغة إلى العربية
+            } catch (err) {
+                messageEl.textContent = 'حدث خطأ في تحميل البيانات';
+                messageEl.className = 'text-center text-red-400';
+            }
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                messageEl.textContent = 'جاري حفظ التعديلات...';
+                messageEl.className = 'text-center text-blue-400';
+
+                const formData = new FormData(form);
+
+                try {
+                    const res = await fetch('../../back-end/auth/profile.php', {
+                        method: 'POST',
+                        body: formData,
+                        credentials: 'include'
+                    });
+                    const result = await res.json();
+
+                    if (result.success) {
+                        messageEl.textContent = result.message;
+                        messageEl.className = 'text-center text-green-400';
+                        document.getElementById('current_password').value = '';
+                        document.getElementById('new_password').value = '';
+                        
+                        // Update display name
+                        const updatedName = `${document.getElementById('first_name').value} ${document.getElementById('last_name').value}`;
+                        document.getElementById('profile-display-name').textContent = updatedName;
+                    } else {
+                        messageEl.textContent = result.error || 'حدث خطأ أثناء الحفظ';
+                        messageEl.className = 'text-center text-red-400';
+                    }
+                } catch (err) {
+                    messageEl.textContent = 'تعذر الاتصال بالسيرفر';
+                    messageEl.className = 'text-center text-red-400';
+                }
             });
         });
     </script>
-
-    <div id="site-footer"></div>
-    <script src="../assets/js/layout.js"></script>
 </body>
-
 </html>
